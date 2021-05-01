@@ -1,1 +1,4 @@
-.App{width:800px; margin:0 auto;}
+.app{
+    width:800px; 
+    margin:0 auto; 
+    border:1px solid black}

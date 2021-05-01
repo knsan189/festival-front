@@ -1,21 +1,35 @@
-import React from 'react';
+import styles from './calender.module.css'
+import CalenderWeek from './calender/calender_week';
 
-const Calender = ({onSubtrack, onAdd, calender, today}) => {
+const Calender = ({today, onSubtrack, onAdd, dayInfo}) => {
+
+    const firstWeek = today.clone().startOf('month').week()
+    const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week() 
+
+    let result = [];
+    let week = firstWeek;
+
+    const calenderArr = () => {
+        for(week; week<=lastWeek; week++){
+            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo}/> )
+        }
+        return result;
+    }
 
     return (
-            <>
-                <div className="control">
-                    <button onClick={onSubtrack}>이전달</button>
+            <div className={styles.calender}>
+                <div className={styles.bar}>
+                    <button onClick={onSubtrack} type="button"><i className="fas fa-chevron-left"></i></button>
                     <span> {today.format('YYYY년 MM월 ')}</span>
-                    <button onClick={onAdd}>다음달</button>
+                    <button onClick={onAdd} type="button"><i className="fas fa-chevron-right"></i></button>
                 </div>
             
-                <table>
+                <table className={styles.table}>
                     <tbody>
-                        {calender()}
+                        {calenderArr()}
                     </tbody>
                 </table>
-            </>
+            </div>
         )   
 }           
 
