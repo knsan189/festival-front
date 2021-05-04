@@ -20,7 +20,7 @@ function App({holidays}) {
   }
 
   useEffect(()=> {
-    holidays.thisYear()
+    holidays.thisYear().then(console.log)
   },[])
 
   return (

@@ -1,13 +1,13 @@
 class Holiday{
     constructor(httpClient) {
         this.holiday = httpClient
-        console.log(httpClient)
     }
 
     async thisYear() {
         const response = await this.holiday.get('', {
             params : {
                 solYear : '2021',
+                solMonth : '05',
             },
         })
         return response
