@@ -15,27 +15,44 @@ const Calender = ({today, onSubtrack, onAdd, dayInfo}) => {
         }
         return result;
     }
-    
+    const thisMonth = today.format('MM')
+    const monthName = 
+    thisMonth === '01' ? 'January' 
+    : thisMonth === '02' ? 'Feb' 
+    : thisMonth === '03' ? 'March' 
+    : thisMonth === '04' ? 'April' 
+    : thisMonth === '05' ? 'May' 
+    : thisMonth === '06' ? 'June'
+    : thisMonth === '07' ? 'July'
+    : thisMonth === '08' ? 'August'
+    : thisMonth === '09' ? 'September'
+    : thisMonth === '10' ? 'October'
+    : thisMonth === '11' ? 'November'
+    : 'December'
 
 
     return (
             <div className={styles.calender}>
                 <div className={styles.bar}>
-                    <button onClick={onSubtrack} type="button"><i className="fas fa-chevron-left"></i></button>
-                    <span> { today.format('LL') }</span>
-                    <button onClick={onAdd} type="button"><i className="fas fa-chevron-right"></i></button>
+                    <div className={styles.title}>
+                        <button onClick={onSubtrack} type="button"><i className="fas fa-chevron-left"></i></button>
+                            <h3>{monthName}</h3>
+                        <button onClick={onAdd} type="button"><i className="fas fa-chevron-right"></i></button>
+                    </div>
+                    <span> {today.format('YYYY')} </span>
+                    
                 </div>
             
-                <table className={styles.table}>
+                <table className={styles.table} border="1px">
                     <tbody>
                         <tr>
-                            <td>Sunday</td>
-                            <td>Monday</td>
-                            <td>Tuesday</td>
-                            <td>Wednesday</td>
-                            <td>Thursday</td>
-                            <td>Friday</td>
-                            <td>Saturday</td>
+                            <td className={styles.td}>Sunday</td>
+                            <td className={styles.td}>Monday</td>
+                            <td className={styles.td}>Tuesday</td>
+                            <td className={styles.td}>Wednesday</td>
+                            <td className={styles.td}>Thursday</td>
+                            <td className={styles.td}>Friday</td>
+                            <td className={styles.td}>Saturday</td>
                         </tr>
                         {calenderArr()}
                     </tbody>

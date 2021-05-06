@@ -1,17 +1,41 @@
 .calender{
-    border:1px solid black
+    background: #f0f0f0;
+    padding:30px;
+    border:1px solid #c6c6c6
 }
 
 .bar{
     width:100%;
     text-align: center;
+    padding-bottom: 2em;
+    font-weight: bold;
+}
+
+.bar h3{
+    font-size:1.2em;
+    display: inline-block;
+    padding: 0 1em;
+}
+.bar span{
+    color:#767c9e
+}
+
+.bar button{
+    padding-top:0.5em;
 }
 
 .table{
     width:100%;
+    border : 1px solid #c6c6c6;
+    border-radius : 1em;
+    background: #fff;
+    border-collapse: collapse;
 }
 
-.table td{
-    border: 1px solid #c8c6d1;
+.table .td{
     text-align: center;
+    color : #767c9e;
+    padding : 15px 0;
+    font-size: 0.8em;
+    border : 1px solid #c6c6c6;
 }

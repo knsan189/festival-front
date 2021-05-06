@@ -5,14 +5,15 @@ import styles from './calender_day.module.css'
 
 const CalenderDay = ({days, today, dayInfo}) => {
 
-    const color =  days.format('MM') !== today.format('MM') ? '#767c9e' : '#191f41'
-    const background = moment().format('YYYYMMDD') === days.format('YYYYMMDD') && 'linear-gradient(180deg, rgba(164,110,248,1) 0%, rgba(141,81,237,1) 35%, rgba(104,39,221,1) 100%);linear-gradient(180deg, rgba(164,110,248,1) 0%, rgba(141,81,237,1) 35%, rgba(104,39,221,1) 100%);'
-
+    const color =  days.format('MM') !== today.format('MM') ? '#767c9e' : '#171d3d'
+    const todayStyle = moment().format('YYYYMMDD') === days.format('YYYYMMDD') &&  styles.today
         return (
         <>
-            <td className={styles.td} style={{color, background}} onClick={() => dayInfo(days)}>
+            <td className={styles.td} id={todayStyle} style={{color}} onClick={() => dayInfo(days)}>
                 <span>
                     {days.format('D')}
+                    { moment().format('YYYYMMDD') === days.format('YYYYMMDD') && 
+                    <p>Today</p>}
                 </span>
             </td>
         </>

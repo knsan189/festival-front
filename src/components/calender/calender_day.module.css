@@ -1,4 +1,38 @@
 .td {
-    border: 1px solid #c8c6d1;
-    min-height: 155px;
+    height: 70px;
+    width: calc(100% / 7);
+    padding : 5px 15px;
+    border : 1px solid #c6c6c6;
+    transition: 0.6s all;
+}
+
+.td:hover{
+    background: #f4f4f4;
+}
+
+#today{
+    color: #fff !important;
+    position: relative;
+    z-index: 2;
+}
+
+#today::before{
+    content: ''; 
+    position: absolute; 
+    top:50%;
+    left:50%; 
+    transform: translate(-50%, -50%);
+    width:115%; 
+    height:120%; 
+    background: black;
+    z-index: -1;
+    border-radius: 0.5em;
+    background: linear-gradient(180deg, rgba(164,110,248,1) 0%, rgba(141,81,237,1) 35%, rgba(104,39,221,1) 100%);
+    box-shadow:
+    0 4px 2.7px rgba(0, 0, 0, 0.022),
+    0 12.1px 6.9px rgba(0, 0, 0, 0.031),
+    0 27.2px 14.2px rgba(0, 0, 0, 0.039),
+    0 56px 29.2px rgba(0, 0, 0, 0.048),
+    0 100px 80px rgba(0, 0, 0, 0.07)
+  ;
 }

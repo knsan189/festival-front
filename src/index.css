@@ -14,5 +14,6 @@ code {
 
 
 *{box-sizing: content-box; border:none; padding:0; margin:0; vertical-align: middle; outline: 0; border-spacing: 0;}
+h3{color:#171d3d}
 
 td{font-weight: bold;}
