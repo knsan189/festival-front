@@ -22,6 +22,7 @@ function App({holidays, festivals}) {
 
   useEffect(()=> {
       festivals.thisMonthFestival(today.format('YYYYMMDD')).then(festivals => setFestivalInfo(festivals))
+      holidays.thisMonth().then(console.log)
     
   },[])
 

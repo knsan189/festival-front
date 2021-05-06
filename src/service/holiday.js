@@ -3,15 +3,16 @@ class Holiday{
         this.holiday = httpClient
     }
 
-    async thisYear() {
+    async thisMonth() {
         const response = await this.holiday.get('', {
             statusCode: 200,
             params : {
                 solYear : '2021',
                 solMonth : '05',
+                _type : 'json'
             },
         })
-        return response
+        return response.data.response.body.items.item
     }
 
     // async search(query) {

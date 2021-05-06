@@ -12,14 +12,14 @@ module.exports = function(app) {
             }
         })
     );
-    app.use(
-        '/festival',
-        createProxyMiddleware({
-            target: 'http://api.visitkorea.or.kr/',
-            changeOrigin: true,
-            pathRewrite: {
-                '^/festival': ''
-            }
-        })
-    );
+    // app.use(
+    //     '/festival',
+    //     createProxyMiddleware({
+    //         target: 'http://api.visitkorea.or.kr/',
+    //         changeOrigin: true,
+    //         pathRewrite: {
+    //             '^/festival': ''
+    //         }
+    //     })
+    // );
 };
