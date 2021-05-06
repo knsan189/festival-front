@@ -1,5 +1,5 @@
-import styles from './calender.module.css'
 import CalenderWeek from './calender/calender_week';
+import styles from './calender.module.css'
 
 const Calender = ({today, onSubtrack, onAdd, dayInfo}) => {
 
@@ -15,17 +15,28 @@ const Calender = ({today, onSubtrack, onAdd, dayInfo}) => {
         }
         return result;
     }
+    
+
 
     return (
             <div className={styles.calender}>
                 <div className={styles.bar}>
                     <button onClick={onSubtrack} type="button"><i className="fas fa-chevron-left"></i></button>
-                    <span> {today.format('YYYY년 MM월 ')}</span>
+                    <span> { today.format('LL') }</span>
                     <button onClick={onAdd} type="button"><i className="fas fa-chevron-right"></i></button>
                 </div>
             
                 <table className={styles.table}>
                     <tbody>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>Monday</td>
+                            <td>Tuesday</td>
+                            <td>Wednesday</td>
+                            <td>Thursday</td>
+                            <td>Friday</td>
+                            <td>Saturday</td>
+                        </tr>
                         {calenderArr()}
                     </tbody>
                 </table>

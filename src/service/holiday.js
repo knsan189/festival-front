@@ -5,6 +5,7 @@ class Holiday{
 
     async thisYear() {
         const response = await this.holiday.get('', {
+            statusCode: 200,
             params : {
                 solYear : '2021',
                 solMonth : '05',

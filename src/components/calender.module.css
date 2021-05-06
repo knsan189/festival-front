@@ -10,3 +10,8 @@
 .table{
     width:100%;
 }
+
+.table td{
+    border: 1px solid #c8c6d1;
+    text-align: center;
+}

@@ -1,32 +1,37 @@
-
-
-class Festival{
-    constructor(httpClient) {
-        this.youtube = httpClient
+class Festival {
+    constructor(festivalClient) {
+        this.festival = festivalClient
     }
 
-    async mostPopular() {
-        const response = await this.youtube.get('videos', {
-            params : {
-                part : 'snippet',
-                chart : 'mostPopular',
-                maxResults: 25,
-            },
-        })
-        return response.data.items
+    async thisMonthFestival(day) {
+        try{
+                const response = await this.festival.get('', {
+                    statusCode: 200,
+                    params: {
+                        pageNo: '1',
+                        numOfRows: '100',
+                        type: 'json',
+                        fstvlStartDate: `2021-05-${day}`
+                    },
+                })
+    
+                return response.data.response.body.items
+        }
+        catch(e){
+        }
     }
 
-    async search(query) {
-        const response = await this.youtube.get('search', {
-            params : {
-                part : 'snippet',
-                maxResults: 25,
-                type : 'video',
-                q : query
-            },
-        })
-        return response.data.items.map(item => ({...item, id : item.id.videoid}))
-    }
+    // async search(query) {
+    //     const response = await this.youtube.get('search', {
+    //         params : {
+    //             part : 'snippet',
+    //             maxResults: 25,
+    //             type : 'video',
+    //             q : query
+    //         },
+    //     })
+    //     return response.data.items.map(item => ({...item, id : item.id.videoid}))
+    // }
 }
 
 export default Festival
