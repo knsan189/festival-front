@@ -16,22 +16,19 @@ function App({holidays, festivals}) {
   const [date, setDate] = useState('')
   const dayInfo = (info) => {
     setDate(info)
+    festivals.select(info.format('YYYYMMDD')).then(festivals => setFestivalInfo(festivals))
   }
-
-  const [festivalInfo, setFestivalInfo] = useState('')
+  const [festivalInfo, setFestivalInfo] = useState([])
 
   useEffect(()=> {
-    // holidays.thisYear().then(console.log)
-    for(let i=1; i < 31; i++){
-      if(i<10) i= '0' + i
-      festivals.thisMonthFestival(i).then()
-    }
+      festivals.thisMonthFestival(today.format('YYYYMMDD')).then(festivals => setFestivalInfo(festivals))
     
   },[])
+
   return (
     <div className={styles.app}>
-      <Calender today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo}/>
-      <FestivalList date={date}/>
+      <Calender today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo} seletedDate={date}/>
+      <FestivalList date={date} festivalInfo={festivalInfo} />
     </div>
 
   );

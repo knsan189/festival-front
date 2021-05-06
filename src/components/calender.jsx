@@ -1,7 +1,7 @@
 import CalenderWeek from './calender/calender_week';
 import styles from './calender.module.css'
 
-const Calender = ({today, onSubtrack, onAdd, dayInfo}) => {
+const Calender = ({today, onSubtrack, onAdd, dayInfo, seletedDate}) => {
 
     const firstWeek = today.clone().startOf('month').week()
     const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week() 
@@ -11,7 +11,7 @@ const Calender = ({today, onSubtrack, onAdd, dayInfo}) => {
 
     const calenderArr = () => {
         for(week; week<=lastWeek; week++){
-            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo}/> )
+            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo} seletedDate={seletedDate}/> )
         }
         return result;
     }

@@ -15,7 +15,7 @@ module.exports = function(app) {
     app.use(
         '/festival',
         createProxyMiddleware({
-            target: 'http://api.data.go.kr/',
+            target: 'http://api.visitkorea.or.kr/',
             changeOrigin: true,
             pathRewrite: {
                 '^/festival': ''

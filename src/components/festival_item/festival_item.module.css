@@ -1,0 +1,22 @@
+.item {
+    width: 32%
+}
+
+.item img{
+    width: 100%;
+}
+
+.festivalInfo {
+    border: 1px solid #c6c6c6;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+.festivalInfo h2{
+    font-size:1.3em;
+}
+
+.imgBox{
+    height:180px;
+    overflow: hidden;
+}

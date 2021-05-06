@@ -18,7 +18,7 @@ const httpClient = axios.create(
 
 const festivalClient =  axios.create(
   {
-    baseURL : '/festival/openapi/tn_pubr_public_cltur_fstvl_api',
+    baseURL : '/festival/openapi/service/rest/KorService/searchFestival',
     params : { 
       serviceKey : "P/todAwLp6jB3Dx9vFBWu/BbzqviE4YaMhDnJ1Jyl77akvPHajFVr72AqAgiUCRoCAq27WO29pYAIR3meH3MHw=="
     }
