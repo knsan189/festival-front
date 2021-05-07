@@ -15,17 +15,16 @@ class Holiday{
         return response.data.response.body.items.item
     }
 
-    // async search(query) {
-    //     const response = await this.youtube.get('search', {
-    //         params : {
-    //             part : 'snippet',
-    //             maxResults: 25,
-    //             type : 'video',
-    //             q : query
-    //         },
-    //     })
-    //     return response.data.items.map(item => ({...item, id : item.id.videoid}))
-    // }
+    async dateChange(date) {
+        const response = await this.holiday.get('', {
+            params : {
+                solYear : date.format('YYYY'),
+                solMonth : date.format('MM'),
+                _type : 'json'
+            },
+        })
+        return  response.data.response.body.items.item
+    }
 }
 
 export default Holiday

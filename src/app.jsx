@@ -12,23 +12,26 @@ function App({holidays, festivals}) {
   const [getMoment, setMoment] = useState(moment());
   const today = getMoment;
 
-
+  const [holiday, setHoliday] = useState([])
   const [date, setDate] = useState('')
   const dayInfo = (info) => {
     setDate(info)
     festivals.select(info.format('YYYYMMDD')).then(festivals => setFestivalInfo(festivals))
   }
+
+  const changedDate = (data) => {
+    holidays.dateChange(data).then(holiday => setHoliday(holiday))
+  }
   const [festivalInfo, setFestivalInfo] = useState([])
 
   useEffect(()=> {
       festivals.thisMonthFestival(today.format('YYYYMMDD')).then(festivals => setFestivalInfo(festivals))
-      holidays.thisMonth().then(console.log)
-    
+      holidays.thisMonth().then(holiday => setHoliday(holiday))
   },[])
 
   return (
     <div className={styles.app}>
-      <Calender today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo} seletedDate={date}/>
+      <Calender today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo} seletedDate={date} holiday={holiday} changedDate={changedDate}/>
       <FestivalList date={date} festivalInfo={festivalInfo} />
     </div>
 

@@ -1,7 +1,7 @@
 import CalenderWeek from './calender/calender_week';
 import styles from './calender.module.css'
 
-const Calender = ({today, onSubtrack, onAdd, dayInfo, seletedDate}) => {
+const Calender = ({today, onSubtrack, onAdd, dayInfo, seletedDate, holiday, changedDate}) => {
 
     const firstWeek = today.clone().startOf('month').week()
     const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week() 
@@ -11,7 +11,7 @@ const Calender = ({today, onSubtrack, onAdd, dayInfo, seletedDate}) => {
 
     const calenderArr = () => {
         for(week; week<=lastWeek; week++){
-            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo} seletedDate={seletedDate}/> )
+            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo} seletedDate={seletedDate} holiday={holiday}/> )
         }
         return result;
     }
@@ -29,15 +29,23 @@ const Calender = ({today, onSubtrack, onAdd, dayInfo, seletedDate}) => {
     : thisMonth === '10' ? 'October'
     : thisMonth === '11' ? 'November'
     : 'December'
-
+    
+    const onSubClick = () => {
+        onSubtrack()
+        changedDate(today.subtract(1, 'month'))
+    }
+    const onAddClick = () => {
+        onAdd()
+        changedDate(today.add(1, 'month'))
+    }
 
     return (
             <div className={styles.calender}>
                 <div className={styles.bar}>
                     <div className={styles.title}>
-                        <button onClick={onSubtrack} type="button"><i className="fas fa-chevron-left"></i></button>
+                        <button onClick={onSubClick} type="button"><i className="fas fa-chevron-left"></i></button>
                             <h3>{monthName}</h3>
-                        <button onClick={onAdd} type="button"><i className="fas fa-chevron-right"></i></button>
+                        <button onClick={onAddClick} type="button"><i className="fas fa-chevron-right"></i></button>
                     </div>
                     <span> {today.format('YYYY')} </span>
                     
