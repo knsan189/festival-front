@@ -17,7 +17,7 @@ class Festival {
                     },
                 })
     
-                return response.data.response.body.items.item
+                return response.data.response.body
     }
 
     async select(info) {
