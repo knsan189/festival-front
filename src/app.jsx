@@ -7,6 +7,10 @@ import Sidebar from './components/sidebar/sidebar'
 
 
 function App({holidays, festivals}) {
+
+  const selectArea = (data) =>{
+    console.log(data.target.value, data.target.textContent)
+  }
   const onSubtrack = () => {
     setMoment(getMoment.clone().subtract(1, 'month'))
     setDate('')
@@ -35,12 +39,12 @@ function App({holidays, festivals}) {
   useEffect(()=> {
       festivals.thisMonthFestival(today.format('YYYYMMDD')).then(festivals => setFestivalInfo(festivals))
       holidays.thisMonth().then(holiday => setHoliday(holiday))
-  }, [festivals, holidays, today])
+  }, [])
 
   return (
     <div className={styles.app}>
       <FestivalList date={date} festivalInfo={festivalInfo} today={today} />
-      <Sidebar today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo} seletedDate={date} holiday={holiday} changedDate={changedDate}/>
+      <Sidebar today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo} seletedDate={date} holiday={holiday} changedDate={changedDate} selectArea={selectArea}/>
     </div>
 
   );

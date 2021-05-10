@@ -30,7 +30,8 @@ class Festival {
                 MobileApp : 'Festival',
                 arrange : 'P',
                 listYN : 'Y',
-                eventStartDate : info
+                eventStartDate : info,
+                areaCode : ''
             },
         })
         return  response.data.response.body

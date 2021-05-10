@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './area.module.css'
 
-const Area = (props) => (
+const Area = ({selectArea}) => (
     <ul className={styles.area}>
-        <li><button type="button">#전체</button></li>
-        <li><button type="button">#서울</button></li>
-        <li><button type="button">#부산</button></li>
-        <li><button type="button">#대구</button></li>
-        <li><button type="button">#인천</button></li>
-        <li><button type="button">#광주</button></li>
-        <li><button type="button">#대전</button></li>
+        <li><button type="button" value='0' onClick>#전체</button></li>
+        <li><button type="button" value='1' onClick={(event) => selectArea(event)}>#서울</button></li>
+        <li><button type="button" value='6'>#부산</button></li>
+        <li><button type="button" value='4'>#대구</button></li>
+        <li><button type="button" value='2'>#인천</button></li>
+        <li><button type="button" value='5'>#광주</button></li>
+        <li><button type="button" value='3'>#대전</button></li>
         <li><button type="button">#울산</button></li>
         <li><button type="button">#세종</button></li>
         <li><button type="button">#강원</button></li>

@@ -6,14 +6,15 @@ const Calender = memo(({today, onSubtrack, onAdd, dayInfo, seletedDate, holiday,
 
     const firstWeek = today.clone().startOf('month').week()
     const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week()
-    const holidayDate = holiday && (holiday.length > 1 ? holiday.map(obj => obj.locdate) : holiday)
+    const holidayDate = holiday && (holiday.length > 1 ? holiday.map(obj => obj.locdate) : holiday.locdate)
 
     let result = [];
     let week = firstWeek;
 
+
     const calenderArr = () => {
         for(week; week<=lastWeek; week++){
-            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo} seletedDate={seletedDate} holiday={holiday} holidayDate={holidayDate}/> )
+            result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo} seletedDate={seletedDate} holiday={holiday} holidayDate={holidayDate} /> )
         }
         return result;
     }

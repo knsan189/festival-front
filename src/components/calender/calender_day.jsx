@@ -11,7 +11,6 @@ const CalenderDay = memo(({days, today, dayInfo, seletedDate, holiday, holidayDa
         ? holidayDate.includes(parseInt(days.format('YYYYMMDD'))) ? styles.isholiday : styles.day
         : holidayDate === parseInt(days.format('YYYYMMDD')) ? styles.isholiday : styles.day )
 
-    console.log('렌더링중')
         return (
         <>  
             <td className={styles.td} id={todayStyle ? todayStyle : undefined} 
