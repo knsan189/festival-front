@@ -9,7 +9,7 @@ import Festival from './service/festival';
 
 const httpClient = axios.create(
   {
-    baseURL : 'https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
+    baseURL : 'https://festivalprojectapp.herokuapp.com/http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
     params : { 
       serviceKey : "P/todAwLp6jB3Dx9vFBWu/BbzqviE4YaMhDnJ1Jyl77akvPHajFVr72AqAgiUCRoCAq27WO29pYAIR3meH3MHw=="
     }
@@ -18,7 +18,7 @@ const httpClient = axios.create(
 
 const festivalClient =  axios.create(
   {
-    baseURL : 'https://cors-anywhere.herokuapp.com/http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival',
+    baseURL : 'https://festivalprojectapp.herokuapp.com/http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival',
     params : { 
       serviceKey : "P/todAwLp6jB3Dx9vFBWu/BbzqviE4YaMhDnJ1Jyl77akvPHajFVr72AqAgiUCRoCAq27WO29pYAIR3meH3MHw=="
     }

@@ -5,3 +5,20 @@
     align-items: center;
     list-style: none;
 }
+.total{
+    padding:1em 0;
+    font-size:1.2em;
+}
+.total span{
+    color: red;
+    vertical-align: top;
+    font-weight: bold;
+}
+.bar{
+    border-bottom:2px solid #333;
+}
+
+.bar h1{
+    font-weight: 500;
+    padding-bottom:0.5em;
+}

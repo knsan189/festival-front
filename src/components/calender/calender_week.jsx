@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import CalenderDay from './calender_day';
 
-const CalenderWeek = ({today, week, dayInfo, seletedDate, holiday}) => {
+const CalenderWeek = memo(({today, week, dayInfo, seletedDate, holiday}) => {
     return(
 
             <tr>
@@ -15,6 +15,6 @@ const CalenderWeek = ({today, week, dayInfo, seletedDate, holiday}) => {
                 }
             </tr>
     );
-    }
+    })
 
 export default CalenderWeek;

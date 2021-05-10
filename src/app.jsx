@@ -32,7 +32,7 @@ function App({holidays, festivals}) {
   return (
     <div className={styles.app}>
       <Calender today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={dayInfo} seletedDate={date} holiday={holiday} changedDate={changedDate}/>
-      <FestivalList date={date} festivalInfo={festivalInfo} />
+      <FestivalList date={date} festivalInfo={festivalInfo} today={today} />
     </div>
 
   );

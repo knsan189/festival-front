@@ -1,22 +1,38 @@
 .item {
-    width: 32%
+    width: 100%;
+    border-top: 1px solid #c6c6c6;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 .item img{
     width: 100%;
-}
-
-.festivalInfo {
-    border: 1px solid #c6c6c6;
-    padding: 1em;
-    border-radius: 1em;
-    margin-bottom: 1em;
-}
-.festivalInfo h2{
-    font-size:1.3em;
+    height:100%;
 }
 
 .imgBox{
     height:180px;
     overflow: hidden;
+    width:25%
 }
+
+.festivalInfo {
+    width:73%
+}
+
+.festivalInfo h2{
+    font-size:1.3em;
+    padding-bottom:0.4em;
+}
+
+.festivalInfo button{
+    position: absolute;
+    top:10%;
+    right:3%;
+    font-size: 1em;
+    cursor: pointer;
+}
+

@@ -7,7 +7,7 @@ class Festival {
                 const response = await this.festival.get('', {
                     params: {
                         pageNo: '1',
-                        numOfRows: '100',
+                        numOfRows: '20',
                         type: '_json',
                         MobileOS : 'ETC',
                         MobileApp : 'Festival',
@@ -24,7 +24,7 @@ class Festival {
         const response = await this.festival.get('', {
             params : {
                 pageNo: '1',
-                numOfRows: '100',
+                numOfRows: '20',
                 type: '_json',
                 MobileOS : 'ETC',
                 MobileApp : 'Festival',
@@ -33,7 +33,7 @@ class Festival {
                 eventStartDate : info
             },
         })
-        return  response.data.response.body.items.item
+        return  response.data.response.body
     }
 }
 

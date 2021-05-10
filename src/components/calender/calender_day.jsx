@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import moment from 'moment';
 import styles from './calender_day.module.css'
 
 
-const CalenderDay = ({days, today, dayInfo, seletedDate, holiday}) => {
+const CalenderDay = memo(({days, today, dayInfo, seletedDate, holiday}) => {
 
     const color =  days.format('MM') !== today.format('MM') ? '#767c9e' : '#171d3d'
     const todayStyle = moment().format('YYYYMMDD') === days.format('YYYYMMDD') &&  styles.today
@@ -30,6 +30,6 @@ const CalenderDay = ({days, today, dayInfo, seletedDate, holiday}) => {
             </td>
         </>
         )
-}
+})
 
 export default CalenderDay;
