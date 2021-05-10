@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './area.module.css'
 
-const Area = ({selectArea}) => (
+const Area = ({areaSelect}) => (
     <ul className={styles.area}>
         <li><button type="button" value='0' onClick>#전체</button></li>
-        <li><button type="button" value='1' onClick={(event) => selectArea(event)}>#서울</button></li>
-        <li><button type="button" value='6'>#부산</button></li>
+        <li><button type="button" value='1' onClick={(event) => areaSelect(event)}>#서울</button></li>
+        <li><button type="button" value='6' onClick={(event) => areaSelect(event)}>#부산</button></li>
         <li><button type="button" value='4'>#대구</button></li>
         <li><button type="button" value='2'>#인천</button></li>
         <li><button type="button" value='5'>#광주</button></li>

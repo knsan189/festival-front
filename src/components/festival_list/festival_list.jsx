@@ -19,6 +19,16 @@ const FestivalList = ({date, festivalInfo, today}) => {
                         items && items.item.map((festivalInfo) => festivalInfo.eventstartdate < today.format('YYYYMMDD') && <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid}/>)
                     }
                 </ul>
+                <div>
+                    {console.log(console.log(festivalInfo.numOfRows, festivalInfo.totalCount))}
+                    {
+                        (() => {
+                            for(let i = 0; festivalInfo.numOfRows * i < festivalInfo.totalCount; i++){
+                                return <p>{i}</p>
+                            }
+                        })()
+                    }
+                </div>
             </div> 
             )
     }
