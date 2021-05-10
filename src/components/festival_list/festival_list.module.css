@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     align-items: center;
     list-style: none;
-    width:600px;
+    width:600px;    
 }
 .total{
     padding:1em 0;
@@ -22,4 +22,13 @@
 .bar h1{
     font-weight: 500;
     padding-bottom:0.5em;
+}
+
+.pageNum{
+    display: flex;
+    justify-content: center;
+}
+
+.pageNum li{
+    padding:5px;
 }

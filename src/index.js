@@ -18,7 +18,7 @@ const httpClient = axios.create(
 
 const festivalClient =  axios.create(
   {
-    baseURL : 'https://festivalprojectapp.herokuapp.com/http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival',
+    baseURL : 'https://festivalprojectapp.herokuapp.com/http://api.visitkorea.or.kr/openapi/service/rest/KorService',
     params : { 
       serviceKey : "P/todAwLp6jB3Dx9vFBWu/BbzqviE4YaMhDnJ1Jyl77akvPHajFVr72AqAgiUCRoCAq27WO29pYAIR3meH3MHw=="
     }

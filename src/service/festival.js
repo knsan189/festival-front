@@ -4,7 +4,7 @@ class Festival {
     }
 
     async thisMonthFestival(eventDate, pageNo, arrange, areaCode) {
-                const response = await this.festival.get('', {
+                const response = await this.festival.get('/searchFestival', {
                     params: {
                         pageNo: '1',
                         numOfRows: '10',
@@ -21,22 +21,18 @@ class Festival {
                 return response.data.response.body
     }
 
-    // async select(info) {
-    //     const response = await this.festival.get('', {
-    //         params : {
-    //             pageNo: '1',
-    //             numOfRows: '20',
-    //             type: '_json',
-    //             MobileOS : 'ETC',
-    //             MobileApp : 'Festival',
-    //             arrange : 'P',
-    //             listYN : 'Y',
-    //             eventStartDate : info,
-    //             areaCode : ''
-    //         },
-    //     })
-    //     return  response.data.response.body
-    // }
+    async areaCodes() {
+        const response = await this.festival.get('/areaCode', {
+            params : {
+                pageNo: '1',
+                numOfRows: '20',
+                type: '_json',
+                MobileOS : 'ETC',
+                MobileApp : 'Festival',
+            },
+        })
+        return  response.data.response.body.items.item
+    }
 }
 
 export default Festival

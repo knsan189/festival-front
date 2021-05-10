@@ -30,16 +30,18 @@ function App({holidays, festivals}) {
   }
 
 
-
+  const [areaCodes, setAreaCodes] = useState([])
   const [festivalInfo, setFestivalInfo] = useState([])
+
   const [inputs, setInputs] = useState({
     eventDate : today.format('YYYYMMDD'),
     pageNo : 1,
     arrange : 'P',
     areaCode : '',
+    areaName : ''
   })
 
-  const {eventDate, pageNo, arrange, areaCode} = inputs
+  const {eventDate, pageNo, arrange, areaCode, areaName} = inputs
 
   const daySelect = (data) => {
     setDate(data)
@@ -49,26 +51,37 @@ function App({holidays, festivals}) {
     }
     setInputs(nextInputs)
   }
-  
 
   const areaSelect = (data) => {
     const nextInputs = {
       ...inputs,
-      areaCode : data.target.value
+      areaCode : data.target.value,
+      areaName : data.target.textContent
     }
     setInputs(nextInputs)
   }
 
-
   useEffect(()=> {
       festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
+      festivals.areaCodes().then(Codes => setAreaCodes(Codes))
       holidays.thisMonth().then(holiday => setHoliday(holiday))
   }, [eventDate, areaCode])
 
   return (
     <div className={styles.app}>
-      <FestivalList date={date} festivalInfo={festivalInfo} today={today} />
-      <Sidebar today={today} onAdd={onAdd} onSubtrack={onSubtrack} dayInfo={daySelect} seletedDate={date} holiday={holiday} changedDate={changedDate} areaSelect={areaSelect}/>
+      <FestivalList date={date} festivalInfo={festivalInfo} today={today} areaName={areaName}/>
+      <Sidebar 
+        today={today} 
+        onAdd={onAdd} 
+        onSubtrack={onSubtrack} 
+        dayInfo={daySelect} 
+        seletedDate={date} 
+        holiday={holiday} 
+        changedDate={changedDate} 
+        areaSelect={areaSelect} 
+        areaCode={areaCode} 
+        areaCodes={areaCodes}
+        />
     </div>
 
   );

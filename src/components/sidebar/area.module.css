@@ -3,8 +3,19 @@
     flex-wrap: wrap;
     border-top: 1px solid #c6c6c6;
     padding-top: 1em; 
+    align-items: center;
 }
 
+.area li{
+    width:20%;
+}
 .area button {
     cursor: pointer;
+    padding:8px;
+    border-radius: 10px;
+}
+
+.area .active{
+    background: #333;
+    color: white;
 }
