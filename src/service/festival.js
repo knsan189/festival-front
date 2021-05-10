@@ -6,7 +6,7 @@ class Festival {
     async thisMonthFestival(eventDate, pageNo, arrange, areaCode) {
                 const response = await this.festival.get('/searchFestival', {
                     params: {
-                        pageNo: '1',
+                        pageNo: pageNo,
                         numOfRows: '10',
                         type: '_json',
                         MobileOS : 'ETC',

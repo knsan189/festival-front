@@ -7,6 +7,10 @@
     align-items: center;
     position: relative;
 }
+
+.item:last-child{
+    border-bottom:1px solid #c6c6c6
+}
 .item:hover{
     background: #f6f6f6;
     cursor: pointer;

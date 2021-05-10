@@ -56,7 +56,16 @@ function App({holidays, festivals}) {
     const nextInputs = {
       ...inputs,
       areaCode : data.target.value,
-      areaName : data.target.textContent
+      areaName : data.target.textContent,
+      pageNo : 1
+    }
+    setInputs(nextInputs)
+  }
+
+  const selectPageNo = (data) => {
+    const nextInputs = {
+      ...inputs,
+      pageNo : data.target.textContent
     }
     setInputs(nextInputs)
   }
@@ -65,11 +74,11 @@ function App({holidays, festivals}) {
       festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
       festivals.areaCodes().then(Codes => setAreaCodes(Codes))
       holidays.thisMonth().then(holiday => setHoliday(holiday))
-  }, [eventDate, areaCode])
+  }, [eventDate, areaCode, pageNo])
 
   return (
     <div className={styles.app}>
-      <FestivalList date={date} festivalInfo={festivalInfo} today={today} areaName={areaName}/>
+      <FestivalList date={date} festivalInfo={festivalInfo} today={today} areaName={areaName} selectPageNo={selectPageNo} pageNo={pageNo}/>
       <Sidebar 
         today={today} 
         onAdd={onAdd} 

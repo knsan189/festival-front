@@ -1,7 +1,8 @@
 import styles from './festival_list.module.css'
 import FestivalItem from '../festival_item/festival_item';
+import FestivalPage from './festival_page';
 
-const FestivalList = ({date, festivalInfo, today, areaName}) => {
+const FestivalList = ({date, festivalInfo, areaName, selectPageNo, pageNo}) => {
 
             const {items} = festivalInfo
             const pageNum = []
@@ -20,19 +21,17 @@ const FestivalList = ({date, festivalInfo, today, areaName}) => {
                 <div className={styles.total}>총 <span>{festivalInfo.totalCount}</span>건</div>
                 <ul className={styles.festivals}>
                     { 
-                        items && items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid}/>)
+                        items ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid}/>)
+                        : <p>해당 조건에 맞는 행사가 없습니다.</p>
                     }
                 </ul>
 
 
                 <ul className={styles.pageNum}>
                     {
-                        pageNum.map((num, index) => <li key ={num}>{index + 1}</li>)
+                        pageNum.map((num, index) => <FestivalPage key={num} num={index} selectPageNo={selectPageNo} pageNo={pageNo}/>)
                     }
                 </ul>
-
-
-
             </div> 
             )
     }
