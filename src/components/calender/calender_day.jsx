@@ -3,27 +3,27 @@ import moment from 'moment';
 import styles from './calender_day.module.css'
 
 
-const CalenderDay = memo(({days, today, dayInfo, seletedDate, holiday}) => {
+const CalenderDay = memo(({days, today, dayInfo, seletedDate, holiday, holidayDate}) => {
 
-    const color =  days.format('MM') !== today.format('MM') ? '#767c9e' : '#171d3d'
+    const color =  days.format('MM') !== today.format('MM') ? '#767c9e' : days.format('dddd') === 'Sunday' || days.format('dddd')  === 'Saturday' ? 'red' : 'black'
     const todayStyle = moment().format('YYYYMMDD') === days.format('YYYYMMDD') &&  styles.today
-    
+    const isHoliday = holidayDate && ( holiday.length > 1 
+        ? holidayDate.includes(parseInt(days.format('YYYYMMDD'))) ? styles.isholiday : styles.day
+        : holidayDate === parseInt(days.format('YYYYMMDD')) ? styles.isholiday : styles.day )
+
+    console.log('렌더링중')
         return (
         <>  
             <td className={styles.td} id={todayStyle ? todayStyle : undefined} 
             style={{color, background : seletedDate && seletedDate.format('YYYYMMDD') === days.format('YYYYMMDD') && 'red'}} onClick={() => dayInfo(days)}>
-                <span>
+                <span className={isHoliday}>
                     {days.format('D')}
-                    { 
-                        moment().format('YYYYMMDD') === days.format('YYYYMMDD') && <p>Today</p>
-                    }
+                    { moment().format('YYYYMMDD') === days.format('YYYYMMDD') && <p></p> }
                     {
-                        // 매달마다 공휴일을 호출해오는 api인데 4월은 공휴일이 없고 5월 두번, 6월은 1번만 있어서 4월에 공휴일을 호출하면 오류가 나요
-
                         holiday && (
                             holiday.length > 1
-                            ? holiday.map(obj => obj.locdate == days.format('YYYYMMDD') && <p key={obj.dateName}>{obj.dateName}</p>)  
-                            : holiday.locdate == days.format('YYYYMMDD') && <p>{holiday.dateName}</p>                                                                
+                            ? holiday.map(obj => obj.locdate === parseInt(days.format('YYYYMMDD'))&& <p className={styles.datename} key={obj.dateName}>{obj.dateName}</p>)  
+                            : holiday.locdate === parseInt(days.format('YYYYMMDD')) && <p className={styles.datename}>{holiday.dateName}</p>                                                                
                         )
                     }
                 </span>

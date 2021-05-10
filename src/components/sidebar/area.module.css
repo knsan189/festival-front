@@ -1,0 +1,10 @@
+.area{
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #c6c6c6;
+    padding-top: 1em; 
+}
+
+.area button {
+    cursor: pointer;
+}

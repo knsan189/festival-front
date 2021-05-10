@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     align-items: center;
     list-style: none;
+    width:600px;
 }
 .total{
     padding:1em 0;

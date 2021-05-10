@@ -6,7 +6,7 @@ const FestivalList = ({date, festivalInfo, today}) => {
             const {items} = festivalInfo
 
             return (
-            <>
+            <div className={styles.festivalList}>
                 <div className={styles.bar}>
                     <h1>#축제</h1>
                     { 
@@ -19,7 +19,7 @@ const FestivalList = ({date, festivalInfo, today}) => {
                         items && items.item.map((festivalInfo) => festivalInfo.eventstartdate < today.format('YYYYMMDD') && <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid}/>)
                     }
                 </ul>
-            </> 
+            </div> 
             )
     }
     

@@ -1,13 +1,11 @@
 .calender{
-    background: #f0f0f0;
-    padding:30px;
-    border:1px solid #c6c6c6
+    padding:1em 0;
 }
 
 .bar{
     width:100%;
     text-align: center;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
     font-weight: bold;
 }
 
