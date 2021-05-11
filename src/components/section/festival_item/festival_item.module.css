@@ -27,12 +27,18 @@
 }
 
 .festivalInfo {
-    width:73%
+    width:73%;
 }
 
 .festivalInfo h2{
     font-size:1.3em;
     padding-bottom:0.4em;
+    font-weight: 500;
+}
+
+.festivalInfo p{
+    color:#666;
+    font-size:0.9em;
 }
 
 .festivalInfo button{

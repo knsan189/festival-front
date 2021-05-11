@@ -1,14 +1,16 @@
 import React from 'react';
 import styles from './header.module.css'
+import HeaderSearch from './header_search';
+import Navgation from './navgation';
 
 const Header = (props) => (
         <header className={styles.header}>
            <div className={styles.row}>
                 <div className={styles.logo}>
-                    <img src="./images/logo1.jpg" alt="로고" />
+                    <img src="./festival_project/images/logo2.jpg" alt="logo" />
                 </div>
-                <nav>
-                </nav>
+                <HeaderSearch />
+                <Navgation />
            </div>
         </header>
     );

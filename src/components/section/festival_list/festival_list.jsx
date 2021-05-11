@@ -2,8 +2,9 @@ import styles from './festival_list.module.css'
 import FestivalItem from '../festival_item/festival_item';
 import FestivalPage from './festival_page';
 import FestivalArrage from './festival_arrage';
+import { memo } from 'react';
 
-const FestivalList = ({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange}) => {
+const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange}) => {
 
             const {items} = festivalInfo
             const pageNum = []
@@ -15,8 +16,7 @@ const FestivalList = ({date, festivalInfo, areaName, selectPageNo, pageNo, selec
             return (
             <div className={styles.festivalList}>
                 <div className={styles.bar}>
-                    <h1>#축제 {areaName}</h1>
-                    { date && <p> 선택하신 날짜 <span> {date.format('YYYY년 MM월 DD일')}</span> </p>}
+                    <h1>#축제 {areaName} {date && '#' + date.format('YYYY년 MM월 DD일')}</h1>
                 </div>
                 <div className={styles.status}>
                     <div className={styles.total}>
@@ -40,6 +40,6 @@ const FestivalList = ({date, festivalInfo, areaName, selectPageNo, pageNo, selec
                 </ul>
             </div> 
             )
-    }
+    })
     
 export default FestivalList;
