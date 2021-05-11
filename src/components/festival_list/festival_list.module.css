@@ -6,9 +6,25 @@
     list-style: none;
     width:600px;    
 }
+.status{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+.status ul{
+    display: flex;
+}
+.status li:first-child{
+    padding-right:1em;
+}
+.status button{
+    font-weight: bold;
+}
+
 .total{
     padding:1em 0;
     font-size:1.2em;
+
 }
 .total span{
     color: red;

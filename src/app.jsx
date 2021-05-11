@@ -70,15 +70,33 @@ function App({holidays, festivals}) {
     setInputs(nextInputs)
   }
 
+  const selectArrage = (data) => {
+    const nextInputs = {
+      ...inputs,
+      arrange : data
+    }
+    setInputs(nextInputs)
+  }
+
   useEffect(()=> {
       festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
       festivals.areaCodes().then(Codes => setAreaCodes(Codes))
       holidays.thisMonth().then(holiday => setHoliday(holiday))
-  }, [eventDate, areaCode, pageNo])
+  }, [eventDate, areaCode, pageNo, arrange])
 
   return (
     <div className={styles.app}>
-      <FestivalList date={date} festivalInfo={festivalInfo} today={today} areaName={areaName} selectPageNo={selectPageNo} pageNo={pageNo}/>
+      
+      <FestivalList
+        date={date} 
+        festivalInfo={festivalInfo} 
+        today={today}
+        areaName={areaName} 
+        selectPageNo={selectPageNo} 
+        pageNo={pageNo} 
+        selectArrage={selectArrage}
+        arrange={arrange}
+      />
       <Sidebar 
         today={today} 
         onAdd={onAdd} 

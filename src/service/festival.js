@@ -11,7 +11,7 @@ class Festival {
                         type: '_json',
                         MobileOS : 'ETC',
                         MobileApp : 'Festival',
-                        arrange : 'P',
+                        arrange : arrange,
                         listYN : 'Y',
                         eventStartDate : eventDate,
                         areaCode : areaCode || null
