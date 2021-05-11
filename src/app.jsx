@@ -3,6 +3,8 @@ import FestivalList from './components/festival_list/festival_list';
 import moment from 'moment'
 import { useEffect, useState } from 'react';
 import Sidebar from './components/sidebar/sidebar'
+import { BrowserRouter } from 'react-router-dom';
+import Header from './components/header/header';
 
 
 
@@ -85,8 +87,9 @@ function App({holidays, festivals}) {
   }, [eventDate, areaCode, pageNo, arrange])
 
   return (
+  
     <div className={styles.app}>
-      
+      <Header />
       <FestivalList
         date={date} 
         festivalInfo={festivalInfo} 
