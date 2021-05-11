@@ -7,7 +7,7 @@ const Header = (props) => (
         <header className={styles.header}>
            <div className={styles.row}>
                 <div className={styles.logo}>
-                    <img src="./festival_project/images/logo2.jpg" alt="logo" />
+                    <img src="./images/logo2.jpg" alt="logo" />
                 </div>
                 <HeaderSearch />
                 <Navgation />

@@ -9,4 +9,4 @@ const FestivalPage = memo(({selectPageNo, num, pageNo}) => {
             </li>
     );
 })
-export default FestivalPage;
+export default FestivalPage; 

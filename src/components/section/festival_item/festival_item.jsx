@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './festival_item.module.css'
 
 
@@ -18,15 +19,17 @@ const FestivalItem = memo(({festivalInfo}) => {
     const dateRefresh2 = year2 + '.' + month2 + '.' + day2;  
 
             return (
-                <li className={styles.item}>
-                    <div className={styles.imgBox}><img src={imgUrlChange} alt={festivalInfo.title}/></div>
-                    <div className={styles.festivalInfo}>
-                        <h2>{festivalInfo.title}</h2>
-                        <p>[{dateRefresh1} ~ {dateRefresh2}]</p>
-                        <p>주소 : {festivalInfo.addr1}</p>
-                        <button><i className="fas fa-ellipsis-v"></i></button> 
-                    </div>
-                </li>
+                <Link to={{pathname : '/details', state : {festivalInfo}}} contentid={festivalInfo.contentid}>
+                    <li className={styles.item}>
+                        <div className={styles.imgBox}><img src={imgUrlChange} alt={festivalInfo.title}/></div>
+                        <div className={styles.festivalInfo}>
+                            <h2>{festivalInfo.title}</h2>
+                            <p>[{dateRefresh1} ~ {dateRefresh2}]</p>
+                            <p>주소 : {festivalInfo.addr1}</p>
+                            <button><i className="fas fa-ellipsis-v"></i></button> 
+                        </div>
+                    </li>
+                </Link>
             )
 });
 

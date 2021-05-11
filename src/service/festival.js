@@ -33,6 +33,36 @@ class Festival {
         })
         return  response.data.response.body.items.item
     }
+
+    async contentInfo(contentId) {
+        const response = await this.festival.get('/detailCommon', {
+            params : {
+                type: '_json',
+                MobileOS : 'ETC',
+                MobileApp : 'Festival',
+                contentId : contentId,
+                defaultYN : 'Y',
+                firstImageYN : 'Y',
+                areacodeYN : 'Y',
+                addrinfoYN : 'Y',
+                mapinfoYN : 'Y',
+                overviewYN : 'Y'
+            },
+        })
+        return  response.data.response.body.items.item
+    }
+
+    async contentImg(contentId){
+        const response = await this.festival.get('/detailImage', {
+            params : {
+                type: '_json',
+                MobileOS : 'ETC',
+                MobileApp : 'Festival',
+                contentId : contentId,
+            },
+        })
+        return  response.data.response.body.items.item
+    }
 }
 
 export default Festival

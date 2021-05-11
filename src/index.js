@@ -6,6 +6,8 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import axios from 'axios';
 import Holiday from './service/holiday';
 import Festival from './service/festival';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const httpClient = axios.create(
   {
