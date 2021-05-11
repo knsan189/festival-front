@@ -1,0 +1,9 @@
+.header{
+    height:90px;
+    border-bottom:1px solid #c6c6c6;
+}
+.row{
+    width:980px;
+    padding:20px;
+    margin:0 auto;
+}
