@@ -80,7 +80,7 @@ const List = ({festivals, holidays}) => {
           festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
           holidays.thisMonth().then(holiday => setHoliday(holiday))
-      }, [eventDate, areaCode, pageNo, arrange])
+      }, [eventDate, areaCode, pageNo, arrange, festivals, holidays])
 
     return (
         <section className={styles.list}>

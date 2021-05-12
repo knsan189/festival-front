@@ -17,7 +17,7 @@ const AreaItem = memo(({areaCodes, areaSelect, areaCode}) => {
     return (
             <li>
                 <button type="button" className={
-                    areaCode == code ? styles.active : styles.button} onClick={(event) => areaSelect(event)} value={code}> #{areaName}</button>
+                    parseInt(areaCode) === code ? styles.active : styles.button} onClick={(event) => areaSelect(event)} value={code}> #{areaName}</button>
             </li>
     );
 })

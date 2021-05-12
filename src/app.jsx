@@ -2,7 +2,7 @@ import styles from './app.module.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import List from './components/section/list';
-import { HashRouter, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import FestivalDetail from './components/section/festival_detail/festival_detail';
 
 
@@ -12,9 +12,7 @@ function App({holidays, festivals}) {
   return (
   
     <div className={styles.app}>
-      <HashRouter>
-        <Link to="/">Home</Link>
-        <Link to="/details">details</Link>
+      <HashRouter forceRefresh={true}>
         <Header />
           <Switch>
             <Route path={['/list', '/']} exact>

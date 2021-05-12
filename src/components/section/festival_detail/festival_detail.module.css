@@ -4,6 +4,10 @@
     padding: 20px;
 }
 
+
+.readcount{
+    text-align: left;
+}
 .title{
     text-align: center;
 }
@@ -11,3 +15,11 @@
 .imgBox{
     text-align: center;
 }
+
+
+.section h2{
+    padding-bottom:0.5em;
+    border-bottom: 2px solid #333;
+}
+
+

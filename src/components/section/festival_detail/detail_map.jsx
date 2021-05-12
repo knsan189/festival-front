@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 
 const DetailMap = ({mapx, mapy}) => {
-    
     useEffect(()=>{
 
         const script = document.createElement("script");
@@ -14,11 +13,17 @@ const DetailMap = ({mapx, mapy}) => {
         kakao.maps.load(() => {
             let container = document.getElementById("Mymap");
             let options = {
-                center: new kakao.maps.LatLng(mapx, mapy),
+                center: new kakao.maps.LatLng(mapy, mapx),
                 level: 7
             };
 
         const map = new window.kakao.maps.Map(container, options);
+        const markerPosition  = new window.kakao.maps.LatLng(mapy, mapx); 
+        const marker = new window.kakao.maps.Marker({
+            position: markerPosition
+        });
+        marker.setMap(map);
+
       })
     }
     }, [mapx, mapy])
