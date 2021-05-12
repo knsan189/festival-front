@@ -44,3 +44,7 @@ span {
 td {
   font-weight: bold;
 }
+
+pre{
+  white-space: pre-wrap;
+}

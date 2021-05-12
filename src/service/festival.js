@@ -63,6 +63,19 @@ class Festival {
         })
         return  response.data.response.body.items.item
     }
+
+    async contentDetail(contentId){
+        const response = await this.festival.get('/detailInfo', {
+            params : {
+                type: '_json',
+                MobileOS : 'ETC',
+                MobileApp : 'Festival',
+                contentId : contentId,
+                contentTypeId : 15
+            },
+        })
+        return  response.data.response.body.items.item
+    }
 }
 
 export default Festival

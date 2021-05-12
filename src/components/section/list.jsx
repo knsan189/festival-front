@@ -80,6 +80,7 @@ const List = ({festivals, holidays}) => {
           festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
           holidays.thisMonth().then(holiday => setHoliday(holiday))
+          sessionStorage.clear()
       }, [eventDate, areaCode, pageNo, arrange, festivals, holidays])
 
     return (
