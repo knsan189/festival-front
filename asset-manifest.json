@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/festival_project/static/css/main.ed560ee1.chunk.css",
-    "main.js": "/festival_project/static/js/main.7ccbe9e5.chunk.js",
-    "main.js.map": "/festival_project/static/js/main.7ccbe9e5.chunk.js.map",
+    "main.js": "/festival_project/static/js/main.bca53ce0.chunk.js",
+    "main.js.map": "/festival_project/static/js/main.bca53ce0.chunk.js.map",
     "runtime-main.js": "/festival_project/static/js/runtime-main.e4cb00bf.js",
     "runtime-main.js.map": "/festival_project/static/js/runtime-main.e4cb00bf.js.map",
     "static/css/2.f5c3e2da.chunk.css": "/festival_project/static/css/2.f5c3e2da.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.f5c3e2da.chunk.css",
     "static/js/2.3e4e6f58.chunk.js",
     "static/css/main.ed560ee1.chunk.css",
-    "static/js/main.7ccbe9e5.chunk.js"
+    "static/js/main.bca53ce0.chunk.js"
   ]
 }
