@@ -1,24 +1,30 @@
+
 class Festival {
     constructor(festivalClient) {
         this.festival = festivalClient
     }
 
     async thisMonthFestival(eventDate, pageNo, arrange, areaCode) {
-                const response = await this.festival.get('/searchFestival', {
-                    params: {
-                        pageNo: pageNo,
-                        numOfRows: '10',
-                        type: '_json',
-                        MobileOS : 'ETC',
-                        MobileApp : 'Festival',
-                        arrange : arrange,
-                        listYN : 'Y',
-                        eventStartDate : eventDate,
-                        areaCode : areaCode || null
-                    },
-                })
-    
-                return response.data.response.body
+                try {
+                    const response = await this.festival.get('/searchFestival', {
+                        params: {
+                            pageNo: pageNo,
+                            numOfRows: '10',
+                            type: '_json',
+                            MobileOS : 'ETC',
+                            MobileApp : 'Festival',
+                            arrange : arrange,
+                            listYN : 'Y',
+                            eventStartDate : eventDate,
+                            areaCode : areaCode || null
+                        },
+                    })
+        
+                    return response.data.response.body
+               }
+               catch (e){
+                    console.log(e)
+               }
     }
 
     async areaCodes() {

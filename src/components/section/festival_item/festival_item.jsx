@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styles from './festival_item.module.css'
 
 
-const FestivalItem = memo(({festivalInfo}) => {
+const FestivalItem = memo(({festivalInfo, handleLoading}) => {
 
-    const imgUrlChange = festivalInfo.firstimage && festivalInfo.firstimage.replace('http', 'https')
+    const imgUrlChange = festivalInfo && festivalInfo.firstimage2.replace('http', 'https')
     const date1 = String(festivalInfo.eventstartdate)
     const year1 = date1.substring(0, 4)
     const month1 = date1.substring(4, 6)
@@ -21,7 +21,7 @@ const FestivalItem = memo(({festivalInfo}) => {
             return (
                 <Link to={{pathname : '/details', state : {festivalInfo}}} contentid={festivalInfo.contentid}>
                     <li className={styles.item}>
-                        <div className={styles.imgBox}><img src={imgUrlChange} alt={festivalInfo.title}/></div>
+                        <div className={styles.imgBox}><img src={imgUrlChange} alt={festivalInfo.title} onLoad={handleLoading}/></div>
                         <div className={styles.festivalInfo}>
                             <h2>{festivalInfo.title}</h2>
                             <p>[{dateRefresh1} ~ {dateRefresh2}]</p>

@@ -1,9 +1,10 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import FestivalList from './festival_list/festival_list';
 import Sidebar from './sidebar/sidebar';
 import styles from './list.module.css'
+import Loading from '../loading';
 
 const List = ({festivals, holidays}) => {
 
@@ -26,8 +27,7 @@ const List = ({festivals, holidays}) => {
       const changedDate = (data) => {
         holidays.dateChange(data).then(holiday => setHoliday(holiday))
       }
-    
-    
+
       const [areaCodes, setAreaCodes] = useState([])
       const [festivalInfo, setFestivalInfo] = useState([])
     
@@ -75,38 +75,46 @@ const List = ({festivals, holidays}) => {
         }
         setInputs(nextInputs)
       }
-    
+      const [loading, setLoading] = useState(null)
+
       useEffect(()=> {
+          setLoading(true)
           festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
           holidays.thisMonth().then(holiday => setHoliday(holiday))
           sessionStorage.clear()
       }, [eventDate, areaCode, pageNo, arrange, festivals, holidays])
+      
+      const handleLoading = () => {
+        setLoading(false)
+        }
 
     return (
         <section className={styles.list}>
-            <FestivalList
-                festivalInfo={festivalInfo} 
-                date={date} 
-                today={today}
-                areaName={areaName} 
-                selectPageNo={selectPageNo} 
-                pageNo={pageNo} 
-                selectArrage={selectArrage}
-                arrange={arrange}
-            />
-            <Sidebar 
-                today={today} 
-                onAdd={onAdd} 
-                onSubtrack={onSubtrack} 
-                dayInfo={daySelect} 
-                seletedDate={date} 
-                holiday={holiday} 
-                changedDate={changedDate} 
-                areaSelect={areaSelect} 
-                areaCode={areaCode} 
-                areaCodes={areaCodes}
-            />  
+            <Loading loading={loading}/>
+                <FestivalList
+                    festivalInfo={festivalInfo} 
+                    date={date} 
+                    today={today}
+                    areaName={areaName} 
+                    selectPageNo={selectPageNo} 
+                    pageNo={pageNo} 
+                    selectArrage={selectArrage}
+                    arrange={arrange}
+                    handleLoading = {handleLoading}
+                />
+                <Sidebar 
+                    today={today} 
+                    onAdd={onAdd} 
+                    onSubtrack={onSubtrack} 
+                    dayInfo={daySelect} 
+                    seletedDate={date} 
+                    holiday={holiday} 
+                    changedDate={changedDate} 
+                    areaSelect={areaSelect} 
+                    areaCode={areaCode} 
+                    areaCodes={areaCodes}
+                />  
         </section>  
     );
 }

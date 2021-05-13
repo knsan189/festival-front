@@ -2,8 +2,6 @@ import React from 'react';
 
 const DetailInfo = ({more}) => {
     const {infoname, infotext} = more
-
-    console.log(typeof infotext)
     return(
             <li>
                 <h3>{infoname}</h3>
