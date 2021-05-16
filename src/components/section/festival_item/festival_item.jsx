@@ -5,7 +5,10 @@ import styles from './festival_item.module.css'
 
 const FestivalItem = memo(({festivalInfo, handleLoading}) => {
 
-    const imgUrlChange = festivalInfo && festivalInfo.firstimage2.replace('http', 'https')
+    // URL http -> https로 변환
+    const imgUrlChange = festivalInfo.firstimage2 && festivalInfo.firstimage2.replace('http', 'https')
+
+    // 날짜 사이에 점(.) 추가
     const date1 = String(festivalInfo.eventstartdate)
     const year1 = date1.substring(0, 4)
     const month1 = date1.substring(4, 6)
@@ -16,8 +19,9 @@ const FestivalItem = memo(({festivalInfo, handleLoading}) => {
     const year2 = date2.substring(0, 4)
     const month2 = date2.substring(4, 6)
     const day2 = date2.substring(6, 8)
-    const dateRefresh2 = year2 + '.' + month2 + '.' + day2;  
-
+    const dateRefresh2 = year2 + '.' + month2 + '.' + day2;
+    //
+    
             return (
                 <Link to={{pathname : '/details', state : {festivalInfo}}} contentid={festivalInfo.contentid}>
                     <li className={styles.item}>

@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactLoading from 'react-loading'
+import styles from './loading.module.css'
 
 const Loading = ({loading}) => (
 
-        <div className="contentWrap" style={{ display : loading ? 'block' : 'none'}}> 
-            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}> 
-                <h2>창을 닫지 말아주세요.</h2> 
-                <ReactLoading type='spin' color='blue' height={'80%'} width={'80%'} /> 
+        <div className={styles.container} style={{ display : loading ? 'flex' : 'none'}}> 
+            <div className={styles.spinner}> 
+                <h2>자료 불러오는중...</h2> 
+                <ReactLoading type='spin' color='black' height={'50%'} width={'50%'}/> 
             </div> 
         </div>
 

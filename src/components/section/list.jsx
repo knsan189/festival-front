@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { useRef } from 'react';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import FestivalList from './festival_list/festival_list';
 import Sidebar from './sidebar/sidebar';
@@ -8,18 +8,23 @@ import Loading from '../loading';
 
 const List = ({festivals, holidays}) => {
 
+    // Moment Js로 오늘날짜 및 날짜관리
+    const [getMoment, setMoment] = useState(moment());
+    const today = getMoment;
+    
+    // 이번달에서 1빼기
     const onSubtrack = () => {
         setMoment(getMoment.clone().subtract(1, 'month'))
         setDate('')
-      }
+    }
+    
+    // 이번달에서 1더하기
+    const onAdd = () =>{
+      setMoment(getMoment.clone().add(1, 'month'))
+      setDate('')
+    }
       
-      const onAdd = () =>{
-        setMoment(getMoment.clone().add(1, 'month'))
-        setDate('')
-      }
-      
-      const [getMoment, setMoment] = useState(moment());
-      const today = getMoment;
+
     
       const [holiday, setHoliday] = useState([])
       const [date, setDate] = useState('')
@@ -34,7 +39,7 @@ const List = ({festivals, holidays}) => {
       const [inputs, setInputs] = useState({
         eventDate : today.format('YYYYMMDD'),
         pageNo : 1,
-        arrange : 'P',
+        arrange : 'R',
         areaCode : '',
         areaName : ''
       })
@@ -77,7 +82,7 @@ const List = ({festivals, holidays}) => {
       }
       const [loading, setLoading] = useState(null)
 
-      useEffect(()=> {
+    useEffect(()=> {
           setLoading(true)
           festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
@@ -85,9 +90,9 @@ const List = ({festivals, holidays}) => {
           sessionStorage.clear()
       }, [eventDate, areaCode, pageNo, arrange, festivals, holidays])
       
-      const handleLoading = () => {
-        setLoading(false)
-        }
+    const handleLoading = () => {
+      setLoading(false)
+    }
 
     return (
         <section className={styles.list}>

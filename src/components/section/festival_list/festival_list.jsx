@@ -15,9 +15,11 @@ const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, 
 
             return (
             <div className={styles.festivalList}>
+
                 <div className={styles.bar}>
                     <h1>#축제 {areaName} {date && '#' + date.format('YYYY년 MM월 DD일')}</h1>
                 </div>
+
                 <div className={styles.status}>
                     <div className={styles.total}>
                         총 <span>{festivalInfo.totalCount}</span>건
@@ -27,13 +29,16 @@ const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, 
                     </ul>
                     
                 </div>
+                
                 <ul className={styles.festivals}>
                     { 
-                        items ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} handleLoading={handleLoading} />)
-                        : <p> 해당 조건에 맞는 행사가 없습니다. </p>
+                        items 
+                            ? items.item.length > 1
+                                ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} handleLoading={handleLoading} />)
+                                : <FestivalItem festivalInfo={items.item} key={items.item.contentid} handleLoading={handleLoading} />
+                            : <p> 조건에 맞는 축제가 없습니다.  {setTimeout(handleLoading, 1500)}</p>
                     }
                 </ul>
-
 
                 <ul className={styles.pageNum}>
                     {pageNum.map((num, index) => <FestivalPage key={num} num={index} selectPageNo={selectPageNo} pageNo={pageNo}/>)}

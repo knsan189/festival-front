@@ -4,12 +4,32 @@
     padding: 20px;
 }
 
-
-.readcount{
-    text-align: left;
-}
 .title{
     text-align: center;
+}
+.title .eventIng{
+    font-size:0.8em;
+    color:#fff;
+    background : #f65e57;
+    padding : 4px 8px;
+    border-radius: 1em;
+}
+
+.title .eventBefore{
+    font-size:0.8em;
+    color:#fff;
+    background : #13294b;
+    padding : 4px 8px;
+    border-radius: 1em;
+}
+
+.title h1{
+    font-size:2em;
+    color:#333
+}
+
+.title .eventDate{
+    color:#666
 }
 
 .imgBox{

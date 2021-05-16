@@ -16,7 +16,8 @@ class Festival {
                             arrange : arrange,
                             listYN : 'Y',
                             eventStartDate : eventDate,
-                            areaCode : areaCode || null
+                            areaCode : areaCode || null,
+                            eventEndDate : eventDate
                         },
                     })
         
@@ -72,6 +73,19 @@ class Festival {
 
     async contentDetail(contentId){
         const response = await this.festival.get('/detailInfo', {
+            params : {
+                type: '_json',
+                MobileOS : 'ETC',
+                MobileApp : 'Festival',
+                contentId : contentId,
+                contentTypeId : 15
+            },
+        })
+        return  response.data.response.body.items.item
+    }
+
+    async contentIntro(contentId){
+        const response = await this.festival.get('/detailIntro', {
             params : {
                 type: '_json',
                 MobileOS : 'ETC',
