@@ -14,8 +14,12 @@
 홍선기 (프론트엔드)
 
 ### 2. 사용기술
-React
-React-Router
-Axios
-PostCSS
-WebPack
+- React
+- React-Router
+- Axios
+- PostCSS
+- WebPack
+
+### 3. 핵심 트러블 슈팅
+
+#### 3.1 API CORS 적용 문제
