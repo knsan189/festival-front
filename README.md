@@ -19,6 +19,3 @@ React-Router
 Axios
 PostCSS
 WebPack
-
-### `yarn build`
-
