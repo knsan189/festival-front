@@ -18,7 +18,8 @@
 - React-Router
 - Axios
 - PostCSS
-- WebPack
+- WebPack 
+- MomentJs (https://momentjs.com/)
 ### 3. 핵심 기능
 
 ### 4. 핵심 트러블 슈팅
