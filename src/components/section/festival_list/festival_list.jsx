@@ -36,7 +36,7 @@ const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, 
                             ? items.item.length > 1
                                 ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} handleLoading={handleLoading} />)
                                 : <FestivalItem festivalInfo={items.item} key={items.item.contentid} handleLoading={handleLoading} />
-                            : <p> 조건에 맞는 축제가 없습니다.  {setTimeout(handleLoading, 1500)}</p>
+                            : <p> 조건에 맞는 축제가 없습니다.  { setTimeout(handleLoading, 1500) }</p>
                     }
                 </ul>
 

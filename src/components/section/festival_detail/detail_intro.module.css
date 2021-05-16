@@ -1,0 +1,10 @@
+.intro{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.intro li{
+    width:50%;
+    list-style-type:circle;
+}

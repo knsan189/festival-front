@@ -6,6 +6,7 @@ import styles from './festival_detail.module.css'
 import Slider from 'react-slick'
 import DetailInfo from './detail_info';
 import moment from 'moment';
+import DetailIntro from './detail_intro';
 
 const FestivalDetail = ({festivals}) => {
     
@@ -30,11 +31,12 @@ const FestivalDetail = ({festivals}) => {
     // API 요청 처리 시작
     const [details, setDetails] = useState('')
     const [img, setImg] = useState('')
+    const [intros, setIntros] = useState('')
 
     useEffect(() => {
-        festivals.contentInfo(festivalInfo.contentid).then(data => setDetails(data))
-        festivals.contentImg(festivalInfo.contentid).then(data => setImg(data))
-        festivals.contentIntro(festivalInfo.contentid).then(console.log)
+        festivals.contentInfo(festivalInfo.contentid).then(data => setDetails(prev => prev = data))
+        festivals.contentImg(festivalInfo.contentid).then(data => setImg(prev => prev = data))
+        festivals.contentIntro(festivalInfo.contentid).then(data => setIntros(prev => prev = data))
     }, [festivalInfo.contentid, festivals])
 
     const {overview, homepage, mapx, mapy, tel, title, telname} = details 
@@ -60,6 +62,16 @@ const FestivalDetail = ({festivals}) => {
     const settings = { dots: false, infinite: true,speed: 500, slidesToShow: 1, slidesToScroll: 1}
     //
 
+    // 날짜 중간에 .표시해주는 함수
+    const dateChange = (date) => {
+        if(date) {
+        const temp = date.toString().split('')
+        temp.splice(4, 0, '.')
+        temp.splice(7, 0, '.')
+        return temp.join('')
+        }
+    }
+
     return (
             <section className={styles.section}>
                 <div className={styles.title}>
@@ -71,7 +83,7 @@ const FestivalDetail = ({festivals}) => {
                                 : <span className={styles.eventEnd}>이벤트끝</span>
                     }
                     <h1>{title}</h1>
-                    <span className={styles.eventDate}>{festivalInfo.eventstartdate} ~ {festivalInfo.eventenddate}</span>
+                    <span className={styles.eventDate}>{dateChange(festivalInfo.eventstartdate)} ~ {dateChange(festivalInfo.eventenddate)}</span>
                 </div>
                 <div className={styles.slideBox}>
                     <Slider {...settings}>
@@ -86,7 +98,7 @@ const FestivalDetail = ({festivals}) => {
                     <p dangerouslySetInnerHTML={{__html: homepage }}></p>
                     <p>{telname}{tel}</p>
 
-                    <ul id="detailInfo">
+                    <ul className={styles.detailInfo}>
                         {more && 
                             more.length > 1 
                                 ? more.map((more, index) => index !==0 && <DetailInfo more={more} key={more.fldgubun}/>)
@@ -94,17 +106,20 @@ const FestivalDetail = ({festivals}) => {
                         }
                     </ul>
 
-                    <button className={styles.button} style={{ display : moreBtn.current === 0 ? 'block' : 'none'}} onClick={()=> moreDetail(festivalInfo.contentid)}>
-                        <i className="fas fa-plus"></i> 
-                        내용 더보기
-                    </button>
-
-                    <button className={styles.button} style={{ display : moreBtn.current === 1 ? 'block' : 'none'}} onClick={()=> closeDetail()}>
-                        <i className="fas fa-minus"></i> 
-                        내용 닫기
-                    </button>
+                    <div className={styles.buttonBox}>
+                        <button className={styles.button} style={{ display : moreBtn.current === 0 ? 'inline-block' : 'none'}} onClick={()=> moreDetail(festivalInfo.contentid)}>
+                            내용 더보기
+                            <i className="fas fa-plus"></i> 
+                        </button>
+    
+                        <button className={styles.button} style={{ display : moreBtn.current === 1 ? 'inline-block' : 'none'}} onClick={()=> closeDetail()}>
+                            내용 닫기
+                            <i className="fas fa-minus"></i> 
+                        </button>
+                    </div>
                 </div>
                 <DetailMap mapx={mapx} mapy={mapy}/>
+                <DetailIntro intros={intros} details={details} dateChange={dateChange} festivalInfo={festivalInfo}/>
             </section>
     );}
 
