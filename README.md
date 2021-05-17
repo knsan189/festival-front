@@ -41,3 +41,17 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
 #### 4.2 새로고침시 state가 사라지는 문제
 - React는 SPA이므로 새로고침을 했을때, state에 있는 정보(API 요청키 등)의 정보가 지워져 여러 오류를 발생시켰습니다.
 - 이를 해결하기 위해서 브라우저 저장소를 이용 하여 문제를 해결했습니다.
+
+
+```javascript
+    let data = useLocation().state
+    const sessionData = JSON.parse(sessionStorage.getItem('data'))
+    if(sessionData){
+        data = sessionData
+    }    
+    const {festivalInfo} = data
+
+    useEffect(()=> {
+        sessionStorage.setItem('data', JSON.stringify(data))
+    }, [data])
+````
