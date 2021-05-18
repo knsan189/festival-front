@@ -121,7 +121,9 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
 
 </div>
 </details>
+
 ***
+
 ### 5. 향후 계획
 1. 코드의 가독성을 높이기 위해 Typescript로 변경예정
 2. state 관리를 Redux 플러그인을 활용예정
