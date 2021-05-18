@@ -24,7 +24,7 @@
 - PostCSS
 - WebPack 
 - MomentJs (https://momentjs.com/)
-
+***
 ### 3. 핵심 기능
 #### 3.1 공휴일이 포함된 달력 표시
  - 공공데이터포털에서 제공하는 특일 정보와 MomentJS를 활용해만든 달력을 연동해, 매월 공휴일을 조회할 수 있습니다.
