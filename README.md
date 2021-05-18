@@ -27,9 +27,10 @@
 
 ### 3. 핵심 기능
 #### 3.1 공휴일이 포함된 달력 표시
+ - 공공데이터포털에서 제공하는 특일 정보와 MomentJS를 활용해만든 달력을 연동해, 매월 공휴일을 조회할 수 있습니다.
 
 <details>
-    <summary>자세히 보기</summary>
+    <summary>이미지 보기</summary>
     <div markdown="1">
         <img src="https://user-images.githubusercontent.com/77265562/118586417-ab03c480-b7d5-11eb-8b80-4ad4b6dd23a2.jpg">
     </div>
