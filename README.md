@@ -30,6 +30,7 @@
 <details>
     <summary>자세히 보기</summary>
     <div markdown="1">
+        <img src="https://user-images.githubusercontent.com/77265562/118586417-ab03c480-b7d5-11eb-8b80-4ad4b6dd23a2.jpg">
         ![calender](https://user-images.githubusercontent.com/77265562/118586417-ab03c480-b7d5-11eb-8b80-4ad4b6dd23a2.jpg)
     </div>
 </details>
