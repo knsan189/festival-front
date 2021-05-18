@@ -31,14 +31,22 @@
     <summary>자세히 보기</summary>
     <div markdown="1">
         <img src="https://user-images.githubusercontent.com/77265562/118586417-ab03c480-b7d5-11eb-8b80-4ad4b6dd23a2.jpg">
-        ![calender](https://user-images.githubusercontent.com/77265562/118586417-ab03c480-b7d5-11eb-8b80-4ad4b6dd23a2.jpg)
     </div>
 </details>
 #### 3.2 원하는 날짜 혹은 지역을 클릭시 해당 조건에 맞는 축제들만 표시
-![info](https://user-images.githubusercontent.com/77265562/118586513-db4b6300-b7d5-11eb-8315-4af3142b1c91.PNG)
+<details>
+    <summary>자세히 보기</summary>
+    <div markdown="1">
+        <img src="https://user-images.githubusercontent.com/77265562/118586513-db4b6300-b7d5-11eb-8315-4af3142b1c91.PNG">
+    </div>
+</details>
 #### 3.3 카카오맵 API와 연동하여, 원하는 축제장소 바로 가능
-![map](https://user-images.githubusercontent.com/77265562/118586580-fcac4f00-b7d5-11eb-96e5-3a8c4d90441b.PNG)
-
+<details>
+    <summary>자세히 보기</summary>
+    <div markdown="1">
+        <img src="https://user-images.githubusercontent.com/77265562/118586580-fcac4f00-b7d5-11eb-96e5-3a8c4d90441b.PNG">
+    </div>
+</details>
 ### 4. 핵심 트러블 슈팅
 
 #### 4.1 MIXED CONTENT 문제
