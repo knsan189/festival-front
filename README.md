@@ -71,8 +71,7 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
    baseURL : 'https://festivalprojectapp.herokuapp.com/http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
    params : { 
    serviceKey : "서비스키"
-   }
-}
+   }}
 ```
         
 </div>
