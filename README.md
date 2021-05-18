@@ -62,7 +62,11 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
 한국관광공사에서 제공해주는 API가 https를 제공하지 않아, API 요청시 브라우저에서 거부가 되어
 프록시서버를 만들어 서버에서 API데이터를 송신하는 방식으로 사용했습니다.
 
-```javascript
+<details>
+    <summary>자세히 보기</summary>
+    <div markdown="1">
+        
+        ```javascript
 const httpClient = axios.create({
     baseURL : 'https://festivalprojectapp.herokuapp.com/http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
     params : { 
@@ -70,6 +74,11 @@ const httpClient = axios.create({
     }
   }
 ```
+        
+    </div>
+</details>
+
+
 
 - https://github.com/Rob--W/cors-anywhere
 - https://festivalprojectapp.herokuapp.com
