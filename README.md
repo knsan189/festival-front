@@ -27,7 +27,7 @@
 
 ### 3. 핵심 기능
 #### 3.1 공휴일이 포함된 달력 표시
-![img](https://user-images.githubusercontent.com/77265562/118586327-80197080-b7d5-11eb-8a7c-7a3d9fed31f7.png)
+![calender](https://user-images.githubusercontent.com/77265562/118586417-ab03c480-b7d5-11eb-8b80-4ad4b6dd23a2.jpg)
 #### 3.2 원하는 날짜 혹은 지역을 클릭시 해당 조건에 맞는 축제들만 표시
 #### 3.3 카카오맵 API와 연동하여, 원하는 축제장소 바로 가능
 
