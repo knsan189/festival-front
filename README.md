@@ -63,7 +63,22 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
 프록시서버를 만들어 서버에서 API데이터를 송신하는 방식으로 사용했습니다.
 
 <details>
-<summary>자세히 보기</summary>
+<summary>Before</summary>
+<div markdown="1">
+        
+```javascript
+   const httpClient = axios.create({
+   baseURL : 'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
+   params : { 
+   serviceKey : "서비스키"
+   }}
+```
+        
+</div>
+</details>
+
+<details>
+<summary>After</summary>
 <div markdown="1">
         
 ```javascript
