@@ -2,9 +2,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top:1em;
 }
 
 .intro li{
     width:50%;
-    list-style-type:circle;
+    display: flex;
+    align-items: baseline;
+    padding:0.4em 0;
+}
+
+.intro li p{
+    display: inline-block;
+    width:30%
+}
+
+.intro li span{
+    width:70%;
+    color:#666
 }

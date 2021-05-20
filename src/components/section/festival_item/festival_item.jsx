@@ -23,17 +23,21 @@ const FestivalItem = memo(({festivalInfo, handleLoading}) => {
     //
     
             return (
-                <Link to={{pathname : '/details', state : {festivalInfo}}} contentid={festivalInfo.contentid}>
+                
                     <li className={styles.item}>
+                        
                         <div className={styles.imgBox}><img src={imgUrlChange} alt={festivalInfo.title} onLoad={handleLoading}/></div>
                         <div className={styles.festivalInfo}>
-                            <h2>{festivalInfo.title}</h2>
-                            <p>[{dateRefresh1} ~ {dateRefresh2}]</p>
-                            <p>주소 : {festivalInfo.addr1}</p>
-                            <button><i className="fas fa-ellipsis-v"></i></button> 
+                            <Link to={{pathname : '/details', state : {festivalInfo}}} contentid={festivalInfo.contentid} className={styles.link}>
+                                <h2>{festivalInfo.title}</h2>
+                                <p>[{dateRefresh1} ~ {dateRefresh2}]</p>
+                                <p>주소 : {festivalInfo.addr1}</p>
+                                <button><i className="fas fa-ellipsis-v"></i></button>
+                            </Link>
                         </div>
+                        
                     </li>
-                </Link>
+                
             )
 });
 

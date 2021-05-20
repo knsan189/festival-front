@@ -39,7 +39,7 @@ const FestivalDetail = ({festivals}) => {
         festivals.contentIntro(festivalInfo.contentid).then(data => setIntros(prev => prev = data))
     }, [festivalInfo.contentid, festivals])
 
-    const {overview, homepage, mapx, mapy, tel, title, telname} = details 
+    const {overview, homepage, mapx, mapy, title} = details 
     // 끝
 
 
@@ -69,7 +69,7 @@ const FestivalDetail = ({festivals}) => {
         temp.splice(4, 0, '.')
         temp.splice(7, 0, '.')
         return temp.join('')
-        }
+        }   
     }
 
     return (
@@ -96,7 +96,6 @@ const FestivalDetail = ({festivals}) => {
                 <div className={styles.info}>
                     <pre dangerouslySetInnerHTML={{__html: overview }}></pre>
                     <p dangerouslySetInnerHTML={{__html: homepage }}></p>
-                    <p>{telname}{tel}</p>
 
                     <ul className={styles.detailInfo}>
                         {more && 

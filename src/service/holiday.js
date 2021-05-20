@@ -25,6 +25,16 @@ class Holiday{
         })
         return  response.data.response.body.items.item
     }
+
+    async news(date) {
+        const response = await this.holiday.get('', {
+            params : {
+            },
+        })
+        return  response.data.response.body.items.item
+    }
+
+
 }
 
 export default Holiday

@@ -21,8 +21,8 @@ const CalenderDay = memo(({days, today, dayInfo, seletedDate, holiday, holidayDa
                     {
                         holiday && (
                             holiday.length > 1
-                            ? holiday.map(obj => obj.locdate === parseInt(days.format('YYYYMMDD'))&& <p className={styles.datename} key={obj.dateName}>{obj.dateName}</p>)  
-                            : holiday.locdate === parseInt(days.format('YYYYMMDD')) && <p className={styles.datename}>{holiday.dateName}</p>                                                                
+                            ? holiday.map(obj => obj.locdate === parseInt(days.format('YYYYMMDD')) && <span className={styles.datename} key={obj.dateName}>{obj.dateName}</span>)  
+                            : holiday.locdate === parseInt(days.format('YYYYMMDD')) && <span className={styles.datename}>{holiday.dateName}</span>                                                                
                         )
                     }
                 </span>

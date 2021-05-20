@@ -13,7 +13,7 @@ const Calender = memo(({today, onSubtrack, onAdd, dayInfo, seletedDate, holiday,
 
 
     const calenderArr = () => {
-        for(week; week<=lastWeek; week++){
+        for(week; week <= lastWeek; week++){
             result = result.concat( <CalenderWeek today={today} key={week} week={week} dayInfo={dayInfo} seletedDate={seletedDate} holiday={holiday} holidayDate={holidayDate} /> )
         }
         return result;

@@ -8,12 +8,13 @@
     position: relative;
 }
 
-.item:last-child{
-    border-bottom:1px solid #c6c6c6
-}
 .item:hover{
     background: #f6f6f6;
     cursor: pointer;
+}
+
+.link:last-child li{
+    border-bottom:1px solid #c6c6c6
 }
 .item img{
     width: 100%;
@@ -28,6 +29,7 @@
 
 .festivalInfo {
     width:73%;
+    padding-right:2em;
 }
 
 .festivalInfo h2{

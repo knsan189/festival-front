@@ -19,12 +19,12 @@ td:nth-child(7n){
 .td:hover .datename{
     display: block;
     position: absolute;
-    top:0%;
-    left:100%;
-    height:100%;
-    background: #fff;
-    width:200%;
-    color:#000;
+    bottom:70%;
+    left:70%;
+    background: red;
+    padding:10px;
+    color:white;
+    word-break: keep-all;
 }
 .isholiday{
     color:red;

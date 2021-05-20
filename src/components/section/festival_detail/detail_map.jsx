@@ -14,7 +14,7 @@ const DetailMap = ({mapx, mapy}) => {
             let container = document.getElementById("Mymap");
             let options = {
                 center: new kakao.maps.LatLng(mapy, mapx),
-                level: 7
+                level: 6
             };
 
         const map = new window.kakao.maps.Map(container, options);

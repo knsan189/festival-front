@@ -1,83 +1,84 @@
-.section{
-    width:980px;
-    margin:0 auto;
+.section {
+    width: 980px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.title{
+.title {
     text-align: center;
     padding-bottom: 2em;
 }
-.title .eventIng{
-    font-size:0.8em;
-    color:#fff;
-    background : #f65e57;
-    padding : 4px 8px;
+
+.title .eventIng {
+    font-size: 0.8em;
+    color: #fff;
+    background: #f65e57;
+    padding: 4px 8px;
     border-radius: 1em;
 }
 
-.title .eventBefore{
-    font-size:0.8em;
-    color:#fff;
-    background : #13294b;
-    padding : 4px 8px;
+.title .eventBefore {
+    font-size: 0.8em;
+    color: #fff;
+    background: #13294b;
+    padding: 4px 8px;
     border-radius: 1em;
 }
 
-.title h1{
-    font-size:2em;
-    color:#333
+.title h1 {
+    font-size: 2em;
+    color: #333
 }
 
-.title .eventDate{
-    color:#666
+.title .eventDate {
+    color: #666
 }
 
-.imgBox{
+.imgBox {
     text-align: center;
 }
 
 
-.section h2{
-    padding-bottom:0.5em;
+.section h2 {
+    padding-bottom: 0.5em;
     border-bottom: 2px solid #333;
 }
 
 
-.slideBox{
-    margin-bottom:2em;
+.slideBox {
+    margin-bottom: 2em;
 }
 
-.info{
-    padding:1em 0;
+.info {
+    padding: 1em 0;
     color: #333;
-    font-size:1.2em;
+    font-size: 1.2em;
     letter-spacing: -1px;
     line-height: 1.7;
 }
 
-.info h3{
+.info h3 {
     font-weight: 500;
 }
 
-.info .detailInfo{
-    padding:1em 0;
+.info .detailInfo {
+    padding: 1em 0;
 }
 
-.info .buttonBox{
+.info .buttonBox {
     text-align: right;
     letter-spacing: -1px;
 }
 
-.info .buttonBox .button{
-    font-size:0.8em;
+.info .buttonBox .button {
+    font-size: 0.8em;
     cursor: pointer;
     transition: 0.4s all;
     text-align: right;
 }
 
-.info .buttonBox .button svg{
-    font-size : 0.8em;
-    margin-left : 5px;
+.info .buttonBox .button svg {
+    font-size: 0.8em;
+    margin-left: 5px;
     color: #666;
 }
