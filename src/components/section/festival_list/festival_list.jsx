@@ -4,7 +4,7 @@ import FestivalPage from './festival_page';
 import FestivalArrage from './festival_arrage';
 import { memo } from 'react';
 
-const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange, handleLoading}) => {
+const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange}) => {
 
             const {items} = festivalInfo
             const pageNum = []
@@ -34,9 +34,9 @@ const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, 
                     { 
                         items 
                             ? items.item.length > 1
-                                ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} handleLoading={handleLoading} />)
-                                : <FestivalItem festivalInfo={items.item} key={items.item.contentid} handleLoading={handleLoading} />
-                            :  <p> 조건에 맞는 축제가 없습니다. <span>{setTimeout(handleLoading, 1500) }</span></p>
+                                ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} />)
+                                : <FestivalItem festivalInfo={items.item} key={items.item.contentid} />
+                            :  <p> 조건에 맞는 축제가 없습니다.</p>
                     }
                 </ul>
 

@@ -24,8 +24,6 @@ const List = ({festivals, holidays}) => {
       setDate('')
     }
       
-
-    
       const [holiday, setHoliday] = useState([])
       const [date, setDate] = useState('')
     
@@ -80,47 +78,47 @@ const List = ({festivals, holidays}) => {
         }
         setInputs(nextInputs)
       }
-      const [loading, setLoading] = useState(null)
+      const [loading, setLoading] = useState(false)
 
     useEffect(()=> {
-          setLoading(true)
-          festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode).then(festivals => setFestivalInfo(festivals))
+          festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode, setting => setLoading(setting) ).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
           holidays.thisMonth().then(holiday => setHoliday(holiday))
           sessionStorage.clear()
       }, [eventDate, areaCode, pageNo, arrange, festivals, holidays])
       
-    const handleLoading = () => {
-      setLoading(false)
-    }
 
     return (
-        <section className={styles.list}>
-            <Loading loading={loading}/>
-                <FestivalList
-                    festivalInfo={festivalInfo} 
-                    date={date} 
-                    today={today}
-                    areaName={areaName} 
-                    selectPageNo={selectPageNo} 
-                    pageNo={pageNo} 
-                    selectArrage={selectArrage}
-                    arrange={arrange}
-                    handleLoading = {handleLoading}
-                />
-                <Sidebar 
-                    today={today} 
-                    onAdd={onAdd} 
-                    onSubtrack={onSubtrack} 
-                    dayInfo={daySelect} 
-                    seletedDate={date} 
-                    holiday={holiday} 
-                    changedDate={changedDate} 
-                    areaSelect={areaSelect} 
-                    areaCode={areaCode} 
-                    areaCodes={areaCodes}
-                />  
-        </section>  
+      <>
+        { loading && <Loading loading={loading}/>}
+        { 
+          !loading && 
+          <section className={styles.list}>
+            <FestivalList
+                festivalInfo={festivalInfo} 
+                date={date} 
+                today={today}
+                areaName={areaName} 
+                selectPageNo={selectPageNo} 
+                pageNo={pageNo} 
+                selectArrage={selectArrage}
+                arrange={arrange}
+            />
+            <Sidebar 
+                today={today} 
+                onAdd={onAdd} 
+                onSubtrack={onSubtrack} 
+                dayInfo={daySelect} 
+                seletedDate={date} 
+                holiday={holiday} 
+                changedDate={changedDate} 
+                areaSelect={areaSelect} 
+                areaCode={areaCode} 
+                areaCodes={areaCodes}
+            />  
+          </section>
+        }  
+      </>
     );
 }
 export default List;

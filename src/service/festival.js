@@ -4,8 +4,9 @@ class Festival {
         this.festival = festivalClient
     }
 
-    async thisMonthFestival(eventDate, pageNo, arrange, areaCode) {
+    async thisMonthFestival(eventDate, pageNo, arrange, areaCode, setLoading) {
                 try {
+                    setLoading(true)
                     const response = await this.festival.get('/searchFestival', {
                         params: {
                             pageNo: pageNo,
@@ -25,6 +26,9 @@ class Festival {
                }
                catch (e){
                     console.log(e)
+               }
+               finally{
+                    setLoading(false)
                }
     }
 
