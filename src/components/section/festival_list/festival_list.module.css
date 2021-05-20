@@ -1,10 +1,14 @@
+.festivalList{
+    width: 600px;
+}
+
 .festivals {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
     list-style: none;
-    width: 600px;
+    
 }
 
 .festivals > p > span{

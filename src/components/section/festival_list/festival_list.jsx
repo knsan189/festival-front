@@ -3,8 +3,10 @@ import FestivalItem from '../festival_item/festival_item';
 import FestivalPage from './festival_page';
 import FestivalArrage from './festival_arrage';
 import { memo } from 'react';
+import Loading from '../../loading';
 
-const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange}) => {
+
+const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange, loading}) => {
 
             const {items} = festivalInfo
             const pageNum = []
@@ -29,17 +31,21 @@ const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, 
                     </ul>
                     
                 </div>
-                
-                <ul className={styles.festivals}>
-                    { 
-                        items 
-                            ? items.item.length > 1
-                                ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} />)
-                                : <FestivalItem festivalInfo={items.item} key={items.item.contentid} />
-                            :  <p> 조건에 맞는 축제가 없습니다.</p>
-                    }
-                </ul>
-
+                {
+                    loading && <Loading />
+                }
+                {
+                    !loading &&
+                    <ul className={styles.festivals}>
+                        { 
+                            items 
+                                ? items.item.length > 1
+                                    ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} />)
+                                    : <FestivalItem festivalInfo={items.item} key={items.item.contentid} />
+                                :  <p> 조건에 맞는 축제가 없습니다.</p>
+                        }
+                    </ul>
+                }    
                 <ul className={styles.pageNum}>
                     {pageNum.map((num, index) => <FestivalPage key={num} num={index} selectPageNo={selectPageNo} pageNo={pageNo}/>)}
                 </ul>
