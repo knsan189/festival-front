@@ -4,7 +4,7 @@ import styles from './header.module.css'
 import HeaderSearch from './header_search';
 import Navgation from './navgation';
 
-const Header = (props) => (
+const Header = ({userId, authService}) => (
         <header className={styles.header}>
            <div className={styles.row}>
                 <div className={styles.logo}>
@@ -13,7 +13,7 @@ const Header = (props) => (
                     </Link>
                 </div>
                 <HeaderSearch />
-                <Navgation />
+                <Navgation userId={userId} authService={authService}/>
            </div>
         </header>
     );

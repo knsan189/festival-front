@@ -6,8 +6,25 @@ import Sidebar from './sidebar/sidebar';
 import styles from './list.module.css'
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import { useHistory } from 'react-router';
 
-const List = ({festivals, holidays}) => {
+const List = ({festivals, holidays, authService}) => {
+
+    const history = useHistory()
+    const historyState = history?.location?.state;
+    const [userId, setUserId] = useState(historyState && historyState.id)
+    
+    useEffect(() => {
+      authService.onAuthChange(user => {
+        if(user) {
+          setUserId(user.uid)
+        }
+        else{
+          setUserId('')
+        }
+      })
+    })
+
 
     // Moment Js로 오늘날짜 및 날짜관리
     const [getMoment, setMoment] = useState(moment());
@@ -85,13 +102,13 @@ const List = ({festivals, holidays}) => {
           festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode, setting => setLoading(setting) ).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
           holidays.thisMonth().then(holiday => setHoliday(holiday))
-          sessionStorage.clear()
+          sessionStorage.removeItem('data')
       }, [eventDate, areaCode, pageNo, arrange, festivals, holidays])
       
 
     return (
       <>
-        <Header />
+        <Header userId={userId} authService={authService}/>
         <section className={styles.list}>
           <FestivalList
               festivalInfo={festivalInfo} 

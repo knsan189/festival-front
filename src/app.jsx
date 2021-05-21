@@ -15,7 +15,7 @@ function App({holidays, festivals, authService}) {
       <HashRouter forceRefresh={true}>
           <Switch>
             <Route path={['/list', '/']} exact>
-              <List holidays={holidays} festivals={festivals}/>
+              <List holidays={holidays} festivals={festivals} authService={authService}/>
             </Route>
             <Route path='/main'>
 
