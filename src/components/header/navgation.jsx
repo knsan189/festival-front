@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './navgation.module.css'
 
-const Navgation = ({userId, authService}) => {
+const Navgation = memo(({userId, authService}) => {
     const onLogout = useCallback(() => {
         authService.logout()
     },[authService])
@@ -32,6 +32,6 @@ const Navgation = ({userId, authService}) => {
             </ul>
         </nav>
     </>
-    );
-            }
+    )
+})
 export default Navgation;

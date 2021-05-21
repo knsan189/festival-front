@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const DetailInfo = ({more}) => {
+const DetailInfo = memo(({more}) => {
     const {infoname, infotext} = more
     return(
             <li>
@@ -8,5 +8,5 @@ const DetailInfo = ({more}) => {
                 <pre dangerouslySetInnerHTML={{__html: infotext }}></pre>
             </li>
     );
-}
+})
 export default DetailInfo;

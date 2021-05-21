@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './header.module.css'
 import HeaderSearch from './header_search';
 import Navgation from './navgation';
 
-const Header = ({userId, authService}) => (
+const Header = memo(({userId, authService}) => (
         <header className={styles.header}>
            <div className={styles.row}>
                 <div className={styles.logo}>
@@ -16,6 +16,6 @@ const Header = ({userId, authService}) => (
                 <Navgation userId={userId} authService={authService}/>
            </div>
         </header>
-    );
+    ))
 
 export default Header;
