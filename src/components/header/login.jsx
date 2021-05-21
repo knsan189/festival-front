@@ -5,11 +5,8 @@ import styles from './login.module.css'
 const Login = ({authService}) => {
     
     const history = useHistory();
-    const goToHome = (userId) => {
-        history.push({
-            pathname : '/',
-            state:{ id : userId}
-        })
+    const goToHome = () => {
+        history.goBack()
     }
 
     const onLogin = event => {

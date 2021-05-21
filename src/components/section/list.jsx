@@ -6,13 +6,10 @@ import Sidebar from './sidebar/sidebar';
 import styles from './list.module.css'
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import { useHistory } from 'react-router';
 
-const List = ({festivals, holidays, authService}) => {
+const List = ({festivals, holidays, favoradd, authService}) => {
 
-    const history = useHistory()
-    const historyState = history?.location?.state;
-    const [userId, setUserId] = useState(historyState && historyState.id)
+    const [userId, setUserId] = useState()
     
     useEffect(() => {
       authService.onAuthChange(user => {
@@ -20,11 +17,11 @@ const List = ({festivals, holidays, authService}) => {
           setUserId(user.uid)
         }
         else{
-          setUserId('')
+          setUserId(null)
         }
-      })
+      }
+      )
     })
-
 
     // Moment Js로 오늘날짜 및 날짜관리
     const [getMoment, setMoment] = useState(moment());
@@ -109,8 +106,8 @@ const List = ({festivals, holidays, authService}) => {
     return (
       <>
         <Header userId={userId} authService={authService}/>
-        <section className={styles.list}>
-          <FestivalList
+          <section className={styles.list}>
+            <FestivalList
               festivalInfo={festivalInfo} 
               date={date} 
               today={today}
@@ -120,8 +117,10 @@ const List = ({festivals, holidays, authService}) => {
               selectArrage={selectArrage}
               arrange={arrange}
               loading={loading}
-          />
-          <Sidebar 
+              favoradd={favoradd}
+              userId={userId}
+            />
+            <Sidebar 
               today={today} 
               onAdd={onAdd} 
               onSubtrack={onSubtrack} 
@@ -133,7 +132,7 @@ const List = ({festivals, holidays, authService}) => {
               areaCode={areaCode} 
               areaCodes={areaCodes}
           />  
-        </section>
+          </section>
         <Footer />
       </>
     );

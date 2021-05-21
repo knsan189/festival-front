@@ -6,7 +6,7 @@ import { memo } from 'react';
 import Loading from '../../loading';
 
 
-const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange, loading}) => {
+const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, selectArrage, arrange, loading, favoradd, userId}) => {
 
             const {items} = festivalInfo
             const pageNum = []
@@ -40,8 +40,8 @@ const FestivalList = memo(({date, festivalInfo, areaName, selectPageNo, pageNo, 
                         { 
                             items 
                                 ? items.item.length > 1
-                                    ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} />)
-                                    : <FestivalItem festivalInfo={items.item} key={items.item.contentid} />
+                                    ? items.item.map((festivalInfo) => <FestivalItem festivalInfo={festivalInfo} key={festivalInfo.contentid} favoradd={favoradd} userId={userId}/>)
+                                    : <FestivalItem festivalInfo={items.item} key={items.item.contentid} favoradd={favoradd} userId={userId}/>
                                 :  <p> 조건에 맞는 축제가 없습니다.</p>
                         }
                     </ul>
