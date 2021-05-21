@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import FestivalList from './festival_list/festival_list';
 import Sidebar from './sidebar/sidebar';
 import styles from './list.module.css'
+import Header from '../header/header';
+import Footer from '../footer/footer';
 
 const List = ({festivals, holidays}) => {
 
@@ -88,31 +90,35 @@ const List = ({festivals, holidays}) => {
       
 
     return (
-      <section className={styles.list}>
-        <FestivalList
-            festivalInfo={festivalInfo} 
-            date={date} 
-            today={today}
-            areaName={areaName} 
-            selectPageNo={selectPageNo} 
-            pageNo={pageNo} 
-            selectArrage={selectArrage}
-            arrange={arrange}
-            loading={loading}
-        />
-        <Sidebar 
-            today={today} 
-            onAdd={onAdd} 
-            onSubtrack={onSubtrack} 
-            dayInfo={daySelect} 
-            seletedDate={date} 
-            holiday={holiday} 
-            changedDate={changedDate} 
-            areaSelect={areaSelect} 
-            areaCode={areaCode} 
-            areaCodes={areaCodes}
-        />  
-      </section>
+      <>
+        <Header />
+        <section className={styles.list}>
+          <FestivalList
+              festivalInfo={festivalInfo} 
+              date={date} 
+              today={today}
+              areaName={areaName} 
+              selectPageNo={selectPageNo} 
+              pageNo={pageNo} 
+              selectArrage={selectArrage}
+              arrange={arrange}
+              loading={loading}
+          />
+          <Sidebar 
+              today={today} 
+              onAdd={onAdd} 
+              onSubtrack={onSubtrack} 
+              dayInfo={daySelect} 
+              seletedDate={date} 
+              holiday={holiday} 
+              changedDate={changedDate} 
+              areaSelect={areaSelect} 
+              areaCode={areaCode} 
+              areaCodes={areaCodes}
+          />  
+        </section>
+        <Footer />
+      </>
     );
 }
 export default List;

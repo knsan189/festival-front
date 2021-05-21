@@ -1,30 +1,35 @@
 import styles from './app.module.css';
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
 import List from './components/section/list';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import FestivalDetail from './components/section/festival_detail/festival_detail';
+import Login from './components/header/login';
+import Mypage from './components/section/mypage/mypage';
 
 
 
-function App({holidays, festivals}) {
+function App({holidays, festivals, authService}) {
 
   return (
   
     <div className={styles.app}>
       <HashRouter forceRefresh={true}>
-        <Header />
           <Switch>
             <Route path={['/list', '/']} exact>
               <List holidays={holidays} festivals={festivals}/>
             </Route>
+            <Route path='/main'>
 
+            </Route>
             <Route path='/details'>
               <FestivalDetail festivals={festivals}/>
             </Route>
+            <Route path='/mypage'>
+              <Mypage />
+            </Route>
+            <Route path='/login'>
+              <Login authService={authService} />
+            </Route>
           </Switch>
-
-        <Footer />
       </HashRouter>
     </div>
 

@@ -8,6 +8,7 @@ import Holiday from './service/holiday';
 import Festival from './service/festival';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AuthService from './service/auth_service';
 
 const httpClient = axios.create(
   {
@@ -29,10 +30,11 @@ const festivalClient =  axios.create(
 
 const festivals = new Festival(festivalClient)
 const holidays = new Holiday(httpClient)
+const authService = new AuthService()
 
 ReactDOM.render(
   <React.StrictMode>
-    <App holidays={holidays} festivals={festivals}/>
+    <App holidays={holidays} festivals={festivals} authService={authService}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

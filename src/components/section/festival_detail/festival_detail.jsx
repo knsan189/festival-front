@@ -7,6 +7,8 @@ import Slider from 'react-slick'
 import DetailInfo from './detail_info';
 import moment from 'moment';
 import DetailIntro from './detail_intro';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 const FestivalDetail = ({festivals}) => {
     
@@ -73,53 +75,57 @@ const FestivalDetail = ({festivals}) => {
     }
 
     return (
-            <section className={styles.section}>
-                <div className={styles.title}>
-                    {
-                        today > festivalInfo.eventstartdate && today < festivalInfo.eventenddate
-                            ? <span className={styles.eventIng}>진행중</span>
-                            : today < festivalInfo.eventstartdate 
-                                ? <span className={styles.eventBefore}>진행전</span>
-                                : <span className={styles.eventEnd}>이벤트끝</span>
-                    }
-                    <h1>{title}</h1>
-                    <span className={styles.eventDate}>{dateChange(festivalInfo.eventstartdate)} ~ {dateChange(festivalInfo.eventenddate)}</span>
-                </div>
-                <div className={styles.slideBox}>
-                    <Slider {...settings}>
-                        { 
-                            img && img.map(img =><DetailImg img={img} key={img.serialnum} title={title}/>)
+            <>
+                <Header />
+                <section className={styles.section}>
+                    <div className={styles.title}>
+                        {
+                            today > festivalInfo.eventstartdate && today < festivalInfo.eventenddate
+                                ? <span className={styles.eventIng}>진행중</span>
+                                : today < festivalInfo.eventstartdate 
+                                    ? <span className={styles.eventBefore}>진행전</span>
+                                    : <span className={styles.eventEnd}>이벤트끝</span>
                         }
-                    </Slider>
-                </div>
-                <h2>상세정보</h2>
-                <div className={styles.info}>
-                    <pre dangerouslySetInnerHTML={{__html: overview }}></pre>
-                    <p dangerouslySetInnerHTML={{__html: homepage }}></p>
-
-                    <ul className={styles.detailInfo}>
-                        {more && 
-                            more.length > 1 
-                                ? more.map((more, index) => index !==0 && <DetailInfo more={more} key={more.fldgubun}/>)
-                                : more.length === 1 && <DetailInfo more={more} />
-                        }
-                    </ul>
-
-                    <div className={styles.buttonBox}>
-                        <button className={styles.button} style={{ display : moreBtn.current === 0 ? 'inline-block' : 'none'}} onClick={()=> moreDetail(festivalInfo.contentid)}>
-                            내용 더보기
-                            <i className="fas fa-plus"></i> 
-                        </button>
-    
-                        <button className={styles.button} style={{ display : moreBtn.current === 1 ? 'inline-block' : 'none'}} onClick={()=> closeDetail()}>
-                            내용 닫기
-                            <i className="fas fa-minus"></i> 
-                        </button>
+                        <h1>{title}</h1>
+                        <span className={styles.eventDate}>{dateChange(festivalInfo.eventstartdate)} ~ {dateChange(festivalInfo.eventenddate)}</span>
                     </div>
-                </div>
-                <DetailMap mapx={mapx} mapy={mapy}/>
-                <DetailIntro intros={intros} details={details} dateChange={dateChange} festivalInfo={festivalInfo}/>
-            </section>
+                    <div className={styles.slideBox}>
+                        <Slider {...settings}>
+                            { 
+                                img && img.map(img =><DetailImg img={img} key={img.serialnum} title={title}/>)
+                            }
+                        </Slider>
+                    </div>
+                    <h2>상세정보</h2>
+                    <div className={styles.info}>
+                        <pre dangerouslySetInnerHTML={{__html: overview }}></pre>
+                        <p dangerouslySetInnerHTML={{__html: homepage }}></p>
+    
+                        <ul className={styles.detailInfo}>
+                            {more && 
+                                more.length > 1 
+                                    ? more.map((more, index) => index !==0 && <DetailInfo more={more} key={more.fldgubun}/>)
+                                    : more.length === 1 && <DetailInfo more={more} />
+                            }
+                        </ul>
+    
+                        <div className={styles.buttonBox}>
+                            <button className={styles.button} style={{ display : moreBtn.current === 0 ? 'inline-block' : 'none'}} onClick={()=> moreDetail(festivalInfo.contentid)}>
+                                내용 더보기
+                                <i className="fas fa-plus"></i> 
+                            </button>
+        
+                            <button className={styles.button} style={{ display : moreBtn.current === 1 ? 'inline-block' : 'none'}} onClick={()=> closeDetail()}>
+                                내용 닫기
+                                <i className="fas fa-minus"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <DetailMap mapx={mapx} mapy={mapy}/>
+                    <DetailIntro intros={intros} details={details} dateChange={dateChange} festivalInfo={festivalInfo}/>
+                </section>
+                <Footer />
+            </>
     );}
 
 export default FestivalDetail;
