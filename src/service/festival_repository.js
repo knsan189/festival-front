@@ -12,6 +12,9 @@ class FestivalRepository {
     saveFestival(festival, userId){
         firebaseDatabase.ref(`${userId}/FestivalInfo/${festival.contentid}`).set(festival)
     }
+    removeFestival(festival, userId){
+        firebaseDatabase.ref(`${userId}/FestivalInfo/${festival.contentid}`).remove()
+    }
 }
 
 export default FestivalRepository

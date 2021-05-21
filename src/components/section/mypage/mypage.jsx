@@ -38,8 +38,9 @@ const Mypage = ({authService, festivalRepository, favorRemove}) => {
         <>
             <Header userId={userId} authService={authService}/>
                 <div className={styles.container}>
+                    <h1>내가 찜해놓은 축제들 보기</h1>
                     <ul className={styles.list}>
-                        {festivals && Object.keys(festivals).map(key => <MypageItem festival={festivals[key]} key={key} userId={userId} favorRemove={favorRemove}/>)}
+                        {festivals && Object.keys(festivals).map(key => <MypageItem festivalInfo={festivals[key]} key={key} userId={userId} favorRemove={favorRemove}/>)}
                     </ul>
                 </div>
             <Footer />

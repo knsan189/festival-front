@@ -10,7 +10,6 @@
 
 .item:hover{
     background: #f6f6f6;
-    cursor: pointer;
 }
 
 .link:last-child li{
