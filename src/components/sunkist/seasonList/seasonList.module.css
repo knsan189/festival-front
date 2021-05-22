@@ -1,0 +1,15 @@
+.seasontaglist,
+.active {
+    width: 25%;
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #999;
+    text-align: center;
+    cursor: pointer;
+}
+
+.active {
+    color: violet;
+    font-weight: bold;
+    border-bottom: 3px solid violet;
+}

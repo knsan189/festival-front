@@ -5,6 +5,7 @@ import styles from './navgation.module.css'
 const Navgation = memo(({userId, authService}) => {
     const onLogout = useCallback(() => {
         authService.logout()
+        alert('로그아웃 되었습니다.')
     },[authService])
 
     return (

@@ -11,11 +11,10 @@ class AuthService{
     }
 
     onAuthChange(onUserChanged){
-        firebaseAuth.onAuthStateChanged(user => {
-            onUserChanged(user)
+        firebaseAuth.onAuthStateChanged(user => { onUserChanged(user)
         })
     }
-    
+
     getProvider(providerName){
         switch(providerName){
             case 'Google' : return googleProvider

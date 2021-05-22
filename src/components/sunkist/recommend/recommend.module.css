@@ -1,0 +1,66 @@
+.list {
+    position: relative;
+    width: 31.4%;
+    height: 13rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    color: #fff;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.list::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.fstvname {
+    font-weight: bold;
+    transition: all 0.5s;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 999;
+}
+
+.date {
+    margin: 1rem 0;
+    position: relative;
+    z-index: 999;
+    font-size: 1.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ing,
+.end,
+.onSchedule {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 999;
+    background: orangered;
+    color: #fff;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 4rem;
+    font-size: 0.8rem;
+}
+
+.end {
+    background: #999;
+}
+
+.onSchedule {
+    background: skyblue;
+}

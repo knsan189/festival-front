@@ -4,16 +4,15 @@ import { HashRouter, Route, Switch, useHistory } from 'react-router-dom';
 import FestivalDetail from './components/section/festival_detail/festival_detail';
 import Login from './components/header/login';
 import Mypage from './components/section/mypage/mypage';
+import Main from './components/sunkist/main/main'
 
 
 
 function App({holidays, festivals, authService, festivalRepository}) {
 
   const history = useHistory()
-  console.log(history)
   const favoradd = (festival, uid) => {
     if(!uid){
-      alert('로그인 후 이용해주세요')
       history.push('/login')
     }
     festivalRepository.saveFestival(festival, uid)
@@ -38,7 +37,7 @@ function App({holidays, festivals, authService, festivalRepository}) {
               <List holidays={holidays} festivals={festivals} authService={authService} favoradd={favoradd}/>
             </Route>
             <Route path='/main'>
-
+              <Main />
             </Route>
             <Route path='/details'>
               <FestivalDetail festivals={festivals} favoradd={favoradd}/>

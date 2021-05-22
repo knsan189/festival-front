@@ -11,13 +11,12 @@ const Mypage = ({authService, festivalRepository, favorRemove}) => {
     const [userId, setUserId] = useState()
     
     useEffect(() => {
-        authService.onAuthChange(user => {
-          if(user) {
-            setUserId(user.uid)
+       authService.onAuthChange(user => {
+          if(!user) {
+            history.push('/login')
           }
           else{
-            alert('로그인 후 이용해주세요.')
-            history.push('/login')
+            setUserId(user.uid)
           }
         })
 

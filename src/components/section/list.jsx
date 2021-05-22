@@ -6,21 +6,18 @@ import Sidebar from './sidebar/sidebar';
 import styles from './list.module.css'
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import { useHistory } from 'react-router';
 
 const List = ({festivals, holidays, favoradd, authService}) => {
+    
+    const history = useHistory()
+    const historyState = history?.location?.state
 
-    const [userId, setUserId] = useState()
+    const [userId, setUserId] = useState(historyState && historyState.id)
     
     useEffect(() => {
-      authService.onAuthChange(user => {
-        if(user) {
-          setUserId(user.uid)
-        }
-        else{
-          setUserId(null)
-        }
-      }
-      )
+      const stopAuth = () => authService.onAuthChange(user => setUserId(user));
+      return () => {stopAuth()};
     })
 
     // Moment Js로 오늘날짜 및 날짜관리
