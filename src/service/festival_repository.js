@@ -9,8 +9,21 @@ class FestivalRepository {
         })
         return () => ref.off()
     }
-    saveFestival(festival, userId){
-        firebaseDatabase.ref(`${userId}/FestivalInfo/${festival.contentid}`).set(festival)
+    async saveFestival(festival, userId){
+        try {
+            const response = await firebaseDatabase
+            .ref(`${userId}/FestivalInfo/${festival.contentid}`)
+            .set(festival)
+
+            return response
+        }
+        catch(e){
+            console.log(e)
+        }
+        finally{
+            alert('성공적으로 추가되었습니다.')
+        }
+        
     }
     removeFestival(festival, userId){
         firebaseDatabase.ref(`${userId}/FestivalInfo/${festival.contentid}`).remove()

@@ -1,0 +1,109 @@
+.btnbox {
+    text-align: center;
+}
+
+.plusButton,
+.minusButton {
+    width: 10rem;
+    font-size: 1.3rem;
+    border: 1px solid violet;
+    border-radius: 5px;
+    color: violet;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    padding: 0.2rem 2rem;
+    transition: all 0.3s;
+}
+.plusButton:hover,
+.minusButton:hover {
+    background: violet;
+    color: #fff;
+    font-weight: bold;
+}
+
+.selectbox {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 65rem;
+    margin: 0 auto;
+}
+
+.area>li {
+    flex: 11%;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
+.middle {
+    margin: 0 1rem;
+    height: 2rem;
+}
+
+.ulList {
+    padding: 5rem;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 75rem;
+    height: 55rem;
+    overflow: hidden;
+    margin: 0 auto 3rem;
+}
+
+.ulListDown {
+    padding: 5rem;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 80rem;
+    margin: 0 auto;
+}
+
+.selectDate {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.arrowCenter {
+    margin: 0 4rem;
+    font-size: 2.4rem;
+    color: #333;
+}
+
+.arrowLeft,
+.arrowRight {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: #333;
+}
+
+.monInfo {
+    margin: 3rem auto 0;
+    width: 40rem;
+    text-align: center;
+    padding-bottom: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 5px double violet;
+    color: #333;
+}
+
+.pagelist {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+
+
+.none {
+    font-size: 1.5rem;
+    margin: 8rem auto 0;
+}

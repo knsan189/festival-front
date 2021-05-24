@@ -16,18 +16,26 @@ function App({holidays, festivals, authService, festivalRepository}) {
       history.push('/login')
     }
     festivalRepository.saveFestival(festival, uid)
-    alert('성공적으로 추가되었습니다.')
+      .then(useConfirm)
   }
 
   const favorRemove = (festival, uid) => {
     if(window.confirm('정말로 삭제하시겠습니까?')){
       festivalRepository.removeFestival(festival, uid)
-      alert('삭제되었습니다.')
     }
     else{
       return
     }
   }
+
+  const useConfirm = () => {
+    if(window.confirm('찜 목록에서 확인하시겠습니까?')){
+      history.push('/mypage')
+    }
+    else return
+  }
+
+
   return (
   
     <div className={styles.app}>

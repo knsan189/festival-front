@@ -16,7 +16,10 @@ const List = ({festivals, holidays, favoradd, authService}) => {
     const [userId, setUserId] = useState(historyState && historyState.id)
     
     useEffect(() => {
-      const stopAuth = () => authService.onAuthChange(user => setUserId(user));
+      const stopAuth = () => authService.onAuthChange(user => {
+        if(user) setUserId(user.uid)
+        else setUserId(null)
+      });
       return () => {stopAuth()};
     })
 

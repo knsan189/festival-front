@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styles from './recommend.module.css';
 
 
-const Recommend = memo(({item}) => {
-    const {title, eventstartdate, eventenddate, firstimage} = item;
+const Recommend = memo(({festivalInfo}) => {
+    const {title, eventstartdate, eventenddate, firstimage} = festivalInfo;
     const img =   firstimage ? firstimage : 'images/noimage1.jpg'
     
     const date1 = String(eventstartdate)
@@ -27,10 +27,9 @@ const Recommend = memo(({item}) => {
     day = day >= 10 ? day : '0' + day 
     const currentDate = year  + month + day  
 
-
     return (
         <li className={styles.list}  style={{background: `url(${img}) center no-repeat`, backgroundSize: 'cover'  }} > 
-            <Link to="/detail">
+            <Link to={{pathname: '/details', state : {festivalInfo : festivalInfo}}}>
                 <p className={styles.fstvname}>{title}</p>
                 <p className={styles.date}>[ {dateRefresh1} ~ {dateRefresh2} ]</p>
                 {

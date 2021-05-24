@@ -29,7 +29,6 @@ const FestivalDetail = ({festivals}) => {
     }, [data])
     //
 
-
     // API 요청 처리 시작
     const [details, setDetails] = useState('')
     const [img, setImg] = useState('')

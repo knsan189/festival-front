@@ -1,0 +1,48 @@
+.season {
+    display: flex;
+    justify-content: center;
+    width: 65rem;
+    margin: 10rem auto 3rem;
+}
+
+.recommend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 65rem;
+    height: 43rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 65rem;
+    margin: 0 auto;
+}
+
+
+.btnbox {
+    text-align: center;
+}
+
+.plusButton,
+.minusButton {
+    width: 10rem;
+    font-size: 1.3rem;
+    border: 1px solid violet;
+    border-radius: 5px;
+    color: violet;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    padding: 0.2rem 2rem;
+    transition: all 0.3s;
+}
+.plusButton:hover,
+.minusButton:hover {
+    background: violet;
+    color: #fff;
+    font-weight: bold;
+}
