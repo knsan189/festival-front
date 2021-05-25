@@ -122,8 +122,6 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
 </div>
 </details>
 
-***
-
 
 ### 4.3 로그아웃 후 재로그인 할때 useEffect Clenup 문제
 
@@ -168,6 +166,7 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
 </div>
 </details>
 
+***
 
 ### 5. 향후 계획
 1. 코드의 가독성을 높이기 위해 Typescript로 변경예정
