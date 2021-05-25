@@ -14,7 +14,7 @@
 ### 1. 제작기간 & 참여인원
 
 - 2021년 05월 01일 ~ Present
-- 진하늘 (프론트엔드)
+- 진하늘 (프론트엔드, 파이어베이스)
 - 홍선기 (프론트엔드)
 ***
 ### 2. 사용기술
@@ -25,6 +25,7 @@
 - PostCSS
 - WebPack 
 - MomentJs (https://momentjs.com/)
+- FireBase (https://firebase.google.com/)
 ***
 ### 3. 핵심 기능
 #### 3.1 공휴일이 포함된 달력 표시
