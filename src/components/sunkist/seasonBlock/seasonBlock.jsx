@@ -39,7 +39,7 @@ const SeasonBlock = ({Itemdata, festival}) => {
 
     return (
         <div className={styles.seasonBox}>  
-            <h1>#계절별 축제 모아보기 #{seasonName}</h1>
+            <h1>#계절별 축제 모아보기 <span>#{seasonName}</span></h1>
             <ul className={styles.season}>
                         { 
                             Itemdata.seasonList.map((list)=> 
@@ -60,7 +60,7 @@ const SeasonBlock = ({Itemdata, festival}) => {
                     
                     {  
                           seasonListItem.map((item) =>
-                            <Recommend  key={item.contentid} festivalInfo={item} />
+                            <Recommend key={item.contentid} festivalInfo={item} />
                         )
                         
                        

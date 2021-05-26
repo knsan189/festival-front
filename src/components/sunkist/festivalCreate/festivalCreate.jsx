@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './festivalCreate.module.css';
 
-const FestivalCreate = memo(({item, onClickDetail}) => {
+const FestivalCreate = memo(({item}) => {
     const {title, eventstartdate, eventenddate, firstimage} = item;
     const img =   firstimage ? firstimage : 'images/noimage1.jpg'
     
@@ -24,8 +24,8 @@ const FestivalCreate = memo(({item, onClickDetail}) => {
         
                 
                     
-                    <li className={styles.list}  style={{background: `url(${img})`, backgroundSize: 'cover'  }} onClick={() => onClickDetail(item)}> 
-                        <Link to="/detail">
+                    <li className={styles.list}  style={{background: `url(${img})`, backgroundSize: 'cover'  }}> 
+                        <Link to={{pathname: '/details', state : {festivalInfo : item}}}>
                             <p className={styles.fstvname}>{title}</p>
                             <p className={styles.date}>[ {dateRefresh1} ~ {dateRefresh2} ]</p>
                         </Link>

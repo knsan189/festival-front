@@ -1,14 +1,24 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './areaCode.module.css';
 
-const AreaCode = memo(({areaValue, areaName, areaChange, area}) => {
-            
+const AreaCode = memo(({areaValue, areaName, area}) => {
+    
+    return (
+        <li className={styles.arealist}>
+            <Link to={{
+                pathname : '/list',
+                state : {
+                    areaCode : areaValue,
+                    areaName : areaName
+                }
+            }}>
+                {areaName}
+            </Link>
+        </li>
+    )
 
-            return (
-                <li className={Number(area) === Number(areaValue) ? styles.active : styles.arealist} onClick={(e) => areaChange(e.target.value)} value={areaValue}>{areaName}</li>
-            )
-
-            
+    
 })
 
 export default AreaCode;

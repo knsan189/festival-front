@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Festival from '../data/festival';
 import Itemdata from '../itemdata.json';
 import SeasonBlock from '../seasonBlock/seasonBlock';
@@ -15,6 +15,10 @@ const Main = (props) => {
     const [addShow, setAddShow] = useState(0);
 
     const addShowDown = () => setAddShow(addShow === 0 ? addShow + 1 : addShow - 1)
+
+    useEffect(() => {
+        sessionStorage.clear()
+    })
 
     return (
         <>

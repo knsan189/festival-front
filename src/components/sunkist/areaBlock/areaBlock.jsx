@@ -6,19 +6,17 @@ import styles from './areaBlock.module.css';
 const AreaBlock = ({Itemdata, addShow, addShowDown, festival}) => {
     const [ftv, setFtv] = useState([]);
     const [mon, setMon] = useState(1);
-    const [area, setArea] = useState('');
-    const areaChange = (value) => setArea(value)
     const minus = (mon) => setMon(mon <= 1 ? mon = 12 : mon - 1)
     const plus = (mon) => setMon(mon >= 12 ? mon = 1 : mon + 1)
     
     useEffect( () => {  
       
         festival   
-        .festivalData( mon, area)
+        .festivalData(mon)
         .then(ftv => setFtv(ftv)); 
           
         }
-        ,[area, mon, festival])
+        ,[mon, festival])
     
     return (
         <>  
@@ -31,9 +29,7 @@ const AreaBlock = ({Itemdata, addShow, addShowDown, festival}) => {
                             <AreaCode 
                             key={list.value} 
                             areaName={list.name} 
-                            area={area} 
                             areaValue={list.value} 
-                            areaChange={areaChange} 
                             />) 
                         }
                     </ul>

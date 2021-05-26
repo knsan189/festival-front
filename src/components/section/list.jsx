@@ -6,9 +6,25 @@ import Sidebar from './sidebar/sidebar';
 import styles from './list.module.css'
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import { useHistory } from 'react-router';
 
 const List = ({festivals, holidays, festivalRepository, authService}) => {
     
+    // Main 에서 넘어온 데이터 처리
+  
+    const history = useHistory()
+    const historyData = history?.location?.state
+    
+    let areaData, historyAreaName;
+  
+    if(historyData){
+      areaData = historyData.areaCode
+      historyAreaName = historyData.areaName
+    }
+  
+    //
+
+    // 로그인 처리
     const [userId, setUserId] = useState()
 
     useEffect(() => {
@@ -52,8 +68,8 @@ const List = ({festivals, holidays, festivalRepository, authService}) => {
         eventDate : today.format('YYYYMMDD'),
         pageNo : 1,
         arrange : 'R',
-        areaCode : '',
-        areaName : ''
+        areaCode : areaData && areaData,
+        areaName : historyAreaName && '#' + historyAreaName
       })
     
       const {eventDate, pageNo, arrange, areaCode, areaName} = inputs
@@ -94,6 +110,8 @@ const List = ({festivals, holidays, festivalRepository, authService}) => {
       }
       const [loading, setLoading] = useState(false)
 
+
+
     useEffect(()=> {
           festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode, setting => setLoading(setting) ).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
@@ -118,6 +136,7 @@ const List = ({festivals, holidays, festivalRepository, authService}) => {
               loading={loading}
               festivalRepository={festivalRepository}
               userId={userId}
+              areaData={areaData}
             />
             <Sidebar 
               today={today} 
@@ -130,6 +149,7 @@ const List = ({festivals, holidays, festivalRepository, authService}) => {
               areaSelect={areaSelect} 
               areaCode={areaCode} 
               areaCodes={areaCodes}
+              areaData={areaData}
           />  
           </section>
         <Footer />

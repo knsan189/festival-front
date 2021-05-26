@@ -17,10 +17,9 @@
 
 .area > li {
     flex: calc(100% / 9);
-    padding: 10px 0;
-    cursor: pointer;
     border-left:1px solid #c6c6c6;
     border-top:1px solid #c6c6c6;
+    transition: 0.3s ease-in;
 }
 
 .area > li:nth-child(9n){
@@ -31,6 +30,11 @@
     border-bottom:1px solid #c6c6c6;
 }
 
+.area > li:hover{
+    background-color: #f65e57;
+    color:#fff;
+    font-weight: 500;
+}
 .middle {
     margin: 0 1rem;
     height: 2rem;

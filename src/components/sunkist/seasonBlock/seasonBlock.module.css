@@ -2,6 +2,9 @@
     border-bottom:1px solid #c6c6c6;
     padding-bottom:3em;
 }
+.seasonBox > h1 > span{
+    color:#f65e57
+}
 
 .season {
     display: flex;

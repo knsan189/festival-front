@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styles from './area_item.module.css'
 
-const AreaItem = memo(({areaCodes, areaSelect, areaCode}) => {
+const AreaItem = memo(({areaCodes, areaSelect, areaCode, }) => {
     const {code, name} = areaCodes
     const areaName = name === '세종특별자치시' ? '세종' 
         : name === '충청북도' ? '충북'
@@ -14,10 +14,17 @@ const AreaItem = memo(({areaCodes, areaSelect, areaCode}) => {
         : name === '제주도' ? '제주'
         : name === '강원도' ? '강원'  
         : name
+
     return (
             <li>
-                <button type="button" className={
-                    parseInt(areaCode) === code ? styles.active : styles.button} onClick={(event) => areaSelect(event)} value={code}> #{areaName}</button>
+                <button type="button" 
+                    className={
+                            parseInt(areaCode) === code
+                                ? styles.active 
+                                : styles.button
+                            } 
+                    onClick={(event) => areaSelect(event)} 
+                    value={code}> #{areaName}</button>
             </li>
     );
 })

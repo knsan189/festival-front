@@ -7,8 +7,7 @@ class Festival {
         });
     }
     
-    async festivalData( mon, area) {
-      const areaNumber = area === 0 ? area = '' : area
+    async festivalData(mon) {
       const startDate = Number('2021' + (mon < 10 ? '0' : '') + mon + '01')
       const endDate = Number('2021' + (mon < 10 ? '0' : '') + mon + '31')
       
@@ -18,13 +17,12 @@ class Festival {
             numOfRows: 500,
             pageNo: 1,
             _type: "json",
-            arrange: "P",
+            arrange: "R",
             listYN: "Y",
             eventStartDate: startDate,
             eventEndDate: endDate,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            areaCode: areaNumber,
           },
         });
         return response.data.response.body.items.item;
