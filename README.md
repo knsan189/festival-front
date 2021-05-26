@@ -14,7 +14,7 @@
 ### 1. 제작기간 & 참여인원
 
 - 2021년 05월 01일 ~ Present
-- 진하늘 (프론트엔드)
+- 진하늘 (프론트엔드, 파이어베이스)
 - 홍선기 (프론트엔드)
 ***
 ### 2. 사용기술
@@ -25,6 +25,7 @@
 - PostCSS
 - WebPack 
 - MomentJs (https://momentjs.com/)
+- FireBase (https://firebase.google.com/)
 ***
 ### 3. 핵심 기능
 #### 3.1 공휴일이 포함된 달력 표시
@@ -117,6 +118,50 @@ Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기
     useEffect(()=> {
         sessionStorage.setItem('data', JSON.stringify(data))
     }, [data])
+````
+
+</div>
+</details>
+
+
+### 4.3 로그아웃 후 재로그인 할때 useEffect Clenup 문제
+
+
+<details>
+<summary>이전코드</summary>
+<div markdown="1">
+
+```javascript
+    useEffect(() => {
+      const stopAuth = () => authService.onAuthChange(user => {
+        if(user) setUserId(user.uid)
+        else setUserId(null)
+      });
+      return () => {stopAuth()};
+    })
+````
+
+</div>
+</details>
+
+<details>
+<summary>이후 코드</summary>
+<div markdown="1">
+
+```javascript
+    useEffect(() => {
+      const stopAuth = () => authService.onAuthChange(user => setUserId(user))
+      return () => {stopAuth()};
+    })
+````
+ 
+ ```javascript
+    onAuthChange(onUserChanged){
+        firebaseAuth.onAuthStateChanged(user => {
+            if(user) onUserChanged(user)
+            else{ onUserChanged(null) }
+        })
+    }
 ````
 
 </div>
