@@ -1,0 +1,10 @@
+.container{
+    width:980px;
+    padding : 20px;
+    margin:0 auto;
+}
+
+.pageNum {
+    display: flex;
+    justify-content: center;
+}

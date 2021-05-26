@@ -17,7 +17,7 @@ const Mypage = ({authService, festivalRepository, favorRemove}) => {
             history.push('/login')
           }
           else{
-            setUserId(user.uid)
+            setUserId(user)
           }
         })
         stopAuth()

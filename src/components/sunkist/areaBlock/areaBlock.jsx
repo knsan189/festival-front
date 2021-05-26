@@ -18,7 +18,7 @@ const AreaBlock = ({Itemdata, addShow, addShowDown, festival}) => {
         .then(ftv => setFtv(ftv)); 
           
         }
-        ,[area, mon])
+        ,[area, mon, festival])
     
     return (
         <>

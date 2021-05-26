@@ -30,7 +30,7 @@ const SeasonBlock = ({Itemdata, festival}) => {
         .seasonData(start, end)
         .then(seasonListItem => setSeasonListItem(seasonListItem));
     
-    }, [start, end])
+    }, [start, end, festival])
 
 
     return (

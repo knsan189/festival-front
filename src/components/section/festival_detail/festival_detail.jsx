@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import DetailImg from './detail_img';
 import DetailMap from './detail_map';
 import styles from './festival_detail.module.css'
@@ -10,8 +10,25 @@ import DetailIntro from './detail_intro';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
-const FestivalDetail = ({festivals}) => {
+const FestivalDetail = ({festivals, festivalRepository, authService}) => {
     
+    const history = useHistory()
+
+    // 로그인 상태 확인
+    const [userId, setUserId] = useState()
+
+    useEffect(() => {
+
+        const stopAuth = () => authService.onAuthChange(user => setUserId(user))
+        stopAuth()
+        return () => {
+            stopAuth()
+        };
+
+    }, [authService])
+    //
+
+
     // 오늘 날짜 가져오기
     const today = moment().format('YYYYMMDD')
     //
@@ -73,10 +90,32 @@ const FestivalDetail = ({festivals}) => {
         }   
     }
 
+    // 축제 즐겨찾기 담기
+    const onAdd = (festivalInfo, userId) => {
+
+        if(!userId){
+            alert('로그인 후 이용해주세요')
+            history.push('/login')
+            return
+        }
+        festivalRepository.saveFestival(festivalInfo, userId).then(useConfirm)
+    }
+    
+
+    const useConfirm = () => {
+        if(window.confirm('찜 목록에서 확인하시겠습니까?')){
+          history.push('/mypage')
+        }
+        else return
+    }
+
+    //
+
     return (
             <>
-                <Header />
+                <Header userId={userId} authService={authService}/>
                 <section className={styles.section}>
+                    <button className={styles.addbutton} onClick={()=> onAdd(festivalInfo, userId)}> 담아두기 </button>
                     <div className={styles.title}>
                         {
                             today > festivalInfo.eventstartdate && today < festivalInfo.eventenddate

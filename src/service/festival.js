@@ -100,6 +100,18 @@ class Festival {
         })
         return  response.data.response.body.items.item
     }
+
+    async searchKeyword(keyword, pageNo, arrage){
+        const response = await this.festival.get('/searchKeyword', {
+            params : {
+                MobileOS : 'ETC',
+                MobileApp : 'Festival',
+                contentTypeId : 15,
+                keyword : keyword
+            },
+        })
+        return  response.data.response.body
+    }
 }
 
 export default Festival

@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './festival_item.module.css'
 
 
-const FestivalItem = memo(({festivalInfo, favoradd, userId}) => {
+const FestivalItem = memo(({festivalInfo, festivalRepository, userId}) => {
 
     // URL http -> https로 변환
     const imgUrlChange = festivalInfo.firstimage2 && festivalInfo.firstimage2.replace('http', 'https')
@@ -22,7 +22,29 @@ const FestivalItem = memo(({festivalInfo, favoradd, userId}) => {
     const dateRefresh2 = year2 + '.' + month2 + '.' + day2;
     //
 
-    
+    const history = useHistory()
+
+    const onAdd = (festivalInfo, userId) => {
+        
+        if(!userId){
+            history.push('/login')
+            alert('로그인 후 이용해주세요.')
+            
+            return
+        }
+
+        festivalRepository.saveFestival(festivalInfo, userId)
+        .then(useConfirm)
+
+    }
+
+    const useConfirm = () => {
+        if(window.confirm('찜 목록에서 확인하시겠습니까?')){
+          history.push('/mypage')
+        }
+        else return
+    }
+
         return (
             
                 <li className={styles.item}>
@@ -36,7 +58,7 @@ const FestivalItem = memo(({festivalInfo, favoradd, userId}) => {
                             </Link>
                             <button><i className="fas fa-ellipsis-v"></i></button>
                             <div>
-                                <button onClick={() => favoradd(festivalInfo, userId)}>담아가기</button>
+                                <button onClick={() => onAdd(festivalInfo, userId)}>담아가기</button>
                             </div>
                     </div>
                     

@@ -8,7 +8,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import { useHistory } from 'react-router';
 
-const List = ({festivals, holidays, favoradd, authService}) => {
+const List = ({festivals, holidays, festivalRepository, authService}) => {
     
     const history = useHistory()
     const historyState = history?.location?.state
@@ -16,12 +16,14 @@ const List = ({festivals, holidays, favoradd, authService}) => {
     const [userId, setUserId] = useState(historyState && historyState.id)
     
     useEffect(() => {
-      const stopAuth = () => authService.onAuthChange(user => {
-        if(user) setUserId(user.uid)
-        else setUserId(null)
-      });
-      return () => {stopAuth()};
-    })
+      const stopAuth = () => authService.onAuthChange(user => setUserId(user))
+      stopAuth()
+      return () => {
+        stopAuth()
+      };
+
+    }, [])
+
 
     // Moment Js로 오늘날짜 및 날짜관리
     const [getMoment, setMoment] = useState(moment());
@@ -117,7 +119,7 @@ const List = ({festivals, holidays, favoradd, authService}) => {
               selectArrage={selectArrage}
               arrange={arrange}
               loading={loading}
-              favoradd={favoradd}
+              festivalRepository={festivalRepository}
               userId={userId}
             />
             <Sidebar 

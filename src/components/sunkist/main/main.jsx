@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Festival from '../data/festival';
-import styles from './main.module.css';
 import Itemdata from '../itemdata.json';
 import SeasonBlock from '../seasonBlock/seasonBlock';
 import AreaBlock from '../areaBlock/areaBlock';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 
 const Main = (props) => {
@@ -16,7 +17,7 @@ const Main = (props) => {
 
     return (
         <>
-            
+            <Header />
              <SeasonBlock 
              Itemdata={Itemdata} 
              festival={festival}
@@ -28,7 +29,7 @@ const Main = (props) => {
              addShowDown={addShowDown}
              festival={festival} 
              />       
-                    
+            <Footer />        
             
         </>
     );
