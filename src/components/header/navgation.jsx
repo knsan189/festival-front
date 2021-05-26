@@ -22,7 +22,7 @@ const Navgation = memo(({userId, authService}) => {
     <>
         <nav className={styles.nav}>
             <button onClick={menuBtn} className={styles.menuBtn}><i className="fas fa-bars"></i></button>
-            <ul className={styles.menu} style={{ display : !true ? 'none' : 'block'}}>
+            <ul className={styles.menu} style={{ display : !menu ? 'none' : 'block'}}>
                 {
                 userId &&
                 <li>

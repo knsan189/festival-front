@@ -32,8 +32,13 @@ const FestivalItem = memo(({festivalInfo, festivalRepository, userId}) => {
             return
         }
 
-        festivalRepository.saveFestival(festivalInfo, userId)
-        .then(useConfirm)
+        if(window.confirm('축제를 찜목록에 추가하시겠습니까?')){
+            festivalRepository.saveFestival(festivalInfo, userId)
+            .then(useConfirm)
+        }
+        else{
+            return
+        }
 
     }
 
@@ -55,9 +60,8 @@ const FestivalItem = memo(({festivalInfo, festivalRepository, userId}) => {
                                 <p>[{dateRefresh1} ~ {dateRefresh2}]</p>
                                 <p>주소 : {festivalInfo.addr1}</p>
                             </Link>
-                            <button><i className="fas fa-ellipsis-v"></i></button>
                             <div>
-                                <button onClick={() => onAdd(festivalInfo, userId)}>담아가기</button>
+                                <button onClick={() => onAdd(festivalInfo, userId)}><i className="fas fa-plus"></i> </button>
                             </div>
                     </div>
                     

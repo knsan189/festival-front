@@ -32,20 +32,26 @@ const SeasonBlock = ({Itemdata, festival}) => {
     
     }, [start, end, festival])
 
+    const [seasonName, setSeasonName] = useState('봄')
+    const getSeason = (data) => {
+        setSeasonName(data)
+    }
 
     return (
-        <>
+        <div className={styles.seasonBox}>  
+            <h1>#계절별 축제 모아보기 #{seasonName}</h1>
             <ul className={styles.season}>
                         { 
                             Itemdata.seasonList.map((list)=> 
                                 <SeasonList 
-                                key={list.value} 
-                                seasonName={list.name} 
-                                startDate={list.start} 
-                                seasonValue={list.value} 
-                                endDate={list.end} 
-                                season={season} 
-                                seasonChange={seasonChange}
+                                    key={list.value} 
+                                    seasonName={list.name} 
+                                    startDate={list.start} 
+                                    seasonValue={list.value} 
+                                    endDate={list.end} 
+                                    season={season} 
+                                    seasonChange={seasonChange}
+                                    getSeason={getSeason}
                                 /> )
                         }
                     </ul>
@@ -67,11 +73,11 @@ const SeasonBlock = ({Itemdata, festival}) => {
                        
                             show === 0
                          
-                            ? <button className={styles.plusButton} onClick={()=> showDown()}>더보기</button>
+                            ? <button className={styles.plusButton} onClick={()=> showDown()}>축제 더보기</button>
                             : <button className={styles.minusButton} onClick={()=> showDown()}>목록 접기</button>
                     }
                     </div>
-        </>
+        </div>
     );
 };
 

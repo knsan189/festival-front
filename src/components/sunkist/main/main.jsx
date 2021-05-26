@@ -5,6 +5,7 @@ import SeasonBlock from '../seasonBlock/seasonBlock';
 import AreaBlock from '../areaBlock/areaBlock';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
+import styles from './main.module.css'
 
 
 const Main = (props) => {
@@ -18,19 +19,20 @@ const Main = (props) => {
     return (
         <>
             <Header />
-             <SeasonBlock 
-             Itemdata={Itemdata} 
-             festival={festival}
-             />
+                <section className={styles.container}>
+                    <SeasonBlock 
+                    Itemdata={Itemdata} 
+                    festival={festival}
+                    />
 
-             <AreaBlock 
-             Itemdata={Itemdata}
-             addShow={addShow}
-             addShowDown={addShowDown}
-             festival={festival} 
-             />       
-            <Footer />        
-            
+                    <AreaBlock 
+                    Itemdata={Itemdata}
+                    addShow={addShow}
+                    addShowDown={addShowDown}
+                    festival={festival} 
+                    />
+                </section>     
+            <Footer />   
         </>
     );
 };

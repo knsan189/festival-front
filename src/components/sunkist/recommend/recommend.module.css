@@ -1,15 +1,20 @@
 .list {
     position: relative;
     width: 31.4%;
-    height: 13rem;
-    margin-left: 0.6rem;
-    margin-right: 0.6rem;
+    height: 11rem;
     color: #fff;
     margin-top: 1rem;
     padding-top: 1rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
 }
 
+.list a {
+    color:#fff
+}
 .list::after {
     content: '';
     position: absolute;
@@ -24,37 +29,32 @@
 .fstvname {
     font-weight: bold;
     transition: all 0.5s;
-    font-size: 1.3rem;
-    margin: 1rem 0;
-    padding: 0 1rem;
+    font-size: 1.2em;
     position: relative;
     z-index: 999;
+    word-break: keep-all;
 }
 
 .date {
-    margin: 1rem 0;
     position: relative;
     z-index: 999;
-    font-size: 1.2rem;
+    font-size: 1.1em;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    padding:0.5em 0;
 }
 
 .ing,
 .end,
 .onSchedule {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 999;
-    background: orangered;
+    background: #f65e57;
     color: #fff;
-    display: inline-block;
-    padding: 0.5rem;
-    border-radius: 4rem;
+    padding: 4px 8px;
+    border-radius: 1em;
     font-size: 0.8rem;
+    position: relative;
+    z-index: 9;
+    margin-top:0.5em;
 }
 
 .end {
