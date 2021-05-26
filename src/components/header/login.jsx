@@ -6,9 +6,8 @@ const Login = ({authService}) => {
     
     const history = useHistory();
     const goToHome = (userId) => {
-        history.push({
+        history.replace({
             pathname : '/',
-            state : {id : userId}
         })
     }
 

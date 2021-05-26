@@ -29,7 +29,6 @@ const FestivalItem = memo(({festivalInfo, festivalRepository, userId}) => {
         if(!userId){
             history.push('/login')
             alert('로그인 후 이용해주세요.')
-            
             return
         }
 

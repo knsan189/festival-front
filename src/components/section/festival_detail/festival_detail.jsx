@@ -19,10 +19,9 @@ const FestivalDetail = ({festivals, festivalRepository, authService}) => {
 
     useEffect(() => {
 
-        const stopAuth = () => authService.onAuthChange(user => setUserId(user))
-        stopAuth()
+        authService.onAuthChange(user => setUserId(user))
         return () => {
-            stopAuth()
+            setUserId(null)
         };
 
     }, [authService])

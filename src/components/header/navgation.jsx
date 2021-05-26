@@ -5,8 +5,9 @@ import styles from './navgation.module.css'
 const Navgation = memo(({userId, authService}) => {
     
     const onLogout = useCallback(() => {
-        authService.logout()
         alert('로그아웃 되었습니다.')
+        authService.logout()
+
     },[authService])
 
     // 메뉴 관리
@@ -19,7 +20,7 @@ const Navgation = memo(({userId, authService}) => {
     
     return (
     <>
-        <nav>
+        <nav className={styles.nav}>
             <button onClick={menuBtn} className={styles.menuBtn}><i className="fas fa-bars"></i></button>
             <ul className={styles.menu} style={{ display : !true ? 'none' : 'block'}}>
                 {

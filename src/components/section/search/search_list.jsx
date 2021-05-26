@@ -32,14 +32,14 @@ const SearchList = ({festivals, authService}) => {
     const [userId, setUserId] = useState()
 
     useEffect(() => {
-
-        const stopAuth = () => authService.onAuthChange(user => setUserId(user))
-        stopAuth()
-        return () => {
-            stopAuth()
-        };
-
-    }, [authService])
+        let isMount = true;
+        authService.onAuthChange(user => {
+          if(isMount) {
+            setUserId(user)
+          }
+        })
+        return () => {isMount = false}
+      }, [authService])
 
     // 페이지 번호 생성 위한 함수
     const pageNum = []

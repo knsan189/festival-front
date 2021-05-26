@@ -11,8 +11,7 @@ const Mypage = ({authService, festivalRepository, favorRemove}) => {
     const [userId, setUserId] = useState()
     
     useEffect(() => {
-    
-       const stopAuth = () => authService.onAuthChange(user => {
+        authService.onAuthChange(user => {
           if(!user) {
             history.push('/login')
           }
@@ -20,9 +19,8 @@ const Mypage = ({authService, festivalRepository, favorRemove}) => {
             setUserId(user)
           }
         })
-        stopAuth()
-        return () => {stopAuth()}
-      })
+
+      }, [authService, history])
 
       const [festivals, setFestivals] = useState()
     
