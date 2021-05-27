@@ -160,6 +160,7 @@ const FestivalDetail = ({festivals, festivalRepository, authService}) => {
                     </div>
                     <DetailMap mapx={mapx} mapy={mapy}/>
                     <DetailIntro intros={intros} details={details} dateChange={dateChange} festivalInfo={festivalInfo}/>
+                    <button className={styles.addbutton} onClick={()=> onAdd(festivalInfo, userId)}> 담아두기 </button>
                 </section>
                 <Footer />
             </>

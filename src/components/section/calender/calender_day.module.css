@@ -10,7 +10,7 @@
 
 td:nth-child(7n){
     border-right:0;
-    color:rgb(255, 0, 149);
+    color:#f65e57;
 }
 .td:hover{
     background: #f4f4f4;
@@ -27,7 +27,7 @@ td:nth-child(7n){
     word-break: keep-all;
 }
 .isholiday{
-    color:red;
+    color:#f65e57;
     text-decoration: underline;
 }
 .datename{
@@ -49,7 +49,7 @@ td:nth-child(7n){
     background: black;
     z-index: -1;
     border-radius: 0.5em;
-    background: linear-gradient(180deg, rgba(164,110,248,1) 0%, rgba(141,81,237,1) 35%, rgba(104,39,221,1) 100%);
+    background: linear-gradient(90deg, rgba(255,176,172,1) 0%, rgba(255,138,132,1) 35%, rgba(246,94,87,1) 100%);
     box-shadow:
     0 4px 2.7px rgba(0, 0, 0, 0.022),
     0 12.1px 6.9px rgba(0, 0, 0, 0.031),

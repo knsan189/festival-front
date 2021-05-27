@@ -7,8 +7,16 @@
 
 .addbutton{
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid #f65e57;
     padding: 7px 20px;
+    background-color: #f65e57;
+    color : #fff;
+    transition: 0.3s all;
+}
+
+.addbutton:hover{
+    background-color: #fff;
+    color:#f65e57
 }
 .title {
     text-align: center;

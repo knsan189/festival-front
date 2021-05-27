@@ -20,18 +20,18 @@ const Calender = memo(({today, onSubtrack, onAdd, dayInfo, seletedDate, holiday,
     }
     const thisMonth = today.format('MM')
     const monthName = 
-    thisMonth === '01' ? '#1월' 
-    : thisMonth === '02' ? '#2월' 
-    : thisMonth === '03' ? '#3월' 
-    : thisMonth === '04' ? '#4월' 
-    : thisMonth === '05' ? '#5월' 
-    : thisMonth === '06' ? '#6월'
-    : thisMonth === '07' ? '#7월'
-    : thisMonth === '08' ? '#8월'
-    : thisMonth === '09' ? '#9월'
-    : thisMonth === '10' ? '#10월'
-    : thisMonth === '11' ? '#11월'
-    : '#12월'
+    thisMonth === '01' ? '1월' 
+    : thisMonth === '02' ? '2월' 
+    : thisMonth === '03' ? '3월' 
+    : thisMonth === '04' ? '4월' 
+    : thisMonth === '05' ? '5월' 
+    : thisMonth === '06' ? '6월'
+    : thisMonth === '07' ? '7월'
+    : thisMonth === '08' ? '8월'
+    : thisMonth === '09' ? '9월'
+    : thisMonth === '10' ? '10월'
+    : thisMonth === '11' ? '11월'
+    : '12월'
     
     const onSubClick = () => {
         onSubtrack()
