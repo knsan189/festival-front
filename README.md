@@ -1,6 +1,5 @@
 # 미스홍 투어
 
-aa
 전국 축제 조회 서비스
 메인 : https://knsan189.github.io/festival_project/
 
@@ -136,6 +135,8 @@ useEffect(() => {
 
 ### 4.3 로그아웃 후 재로그인 할때 useEffect Clenup 문제
 
+- router 이동 후, 이동 전 컴포넌트에서 state를 바꾸려는 시도가 있을 때 메모리 lack 에러
+
 <details>
 <summary>이전코드</summary>
 <div markdown="1">
@@ -156,26 +157,24 @@ useEffect(() => {
 </div>
 </details>
 
+- 라우트를 이동전 해당 컴포넌트가 언마운트가 될때 isMount 변수에 Boolean값을 주어 해결했습니다.
+
 <details>
 <summary>이후 코드</summary>
 <div markdown="1">
 
 ```javascript
 useEffect(() => {
-  const stopAuth = () => authService.onAuthChange((user) => setUserId(user));
+  let isMount = true;
+  authService.onAuthChange((user) => {
+    if (isMount) {
+      setUserId(user);
+    }
+  });
   return () => {
-    stopAuth();
+    isMount = false;
   };
-});
-```
-
-```javascript
-   onAuthChange(onUserChanged){
-       firebaseAuth.onAuthStateChanged(user => {
-           if(user) onUserChanged(user)
-           else{ onUserChanged(null) }
-       })
-   }
+}, [authService]);
 ```
 
 </div>
