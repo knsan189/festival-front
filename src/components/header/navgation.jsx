@@ -23,9 +23,6 @@ const Navgation = memo(({userId, authService}) => {
         <nav className={styles.nav}>
             <button onClick={menuBtn} className={styles.menuBtn}><i className="fas fa-bars"></i></button>
             <ul className={styles.menu} style={{ display : !menu ? 'none' : 'block'}}>
-                <li>
-                    <Link to={{pathname: '/main'}}>축제 한눈에 보기</Link>
-                </li>
                 {
                 userId &&
                 <li>
@@ -38,7 +35,13 @@ const Navgation = memo(({userId, authService}) => {
                 </li>
                 }
                 <li>
-                    <Link to={{pathname: '/mypage'}}> 마이페이지 </Link>
+                    <Link to={{pathname: '/mypage'}}> 찜 목록 </Link>
+                </li>
+                <li>
+                    <Link to={{pathname: '/list'}}>축제 한눈에 보기 </Link>
+                </li>
+                <li>
+                    <Link to={{pathname: '/main'}}>인기축제 보기</Link>
                 </li>
             </ul>
         </nav>

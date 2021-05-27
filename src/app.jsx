@@ -25,10 +25,10 @@ function App({holidays, festivals, authService, festivalRepository}) {
     <div className={styles.app}>
       <HashRouter forceRefresh={true}>
           <Switch>
-            <Route path={['/list', '/']} exact>
+            <Route path='/list'>
               <List holidays={holidays} festivals={festivals} authService={authService} festivalRepository={festivalRepository}/>
             </Route>
-            <Route path='/main'>
+            <Route path={['/', '/main']} exact>
               <Main />
             </Route>
             <Route path='/details'>

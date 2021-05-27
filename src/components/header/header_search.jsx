@@ -25,7 +25,7 @@ const HeaderSearch = (props) => {
     }
     return (
             <div className={styles.search}>
-                <input ref={inputRef} className={styles.input} type="text" placeholder="축제 검색" onKeyPress={onKeyPress}/>
+                <input ref={inputRef} className={styles.input} type="text" placeholder="축제 검색해보세요 ex) 강원" onKeyPress={onKeyPress}/>
                 <button onClick={onClick}><i className="fas fa-search"></i></button>
             </div>
     );
