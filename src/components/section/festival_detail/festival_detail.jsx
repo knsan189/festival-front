@@ -129,7 +129,10 @@ const FestivalDetail = ({festivals, festivalRepository, authService}) => {
                     <div className={styles.slideBox}>
                         <Slider {...settings}>
                             { 
-                                img && img.map(img =><DetailImg img={img} key={img.serialnum} title={title}/>)
+                                img &&
+                                    img.length > 1 
+                                        ? img.map(img =><DetailImg img={img} key={img.serialnum} title={title}/>)
+                                        : img.length === 1 && <DetailImg img={img} key={img.serialnum} title={title} />
                             }
                         </Slider>
                     </div>

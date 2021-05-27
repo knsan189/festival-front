@@ -13,18 +13,24 @@ import FestivalRepository from './service/festival_repository';
 
 const httpClient = axios.create(
   {
-    baseURL : 'https://festivalprojectapp.herokuapp.com/http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
+    baseURL : process.env.REACT_APP_HOLIDAY_API_URL,
     params : { 
-      serviceKey : "P/todAwLp6jB3Dx9vFBWu/BbzqviE4YaMhDnJ1Jyl77akvPHajFVr72AqAgiUCRoCAq27WO29pYAIR3meH3MHw=="
+      serviceKey : process.env.REACT_APP_PUBLIC_API_KEY
+    },
+    headers:{
+      "Access-Control-Allow-Origin" : "festival_project"
     }
   }
 )
 
 const festivalClient =  axios.create(
   {
-    baseURL : 'https://festivalprojectapp.herokuapp.com/http://api.visitkorea.or.kr/openapi/service/rest/KorService',
+    baseURL : process.env.REACT_APP_FESTIVAL_API_URL,
     params : { 
-      serviceKey : "P/todAwLp6jB3Dx9vFBWu/BbzqviE4YaMhDnJ1Jyl77akvPHajFVr72AqAgiUCRoCAq27WO29pYAIR3meH3MHw=="
+      serviceKey : process.env.REACT_APP_PUBLIC_API_KEY
+    },
+    headers:{
+      "Access-Control-Allow-Origin" : "festival_project"
     }
   }
 )

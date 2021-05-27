@@ -4,48 +4,38 @@
 
 .menuBtn{
     font-size: 1.5em;
+    color:#666;
 }
 
 .menu{
     position: absolute;
-    background: #000;
+    background: #fff;
     width: 215px;
-    color:#fff;
     padding:10px 0;
-    border-radius: 4px;
+    border-radius: 5px;
     z-index: 1;
     right:0;
+    border:1px solid #c6c6c6
 }
 
-.menu::before{
-    content:'';
-    position: absolute;
-    border-width: 7px;
-    border-style: solid;
-    border-top-width: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color:#000;
-    bottom:100%;
-    right:5px;
-}
 .menu li{
     padding:4px 12px;
 }
 .menu li:hover a {
-    color:#ccc;
+    color:#f65e57;
+    font-weight: bold;
 }
 .menu li:hover button{
-    color:#ccc;
+    color:#f65e57;
+    font-weight: bold;
 }
 .menu li a{
-    color:#fff;
+    color:#333;
     font-size:14px;
 }
 
 .menu li button{
-    color:#fff;
+    color:#333;
     cursor: pointer;
     font-size: 14px;
 }

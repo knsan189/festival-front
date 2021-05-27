@@ -21,7 +21,7 @@ td:nth-child(7n){
     position: absolute;
     bottom:70%;
     left:70%;
-    background: red;
+    background: #f65e57;
     padding:10px;
     color:white;
     word-break: keep-all;

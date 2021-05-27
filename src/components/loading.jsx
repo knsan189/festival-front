@@ -7,7 +7,7 @@ const Loading = ({loading}) => (
         <div className={styles.container}> 
             <div className={styles.spinner}> 
                 <h2>자료 불러오는중...</h2> 
-                <ReactLoading type='spin' color='black' height={'50%'} width={'50%'}/> 
+                <ReactLoading type='spin' color='#f65e57' height={'50%'} width={'50%'}/> 
             </div> 
         </div>
 

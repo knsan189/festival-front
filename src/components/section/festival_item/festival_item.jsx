@@ -6,7 +6,8 @@ import styles from './festival_item.module.css'
 const FestivalItem = memo(({festivalInfo, festivalRepository, userId}) => {
 
     // URL http -> https로 변환
-    const imgUrlChange = festivalInfo.firstimage2 && festivalInfo.firstimage2.replace('http', 'https')
+    let imgUrlChange = festivalInfo.firstimage2 && festivalInfo.firstimage2.replace('http', 'https')
+    imgUrlChange = imgUrlChange || './images/noimage1.jpg'
 
     // 날짜 사이에 점(.) 추가
     const date1 = String(festivalInfo.eventstartdate)

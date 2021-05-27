@@ -4,11 +4,9 @@
 
 .festivals {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
     list-style: none;
-    
 }
 
 .festivals > p > span{
