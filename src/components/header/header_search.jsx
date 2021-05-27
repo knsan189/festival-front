@@ -2,18 +2,20 @@ import React, { useRef } from 'react';
 import { useHistory } from 'react-router';
 import styles from './header_search.module.css'
 
-const HeaderSearch = (props) => {
+const HeaderSearch = ({getKeyword}) => {
     const history = useHistory()
     const inputRef = useRef()
     
     const handleSearch = () => {
         const value = inputRef.current.value
-        history.push({
+        history.replace({
             pathname : '/searchlist',
             state : {
                 keyword : value
             }
-        })    
+        })
+        
+        getKeyword && getKeyword(value)
     }
 
     const onClick = () => {

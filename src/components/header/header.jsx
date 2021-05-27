@@ -4,7 +4,7 @@ import styles from './header.module.css'
 import HeaderSearch from './header_search';
 import Navgation from './navgation';
 
-const Header = memo(({userId, authService}) => (
+const Header = memo(({userId, authService, getKeyword}) => (
         <header className={styles.header}>
            <div className={styles.row}>
                 <div className={styles.logo}>
@@ -12,7 +12,7 @@ const Header = memo(({userId, authService}) => (
                         <img src="./images/logo2.jpg" alt="logo" />
                     </Link>
                 </div>
-                <HeaderSearch />
+                <HeaderSearch getKeyword={getKeyword}/>
                 <Navgation userId={userId} authService={authService}/>
            </div>
         </header>

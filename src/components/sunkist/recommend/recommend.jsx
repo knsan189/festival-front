@@ -5,7 +5,8 @@ import styles from './recommend.module.css';
 
 const Recommend = memo(({festivalInfo}) => {
     const {title, eventstartdate, eventenddate, firstimage} = festivalInfo;
-    const img =   firstimage ? firstimage : 'images/noimage1.jpg'
+    const img =  firstimage ? firstimage.replace('http', 'https') : 'images/noimage1.jpg'
+
     
     const date1 = String(eventstartdate)
     const year1 = date1.substring(0, 4)

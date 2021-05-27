@@ -4,7 +4,7 @@ import styles from './festivalCreate.module.css';
 
 const FestivalCreate = memo(({item}) => {
     const {title, eventstartdate, eventenddate, firstimage} = item;
-    const img =   firstimage ? firstimage : 'images/noimage1.jpg'
+    const img =   firstimage ? firstimage.replace('http', 'https') : 'images/noimage1.jpg'
     
         const date1 = String(eventstartdate)
         const year1 = date1.substring(0, 4)

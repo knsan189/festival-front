@@ -10,15 +10,24 @@ const SearchList = ({festivals, authService}) => {
 
     const history = useHistory()
     let historyState = history?.location?.state
+
+    // Header 에서 입력된 검색어 처리
     const sessionData = JSON.parse(sessionStorage.getItem('data'))
     if(sessionData) historyState = sessionData
 
-    const {keyword} = historyState
-
+    
     useEffect(()=>{
         sessionStorage.setItem('data', JSON.stringify(historyState))
     }, [historyState])
 
+    
+    const [keyword, setKeyword] = useState(historyState.keyword)
+    
+    // SearchList에서 다시 검색 요청시 처리
+    const getKeyword = (value) => {
+        setKeyword(value)
+        sessionStorage.setItem('data', JSON.stringify({keyword : value}))
+    }
 
     // API 요청 처리
 
@@ -29,6 +38,7 @@ const SearchList = ({festivals, authService}) => {
     
     //
 
+    // 라우터 이동 후 로그인 확인
     const [userId, setUserId] = useState()
 
     useEffect(() => {
@@ -41,6 +51,7 @@ const SearchList = ({festivals, authService}) => {
         return () => {isMount = false}
       }, [authService])
 
+    
     // 페이지 번호 생성 위한 함수
     const pageNum = []
     if(festivalInfo){
@@ -51,7 +62,7 @@ const SearchList = ({festivals, authService}) => {
     return(
 
         <>
-            <Header userId={userId} authService={authService}/>
+            <Header userId={userId} authService={authService} getKeyword={getKeyword}/>
                 <section className={styles.container}>
                     <h1>{keyword}로 검색한 결과 총 {festivalInfo && festivalInfo.totalCount}건</h1>
                     <ul>
