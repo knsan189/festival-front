@@ -10,7 +10,13 @@ const SearchItem = ({item}) => {
         <li className={styles.item}>            
             <div className={styles.imgBox}><img src={imgUrlChange} alt={item.title}/></div>
             <div className={styles.festivalInfo}>
-                <Link to={{pathname : '/details', state : {item}}} contentid={item.contentid} className={styles.link}>
+                <Link 
+                    to={{
+                        pathname : '/details', 
+                        state : {
+                        festivalInfo : item
+                    }}} 
+                    className={styles.link}>
                     <h2>{item.title}</h2>
                     <p>주소 : {item.addr1}</p>
                 </Link>

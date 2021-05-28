@@ -124,15 +124,18 @@ const FestivalDetail = ({festivals, festivalRepository, authService}) => {
                                     : <span className={styles.eventEnd}>이벤트끝</span>
                         }
                         <h1>{title}</h1>
-                        <span className={styles.eventDate}>{dateChange(festivalInfo.eventstartdate)} ~ {dateChange(festivalInfo.eventenddate)}</span>
+                        <span className={styles.eventDate}>
+                            {dateChange(festivalInfo.eventstartdate)} ~ {dateChange(festivalInfo.eventenddate)}
+                        </span>
                     </div>
                     <div className={styles.slideBox}>
                         <Slider {...settings}>
                             { 
-                                img &&
-                                    img.length > 1 
+                                img  
+                                    ? img.length > 1 
                                         ? img.map(img =><DetailImg img={img} key={img.serialnum} title={title}/>)
-                                        : img.length === 1 && <DetailImg img={img} key={img.serialnum} title={title} />
+                                        : <DetailImg img={img} key={img.serialnum} title={title} />
+                                    : <p></p>
                             }
                         </Slider>
                     </div>

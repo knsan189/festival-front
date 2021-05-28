@@ -17,14 +17,16 @@ const SeasonBlock = ({Itemdata, festival}) => {
         start: '',
         end: ''
     });
+
     const {start, end} = startEnd;
+
     const seasonChange = (value, start, end) => {
         setSeason(value)
         const nextData = {start: start, end: end}
         setStartEnd(nextData)
         setShow(0)
-    
       }
+      
     useEffect(()=>{
     
         festival   
@@ -34,6 +36,7 @@ const SeasonBlock = ({Itemdata, festival}) => {
     }, [start, end, festival])
 
     const [seasonName, setSeasonName] = useState('봄')
+
     const getSeason = (data) => {
         setSeasonName(data)
     }

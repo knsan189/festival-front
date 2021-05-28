@@ -5,7 +5,7 @@ import FestivalDetail from './components/section/festival_detail/festival_detail
 import Login from './components/header/login';
 import Mypage from './components/section/mypage/mypage';
 import Main from './components/sunkist/main/main'
-import SearchList from './components/section/search/search_list';
+import Search from './components/section/search/search';
 
 
 
@@ -41,7 +41,7 @@ function App({holidays, festivals, authService, festivalRepository}) {
               <Login authService={authService} />
             </Route>
             <Route path='/searchlist'>
-              <SearchList festivals={festivals} authService={authService}/>
+              <Search festivals={festivals} authService={authService}/>
             </Route>
           </Switch>
       </HashRouter>
