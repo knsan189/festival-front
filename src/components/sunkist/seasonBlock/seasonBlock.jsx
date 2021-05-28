@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../loading';
 import Recommend from '../recommend/recommend';
 import SeasonList from '../seasonList/seasonList';
 import styles from './seasonBlock.module.css';
@@ -27,7 +28,7 @@ const SeasonBlock = ({Itemdata, festival}) => {
     useEffect(()=>{
     
         festival   
-        .seasonData(start, end)
+        .seasonData(start, end, setting => setLoading(setting))
         .then(seasonListItem => setSeasonListItem(seasonListItem));
     
     }, [start, end, festival])
@@ -36,6 +37,8 @@ const SeasonBlock = ({Itemdata, festival}) => {
     const getSeason = (data) => {
         setSeasonName(data)
     }
+
+    const [loading, setLoading] = useState(false)
 
     return (
         <div className={styles.seasonBox}>  
@@ -57,13 +60,12 @@ const SeasonBlock = ({Itemdata, festival}) => {
                     </ul>
 
                     <ul className={show === 1 ? styles.down : styles.recommend}>
-                    
-                    {  
-                          seasonListItem.map((item) =>
-                            <Recommend key={item.contentid} festivalInfo={item} />
-                        )
-                        
-                       
+                    {
+                        loading && <Loading />
+                    }
+                    {   
+                        !loading &&
+                            seasonListItem.map((item) => <Recommend key={item.contentid} festivalInfo={item} />)
                     }
 
                     </ul>

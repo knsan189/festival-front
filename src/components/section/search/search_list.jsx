@@ -11,7 +11,7 @@ const SearchList = ({festivals, authService}) => {
     const history = useHistory()
     let historyState = history?.location?.state
 
-    // Header 에서 입력된 검색어 처리
+    // Header 에서 입력된 검색어 처리 세션 스토리지에 저장해서 사용
     const sessionData = JSON.parse(sessionStorage.getItem('data'))
     if(sessionData) historyState = sessionData
 
@@ -70,8 +70,8 @@ const SearchList = ({festivals, authService}) => {
                         {
                             festivalInfo
                                 ? festivalInfo.items.item.length > 1
-                                    ?   festivalInfo.items.item.map((item) => <SearchItem item={item} key={item.contentid} />)
-                                    :   <SearchItem item={festivalInfo.items.item} />
+                                    ? festivalInfo.items.item.map((item) => <SearchItem item={item} key={item.contentid} />)
+                                    : <SearchItem item={festivalInfo.items.item} />
                                 : <p> 검색 결과가 없습니다</p>
                         }
                     </ul>

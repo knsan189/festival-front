@@ -108,12 +108,11 @@ const List = ({festivals, holidays, festivalRepository, authService}) => {
         }
         setInputs(nextInputs)
       }
-      const [loading, setLoading] = useState(false)
-
-
+    
+    const [loading, setLoading] = useState(false)
 
     useEffect(()=> {
-          festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode, setting => setLoading(setting) ).then(festivals => setFestivalInfo(festivals))
+          festivals.thisMonthFestival(eventDate, pageNo, arrange, areaCode, setting => setLoading(setting)).then(festivals => setFestivalInfo(festivals))
           festivals.areaCodes().then(Codes => setAreaCodes(Codes))
           holidays.thisMonth().then(holiday => setHoliday(holiday))
           sessionStorage.removeItem('data')

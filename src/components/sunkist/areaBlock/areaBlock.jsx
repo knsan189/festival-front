@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../loading';
 import AreaCode from '../areaCode/areaCode';
 import FestivalCreate from '../festivalCreate/festivalCreate';
 import styles from './areaBlock.module.css';
@@ -9,10 +10,13 @@ const AreaBlock = ({Itemdata, addShow, addShowDown, festival}) => {
     const minus = (mon) => setMon(mon <= 1 ? mon = 12 : mon - 1)
     const plus = (mon) => setMon(mon >= 12 ? mon = 1 : mon + 1)
     
+
+    const [loading, setLoading] = useState(false)
+
     useEffect( () => {  
       
         festival   
-        .festivalData(mon)
+        .festivalData(mon, setting => setLoading(setting))
         .then(ftv => setFtv(ftv)); 
           
         }
@@ -23,7 +27,7 @@ const AreaBlock = ({Itemdata, addShow, addShowDown, festival}) => {
             <div className={styles.locationBox}>
                 <h1>#지역별 축제 확인하기</h1>
                 <div className={styles.selectbox}>
-                    <ul className={styles.area}  >
+                    <ul className={styles.area}>
                         {
                             Itemdata.areaCode.map((list) => 
                             <AreaCode 
@@ -46,18 +50,22 @@ const AreaBlock = ({Itemdata, addShow, addShowDown, festival}) => {
                 </div>
 
 
-                           
-                <ul className={addShow === 1 ? styles.ulListDown : styles.ulList}>
-                    {  
-                        ftv 
-                        ? ftv.length > 1 
-                        ? ftv.map((item)=>
-                        
-                        <FestivalCreate key={item.contentid} item={item}  /> )
-                        : <FestivalCreate item={ftv}  />
-                        : <p className={styles.none}><i className="far fa-calendar-times"></i> {mon}월에는 계획된 행사가없습니다.</p>
-                    }
-                </ul>
+                { loading && <Loading /> }          
+                { !loading &&
+                    <ul className={addShow === 1 ? styles.ulListDown : styles.ulList}>
+                        {  
+                            ftv 
+                            ? ftv.length > 1 
+                            ? ftv.map((item)=>
+                            
+                            <FestivalCreate key={item.contentid} item={item}  /> )
+                            : <FestivalCreate item={ftv}  />
+                            : <p className={styles.none}><i className="far fa-calendar-times"></i> {mon}월에는 계획된 행사가없습니다.</p>
+                        }
+                    </ul>
+                }
+
+
                 <div className={styles.btnbox}>
                 {   
                     ftv
