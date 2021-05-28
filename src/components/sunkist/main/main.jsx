@@ -8,21 +8,32 @@ import Footer from '../../footer/footer';
 import styles from './main.module.css'
 
 
-const Main = (props) => {
+const Main = ({authService}) => {
     
     const festival = new Festival();
-
     const [addShow, setAddShow] = useState(0);
-
     const addShowDown = () => setAddShow(addShow === 0 ? addShow + 1 : addShow - 1)
 
     useEffect(() => {
         sessionStorage.clear()
     })
 
+    // 로그인 상태 확인
+    const [userId, setUserId] = useState()
+
+    useEffect(() => {
+
+        authService.onAuthChange(user => setUserId(user))
+        return () => {
+            setUserId(null)
+        };
+
+    }, [authService])
+    //
+
     return (
         <>
-            <Header />
+            <Header userId={userId} authService={authService}/>
                 <section className={styles.container}>
                     <SeasonBlock 
                     Itemdata={Itemdata} 

@@ -29,7 +29,7 @@ function App({holidays, festivals, authService, festivalRepository}) {
               <List holidays={holidays} festivals={festivals} authService={authService} festivalRepository={festivalRepository}/>
             </Route>
             <Route path={['/', '/main']} exact>
-              <Main />
+              <Main authService={authService}/>
             </Route>
             <Route path='/details'>
               <FestivalDetail festivals={festivals} festivalRepository={festivalRepository} authService={authService}/>
