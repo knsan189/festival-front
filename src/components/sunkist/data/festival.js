@@ -4,6 +4,9 @@ class Festival {
     constructor() {
         this.festival = axios.create({
             baseURL: 'https://festivalprojectapp.herokuapp.com/http://api.visitkorea.or.kr/openapi/service',
+            headers : {
+              "Access-Control-Allow-Origin" : "festival_project"
+            }
         });
     }
     

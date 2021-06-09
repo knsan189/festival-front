@@ -65,3 +65,9 @@
     position: relative;
     z-index: 999;
 }
+
+@media (max-width:979px){
+    .list{
+        width:48%;
+    }
+}

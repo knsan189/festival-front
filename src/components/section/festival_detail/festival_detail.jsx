@@ -76,7 +76,7 @@ const FestivalDetail = ({festivals, festivalRepository, authService}) => {
     
 
     // slick 슬라이더 세팅값 
-    const settings = { dots: false, infinite: true,speed: 500, slidesToShow: 1, slidesToScroll: 1}
+    const settings = { dots: false, infinite: true, speed: 500, slidesToShow: 1, slidesToScroll: 1}
     //
 
     // 날짜 중간에 .표시해주는 함수

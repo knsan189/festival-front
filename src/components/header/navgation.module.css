@@ -39,3 +39,12 @@
     cursor: pointer;
     font-size: 14px;
 }
+
+
+@media (max-width:720px){
+    .nav{
+        position: absolute;
+        top:2em;
+        right:2em;
+    }
+}

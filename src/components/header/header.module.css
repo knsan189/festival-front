@@ -17,3 +17,22 @@
 .logo img{
     max-width: 160px;
 }
+
+
+
+
+@media (max-width:720px) {
+
+    .header{
+        height:auto;
+        margin-bottom: 20px;
+    }
+
+    .row{
+        flex-direction: column;
+        padding:20px;
+    }
+    .logo {
+        padding-bottom:1em;
+    }
+}

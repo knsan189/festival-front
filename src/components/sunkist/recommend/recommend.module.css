@@ -64,3 +64,8 @@
 .onSchedule {
     background: skyblue;
 }
+
+
+@media (max-width:979px){
+    .list{width:48%}
+}
