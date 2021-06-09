@@ -137,7 +137,7 @@ useEffect(() => {
 </div>
 </details>
 
-### 4.3 로그아웃 후 재로그인 할때 useEffect Clenup 문제
+### 4.3 로그아웃 후 재로그인 할때 useEffect Cleanup 문제
 
 - router 이동 후, 이동 전 컴포넌트에서 state를 바꾸려는 시도가 있을 때 메모리 lack 에러
 
