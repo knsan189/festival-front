@@ -2,7 +2,7 @@
   "name": "festival",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://trusting-lalande-2799da.netlify.app/",
+  "homepage": "https://knsan189.github.io/festival_project/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@testing-library/jest-dom": "^5.11.4",
@@ -27,7 +27,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
