@@ -1,98 +1,95 @@
 .section {
-    width: 980px;
-    margin: 0 auto;
-    padding: 20px;
+  width: 980px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-
-.addbutton{
-    cursor: pointer;
-    border: 1px solid #f65e57;
-    padding: 7px 20px;
-    background-color: #f65e57;
-    color : #fff;
-    transition: 0.3s all;
+.addbutton {
+  cursor: pointer;
+  border: 1px solid #f65e57;
+  padding: 7px 20px;
+  background-color: #f65e57;
+  color: #fff;
+  transition: 0.3s all;
 }
 
-.addbutton:hover{
-    background-color: #fff;
-    color:#f65e57
+.addbutton:hover {
+  background-color: #fff;
+  color: #f65e57;
 }
 .title {
-    text-align: center;
-    padding-bottom: 2em;
+  text-align: center;
+  padding-bottom: 2em;
 }
 
 .title .eventIng {
-    font-size: 0.8em;
-    color: #fff;
-    background: #f65e57;
-    padding: 4px 8px;
-    border-radius: 1em;
+  font-size: 0.8em;
+  color: #fff;
+  background: #f65e57;
+  padding: 4px 8px;
+  border-radius: 1em;
 }
 
 .title .eventBefore {
-    font-size: 0.8em;
-    color: #fff;
-    background: #13294b;
-    padding: 4px 8px;
-    border-radius: 1em;
+  font-size: 0.8em;
+  color: #fff;
+  background: #13294b;
+  padding: 4px 8px;
+  border-radius: 1em;
 }
 
 .title h1 {
-    font-size: 2em;
-    color: #333
+  font-size: 2em;
+  color: #333;
 }
 
 .title .eventDate {
-    color: #666
+  color: #666;
 }
 
 .imgBox {
-    text-align: center;
+  text-align: center;
 }
-
 
 .section h2 {
-    padding-bottom: 0.5em;
-    border-bottom: 2px solid #333;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #333;
 }
 
-
 .slideBox {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
 .info {
-    padding: 1em 0;
-    color: #333;
-    font-size: 1.2em;
-    letter-spacing: -1px;
-    line-height: 1.7;
+  padding: 1em 0;
+  color: #333;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  line-height: 1.7;
 }
 
 .info h3 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .info .detailInfo {
-    padding: 1em 0;
+  padding: 1em 0;
 }
 
 .info .buttonBox {
-    text-align: right;
-    letter-spacing: -1px;
+  text-align: right;
+  letter-spacing: -1px;
 }
 
 .info .buttonBox .button {
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: 0.4s all;
-    text-align: right;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: 0.4s all;
+  text-align: right;
 }
 
 .info .buttonBox .button svg {
-    font-size: 0.8em;
-    margin-left: 5px;
-    color: #666;
+  font-size: 0.8em;
+  margin-left: 5px;
+  color: #666;
 }

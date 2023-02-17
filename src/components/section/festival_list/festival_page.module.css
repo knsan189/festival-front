@@ -1,16 +1,15 @@
-.pageNum{
-    padding:2em 0.4em;
+.pageNum {
+  padding: 2em 0.4em;
+}
+.pageNum button {
+  font-size: 1em;
+  cursor: pointer;
+}
+.active {
+  color: #000;
+  font-weight: bold;
+}
 
-}
-.pageNum button{
-    font-size:1em;
-    cursor: pointer;
-}
-.active{
-    color:#000;
-    font-weight: bold;
-}
-
-.button{
-    color:#c6c6c6
+.button {
+  color: #c6c6c6;
 }

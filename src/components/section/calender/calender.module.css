@@ -1,45 +1,45 @@
-.calender{
-    padding:1em 0;
+.calender {
+  padding: 1em 0;
 }
 
-.bar{
-    width:100%;
-    text-align: center;
-    padding-bottom: 1em;
-    font-weight: bold;
+.bar {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1em;
+  font-weight: bold;
 }
 
-.bar h3{
-    font-size:1.2em;
-    display: inline-block;
-    padding: 0 1em;
+.bar h3 {
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 0 1em;
 }
-.bar span{
-    color:#767c9e
-}
-
-.bar button{
-    padding-top:0.5em;
+.bar span {
+  color: #767c9e;
 }
 
-.table{
-    width:100%;
-    border : 1px solid #c6c6c6;
-    border-radius : 0.5em;
-    background: #fff;
+.bar button {
+  padding-top: 0.5em;
 }
 
-.table .td{
-    text-align: center;
-    color : #767c9e;
-    padding : 6px 0;
-    font-size: 0.8em;
+.table {
+  width: 100%;
+  border: 1px solid #c6c6c6;
+  border-radius: 0.5em;
+  background: #fff;
 }
 
-.table tr{
-    border-bottom:1px solid #c6c6c6
+.table .td {
+  text-align: center;
+  color: #767c9e;
+  padding: 6px 0;
+  font-size: 0.8em;
 }
 
-.table tr:last-child{
-    border: none;
+.table tr {
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.table tr:last-child {
+  border: none;
 }
