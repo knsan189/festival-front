@@ -4,11 +4,14 @@ import AreaCode from "../areaCode/areaCode";
 import FestivalCreate from "../festivalCreate/festivalCreate";
 import styles from "./areaBlock.module.css";
 
-const AreaBlock = ({ Itemdata, addShow, addShowDown, festival }) => {
+const AreaBlock = ({ Itemdata, festival }) => {
   const [ftv, setFtv] = useState([]);
   const [mon, setMon] = useState(1);
   const minus = (mon) => setMon(mon <= 1 ? (mon = 12) : mon - 1);
   const plus = (mon) => setMon(mon >= 12 ? (mon = 1) : mon + 1);
+
+  const [addShow, setAddShow] = useState(0);
+  const addShowDown = () => setAddShow(addShow === 0 ? addShow + 1 : addShow - 1);
 
   const [loading, setLoading] = useState(false);
 

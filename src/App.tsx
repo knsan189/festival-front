@@ -8,7 +8,7 @@ import FestivalDetail from "./components/section/festival_detail/festival_detail
 import Login from "./components/header/login";
 import Mypage from "./components/section/mypage/mypage";
 import Search from "./components/section/search/search";
-import Main from "./pages/main";
+import Main from "./pages/Main";
 
 function App() {
   return (

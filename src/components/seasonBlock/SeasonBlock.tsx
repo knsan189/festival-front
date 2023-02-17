@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../../loading";
-import Recommend from "../recommend/recommend";
-import SeasonList from "../seasonList/seasonList";
-import styles from "./seasonBlock.module.css";
+import Loading from "../loading";
+import Recommend from "../sunkist/recommend/recommend";
+import SeasonList from "../sunkist/seasonList/seasonList";
+import styles from "../../styles/seasonBlock.module.css";
 
-const SeasonBlock = ({ Itemdata, festival }) => {
-  const [season, setSeason] = useState(1);
-  const [show, setShow] = useState(0);
+const SeasonBlock = () => {
+  const [season, setSeason] = useState<number>(1);
+  const [show, setShow] = useState<number>(0);
   const [seasonListItem, setSeasonListItem] = useState([]);
+
   const showDown = () => {
     setShow(show === 0 ? show + 1 : show - 1);
-    show === 1 && window.scrollTo(0, 0);
+    if (show === 1) window.scrollTo(0, 0);
   };
 
   const [startEnd, setStartEnd] = useState({
@@ -69,7 +70,7 @@ const SeasonBlock = ({ Itemdata, festival }) => {
 
       <div className={styles.btnbox}>
         {show === 0 ? (
-          <button className={styles.plusButton} onClick={() => showDown()}>
+          <button type="button" className={styles.plusButton} onClick={() => showDown()}>
             축제 더보기
           </button>
         ) : (

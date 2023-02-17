@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Itemdata from "../components/sunkist/itemdata.json";
-import SeasonBlock from "../components/sunkist/seasonBlock/seasonBlock";
+import SeasonBlock from "../components/seasonBlock/SeasonBlock";
 import AreaBlock from "../components/sunkist/areaBlock/areaBlock";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import styles from "../styles/main.module.css";
 
 const Main = () => {
-  const [userId, setUserId] = useState();
-  const [addShow, setAddShow] = useState(0);
-  const addShowDown = () =>
-    setAddShow(addShow === 0 ? addShow + 1 : addShow - 1);
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     sessionStorage.clear();
@@ -27,14 +23,10 @@ const Main = () => {
 
   return (
     <>
-      <Header userId={userId} />
+      <Header />
       <section className={styles.container}>
-        <SeasonBlock Itemdata={Itemdata} />
-        <AreaBlock
-          Itemdata={Itemdata}
-          addShow={addShow}
-          addShowDown={addShowDown}
-        />
+        <SeasonBlock />
+        <AreaBlock />
       </section>
       <Footer />
     </>
