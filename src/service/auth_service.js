@@ -7,6 +7,7 @@ import {
 
 class AuthService {
   login(providerName) {
+    console.log(1)
     const autoProvider = this.getProvider(providerName);
     return firebaseAuth.signInWithPopup(autoProvider);
   }
