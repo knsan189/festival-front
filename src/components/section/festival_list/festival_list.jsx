@@ -3,7 +3,7 @@ import FestivalItem from "../festival_item/festival_item";
 import FestivalPage from "./festival_page";
 import FestivalArrage from "./festival_arrage";
 import { memo } from "react";
-import Loading from "../../loading";
+import Loading from "../../Common/Loading/Loading";
 
 const FestivalList = memo(
   ({
@@ -39,12 +39,7 @@ const FestivalList = memo(
           </div>
           <ul>
             {arrage.map((obj) => (
-              <FestivalArrage
-                key={obj}
-                value={obj}
-                selectArrage={selectArrage}
-                arrange={arrange}
-              />
+              <FestivalArrage key={obj} value={obj} selectArrage={selectArrage} arrange={arrange} />
             ))}
           </ul>
         </div>
@@ -76,17 +71,12 @@ const FestivalList = memo(
         )}
         <ul className={styles.pageNum}>
           {pageNum.map((num, index) => (
-            <FestivalPage
-              key={num}
-              num={index}
-              selectPageNo={selectPageNo}
-              pageNo={pageNo}
-            />
+            <FestivalPage key={num} num={index} selectPageNo={selectPageNo} pageNo={pageNo} />
           ))}
         </ul>
       </div>
     );
-  }
+  },
 );
 
 export default FestivalList;

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Loading from "../loading";
+import Loading from "../Common/Loading/Loading";
 import Recommend from "./SeasonFestival";
 import Season from "./SeasonItem";
 import styles from "./SeasonList.module.css";

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import SeasonList from "../components/Season/SeasonList";
-import AreaBlock from "../components/sunkist/areaBlock/areaBlock";
+import AreaList from "../components/Area/AreaList";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import styles from "../styles/main.module.css";
+import Month from "../components/Month/Month";
 
 const Main = () => {
   const [userId, setUserId] = useState("");
@@ -26,7 +27,8 @@ const Main = () => {
       <Header />
       <section className={styles.container}>
         <SeasonList />
-        {/* <AreaBlock /> */}
+        <AreaList />
+        <Month />
       </section>
       <Footer />
     </>

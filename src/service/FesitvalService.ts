@@ -23,13 +23,14 @@ class FestivalService {
     },
   });
 
-  public static getFestivals(mon: number) {
+  public static getFestivals(month: number): Promise<GetFestivalsResponse> {
     return new Promise((resolve, reject) => {
       (async () => {
         try {
-          const startDate = Number(`2021${mon < 10 ? "0" : ""}${mon}01`);
-          const endDate = Number(`2021${mon < 10 ? "0" : ""}${mon}31`);
-          const response = await FestivalService.module({
+          const year = new Date().getFullYear();
+          const parsedMonth = `${month < 10 ? "0" : ""}${month}`;
+          const target = `${year}${parsedMonth}`;
+          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.module({
             url: "/searchFestival",
             params: {
               numOfRows: 30,
@@ -37,13 +38,13 @@ class FestivalService {
               _type: "json",
               arrange: "R",
               listYN: "Y",
-              eventStartDate: startDate,
-              eventEndDate: endDate,
+              eventStartDate: `${target}01`,
+              eventEndDate: `${target}30`,
               MobileOS: "ETC",
               MobileApp: "AppTest",
             },
           });
-          resolve(response.data.response.body.items.item);
+          resolve(response.data);
         } catch (error) {
           reject(error);
         }
