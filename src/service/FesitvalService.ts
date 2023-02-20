@@ -1,7 +1,19 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { OPEN_API_KEY } from "../config/const";
 
 const BASE_URL = "https://apis.data.go.kr/B551011/KorService";
+
+interface GetFestivalsResponse extends FestivalServerRespose {
+  response: {
+    header: FestivalServerRespose["response"]["header"];
+    body: {
+      items: { item: Festival[] };
+      numOfRows: number;
+      pageNo: number;
+      totalCount: number;
+    };
+  };
+}
 
 class FestivalService {
   private static module = axios.create({
@@ -20,7 +32,7 @@ class FestivalService {
           const response = await FestivalService.module({
             url: "/searchFestival",
             params: {
-              numOfRows: 500,
+              numOfRows: 30,
               pageNo: 1,
               _type: "json",
               arrange: "R",
@@ -39,25 +51,30 @@ class FestivalService {
     });
   }
 
-  public static seasonData(eventStartDate: string, eventEndDate: string) {
+  public static seasonData(
+    eventStartDate: string,
+    eventEndDate: string,
+    numOfRows = 30,
+  ): Promise<GetFestivalsResponse> {
     return new Promise((resolve, reject) => {
       (async () => {
         try {
-          const response = await FestivalService.module({
+          const year = new Date().getFullYear();
+          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.module({
             url: "/searchFestival",
             params: {
-              numOfRows: 500,
+              numOfRows,
               pageNo: 1,
               _type: "json",
               arrange: "R",
               listYN: "Y",
-              eventStartDate,
-              eventEndDate,
+              eventStartDate: `${year}${eventStartDate}`,
+              eventEndDate: `${year}${eventEndDate}`,
               MobileOS: "ETC",
               MobileApp: "AppTest",
             },
           });
-          resolve(response.data.response.body.items.item);
+          resolve(response.data);
         } catch (error) {
           reject(error);
         }

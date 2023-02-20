@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SeasonBlock from "../components/seasonBlock/SeasonBlock";
+import SeasonList from "../components/Season/SeasonList";
 import AreaBlock from "../components/sunkist/areaBlock/areaBlock";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
@@ -25,8 +25,8 @@ const Main = () => {
     <>
       <Header />
       <section className={styles.container}>
-        <SeasonBlock />
-        <AreaBlock />
+        <SeasonList />
+        {/* <AreaBlock /> */}
       </section>
       <Footer />
     </>

@@ -1,4 +1,4 @@
-export const OPEN_API_KEY = `${process.env.REACT_APP_OPEN_API_KEY}`;
+export const OPEN_API_KEY = `${process.env.REACT_APP_PUBLIC_API_KEY}`;
 
 export const AREA_CODES = [
   { name: "전국", value: "" },
@@ -22,10 +22,10 @@ export const AREA_CODES = [
 ];
 
 export const SEASON_LIST = [
-  { name: "봄", start: "20210301", end: "20210531", value: "1" },
-  { name: "여름", start: "20210601", end: "20210831", value: "2" },
-  { name: "가을", start: "20210901", end: "20211130", value: "3" },
-  { name: "겨울", start: "20211201", end: "20211231", value: "4" },
+  { name: "봄", start: "0301", end: "0531", id: 1 },
+  { name: "여름", start: "0601", end: "0831", id: 2 },
+  { name: "가을", start: "0901", end: "1130", id: 3 },
+  { name: "겨울", start: "1201", end: "1231", id: 4 },
 ];
 
 export const MONTH_DESCRIPTION = [
