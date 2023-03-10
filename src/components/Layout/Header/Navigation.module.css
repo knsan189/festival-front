@@ -1,0 +1,49 @@
+.nav {
+  position: relative;
+}
+
+.menuBtn {
+  font-size: 1.5em;
+  color: #666;
+}
+
+.menu {
+  position: absolute;
+  background: #fff;
+  width: 215px;
+  padding: 10px 0;
+  border-radius: 5px;
+  z-index: 1;
+  right: 0;
+  border: 1px solid #c6c6c6;
+}
+
+.menu li {
+  padding: 4px 12px;
+}
+.menu li:hover a {
+  color: #f65e57;
+  font-weight: bold;
+}
+.menu li:hover button {
+  color: #f65e57;
+  font-weight: bold;
+}
+.menu li a {
+  color: #333;
+  font-size: 14px;
+}
+
+.menu li button {
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .nav {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+  }
+}

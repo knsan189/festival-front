@@ -1,0 +1,24 @@
+.search {
+  background: #f7f7f7;
+  padding: 0.8em 1em;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+}
+.search i {
+  font-size: 1em;
+}
+.input {
+  width: 400px;
+  background: #f7f7f7;
+  font-size: 1em;
+}
+
+@media (max-width: 720px) {
+  .search {
+    width: 100%;
+  }
+  .input {
+    width: 100%;
+  }
+}

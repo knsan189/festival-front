@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import Footer from "../../footer/footer";
+import Footer from "../../Layout/Footer";
 import Header from "../../header/header";
 import MypageItem from "./mypage_item";
 import styles from "./mypage.module.css";
@@ -26,7 +26,7 @@ const Mypage = ({ authService, festivalRepository, favorRemove }) => {
       return;
     }
     const stopSync = festivalRepository.syncFestival(userId, (festivals) =>
-      setFestivals(festivals)
+      setFestivals(festivals),
     );
     return () => {
       stopSync();

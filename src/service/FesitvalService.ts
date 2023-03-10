@@ -1,25 +1,22 @@
 import axios, { AxiosResponse } from "axios";
 import { OPEN_API_KEY } from "../config/const";
 
-const BASE_URL = "https://apis.data.go.kr/B551011/KorService";
+const BASE_URL = "https://apis.data.go.kr/B551011/KorService1";
 
-interface GetFestivalsResponse extends FestivalServerRespose {
-  response: {
-    header: FestivalServerRespose["response"]["header"];
-    body: {
-      items: { item: Festival[] };
-      numOfRows: number;
-      pageNo: number;
-      totalCount: number;
-    };
-  };
-}
+type GetFestivalsResponse = FestivalServerRespose<Festival>;
+type GetDetailCommonResponse = FestivalServerRespose<FestivalDetailCommon>;
+type GetDetailIntroResponse = FestivalServerRespose<FestivalDetailIntro>;
+type GetDetailInfoResponse = FestivalServerRespose<FestivalDetailInfo>;
+type GetDetailImageResponse = FestivalServerRespose<FestivalDetailImage>;
 
 class FestivalService {
-  private static module = axios.create({
+  private static instance = axios.create({
     baseURL: BASE_URL,
     params: {
       serviceKey: OPEN_API_KEY,
+      _type: "json",
+      MobileOS: "ETC",
+      MobileApp: "AppTest",
     },
   });
 
@@ -30,18 +27,15 @@ class FestivalService {
           const year = new Date().getFullYear();
           const parsedMonth = `${month < 10 ? "0" : ""}${month}`;
           const target = `${year}${parsedMonth}`;
-          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.module({
+          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
             url: "/searchFestival",
             params: {
               numOfRows: 30,
               pageNo: 1,
-              _type: "json",
               arrange: "R",
               listYN: "Y",
               eventStartDate: `${target}01`,
               eventEndDate: `${target}30`,
-              MobileOS: "ETC",
-              MobileApp: "AppTest",
             },
           });
           resolve(response.data);
@@ -61,18 +55,97 @@ class FestivalService {
       (async () => {
         try {
           const year = new Date().getFullYear();
-          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.module({
+          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
             url: "/searchFestival",
             params: {
               numOfRows,
               pageNo: 1,
-              _type: "json",
               arrange: "R",
               listYN: "Y",
               eventStartDate: `${year}${eventStartDate}`,
               eventEndDate: `${year}${eventEndDate}`,
-              MobileOS: "ETC",
-              MobileApp: "AppTest",
+            },
+          });
+          resolve(response.data);
+        } catch (error) {
+          reject(error);
+        }
+      })();
+    });
+  }
+
+  public static getDetailCommon(contentId: string | number): Promise<GetDetailCommonResponse> {
+    return new Promise((resolve, reject) => {
+      (async () => {
+        try {
+          const response: AxiosResponse<GetDetailCommonResponse> = await FestivalService.instance({
+            url: "/detailCommon1",
+            params: {
+              contentId,
+              defaultYN: "Y",
+              firstImageYN: "Y",
+              areacodeYN: "Y",
+              addrinfoYN: "Y",
+              mapinfoYN: "Y",
+              overviewYN: "Y",
+            },
+          });
+          resolve(response.data);
+        } catch (error) {
+          reject(error);
+        }
+      })();
+    });
+  }
+
+  public static getDetailIntro(contentId: string | number): Promise<GetDetailIntroResponse> {
+    return new Promise((resolve, reject) => {
+      (async () => {
+        try {
+          const response: AxiosResponse<GetDetailIntroResponse> = await FestivalService.instance({
+            url: "/detailIntro1",
+            params: {
+              contentId,
+              contentTypeId: 15,
+            },
+          });
+          resolve(response.data);
+        } catch (error) {
+          reject(error);
+        }
+      })();
+    });
+  }
+
+  public static getDetailInfo(contentId: string | number): Promise<GetDetailInfoResponse> {
+    return new Promise((resolve, reject) => {
+      (async () => {
+        try {
+          const response: AxiosResponse<GetDetailInfoResponse> = await FestivalService.instance({
+            url: "/detailInfo1",
+            params: {
+              contentId,
+              contentTypeId: 15,
+            },
+          });
+          resolve(response.data);
+        } catch (error) {
+          reject(error);
+        }
+      })();
+    });
+  }
+
+  public static getDetailImage(contentId: string | number): Promise<GetDetailImageResponse> {
+    return new Promise((resolve, reject) => {
+      (async () => {
+        try {
+          const response: AxiosResponse<GetDetailImageResponse> = await FestivalService.instance({
+            url: "/detailImage1",
+            params: {
+              contentId,
+              imageYN: "Y",
+              subImageYN: "Y",
             },
           });
           resolve(response.data);
@@ -129,51 +202,8 @@ class FestivalService {
   //   return response.data.response.body.items.item;
   // }
 
-  // static async contentInfo(contentId) {
-  //   const response = await this.festival.get("/detailCommon", {
-  //     params: {
-  //       type: "_json",
-  //       MobileOS: "ETC",
-  //       MobileApp: "Festival",
-  //       contentId: contentId,
-  //       defaultYN: "Y",
-  //       firstImageYN: "Y",
-  //       areacodeYN: "Y",
-  //       addrinfoYN: "Y",
-  //       mapinfoYN: "Y",
-  //       overviewYN: "Y",
-  //     },
-  //   });
-  //   return response.data.response.body.items.item;
-  // }
-
-  // static async contentImg(contentId) {
-  //   const response = await this.festival.get("/detailImage", {
-  //     params: {
-  //       type: "_json",
-  //       MobileOS: "ETC",
-  //       MobileApp: "Festival",
-  //       contentId: contentId,
-  //     },
-  //   });
-  //   return response.data.response.body.items.item;
-  // }
-
   // static async contentDetail(contentId) {
   //   const response = await this.festival.get("/detailInfo", {
-  //     params: {
-  //       type: "_json",
-  //       MobileOS: "ETC",
-  //       MobileApp: "Festival",
-  //       contentId: contentId,
-  //       contentTypeId: 15,
-  //     },
-  //   });
-  //   return response.data.response.body.items.item;
-  // }
-
-  // static async contentIntro(contentId) {
-  //   const response = await this.festival.get("/detailIntro", {
   //     params: {
   //       type: "_json",
   //       MobileOS: "ETC",

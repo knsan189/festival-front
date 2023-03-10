@@ -13,7 +13,7 @@ module.exports = {
     "react/no-array-index-key": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/default-param-last": "off",
-    "no-console": "warn",
+    "no-console": "off",
   },
   ignorePatterns: ["**/*.js", "**/*.jsx"],
 };

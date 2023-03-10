@@ -5,9 +5,14 @@ interface Season {
   id: number;
 }
 
-interface FestivalServerRespose {
+interface FestivalServerRespose<T> {
   response: {
-    body: unknown;
+    body: {
+      items: { item: T[] };
+      numOfRows: number;
+      pageNo: number;
+      totalCount: number;
+    };
     header: {
       resultCode: string;
       resultMsg: string;

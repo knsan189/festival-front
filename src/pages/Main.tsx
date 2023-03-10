@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SeasonList from "../components/Season/SeasonList";
 import AreaList from "../components/Area/AreaList";
-import Header from "../components/header/header";
-import Footer from "../components/footer/footer";
-import styles from "../styles/main.module.css";
 import Month from "../components/Month/Month";
 
 const Main = () => {
@@ -24,13 +21,9 @@ const Main = () => {
 
   return (
     <>
-      <Header />
-      <section className={styles.container}>
-        <SeasonList />
-        <AreaList />
-        <Month />
-      </section>
-      <Footer />
+      <SeasonList />
+      <AreaList />
+      <Month />
     </>
   );
 };
