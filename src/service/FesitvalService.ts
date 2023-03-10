@@ -9,6 +9,8 @@ type GetDetailIntroResponse = FestivalServerRespose<FestivalDetailIntro>;
 type GetDetailInfoResponse = FestivalServerRespose<FestivalDetailInfo>;
 type GetDetailImageResponse = FestivalServerRespose<FestivalDetailImage>;
 
+const resultMap = new Map<string, any>();
+
 class FestivalService {
   private static instance = axios.create({
     baseURL: BASE_URL,
@@ -27,6 +29,13 @@ class FestivalService {
           const year = new Date().getFullYear();
           const parsedMonth = `${month < 10 ? "0" : ""}${month}`;
           const target = `${year}${parsedMonth}`;
+          const cache = resultMap.get(target) as GetFestivalsResponse;
+
+          if (cache) {
+            resolve(cache);
+            return;
+          }
+
           const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
             url: "/searchFestival1",
             params: {
@@ -38,6 +47,8 @@ class FestivalService {
               eventEndDate: `${target}30`,
             },
           });
+
+          resultMap.set(target, response.data);
           resolve(response.data);
         } catch (error) {
           reject(error);

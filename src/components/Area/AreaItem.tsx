@@ -12,7 +12,7 @@ interface Props {
 const AreaItem = ({ area }: Props) => {
   return (
     <li className={styles.arealist}>
-      <Link to="/list" state={area}>
+      <Link to="/festival" state={area}>
         {area.name}
       </Link>
     </li>
