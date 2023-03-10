@@ -28,7 +28,7 @@ class FestivalService {
           const parsedMonth = `${month < 10 ? "0" : ""}${month}`;
           const target = `${year}${parsedMonth}`;
           const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
-            url: "/searchFestival",
+            url: "/searchFestival1",
             params: {
               numOfRows: 30,
               pageNo: 1,
@@ -56,7 +56,7 @@ class FestivalService {
         try {
           const year = new Date().getFullYear();
           const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
-            url: "/searchFestival",
+            url: "/searchFestival1",
             params: {
               numOfRows,
               pageNo: 1,
