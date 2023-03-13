@@ -1,11 +1,11 @@
 # 미스홍 투어
 
 전국 축제 조회 서비스
-메인 : https://knsan189.github.io/festival_project/
+메인 : http://knsan189.iptime.org:5000/
 
 ## 목차
 
-1. 제작 기간 & 참여 인원
+1. 참여 인원
 2. 사용 기술
 3. 핵심 기능
 4. 트러블 슈팅
@@ -13,10 +13,9 @@
 
 ---
 
-### 1. 제작기간 & 참여인원
+### 1. 참여인원
 
-- 2021년 05월 01일 ~ 05월 24일
-- 진하늘 (프론트엔드, 파이어베이스)
+- 진하늘 (프론트엔드, 백엔드)
 - 홍선기 (프론트엔드)
 
 ---
@@ -24,12 +23,12 @@
 ### 2. 사용기술
 
 - React
-- React-Router
-- Axios
-- PostCSS
-- WebPack
-- MomentJs (https://momentjs.com/)
-- FireBase (https://firebase.google.com/)
+- Typescript
+- Emotion (https://emotion.sh/) \*적용중ㄴ
+- Material UI (https://mui.com/) \*적용중
+- Moment (https://momentjs.com/)
+- OpenLayers (https://openlayers.org/) \*적용중
+- ~~Kakao Map~~
 
 ---
 
@@ -73,11 +72,11 @@
 
 ### 4. 핵심 트러블 슈팅
 
-#### 4.1 MIXED CONTENT 문제
+#### ~~4.1 MIXED CONTENT 문제~~
 
-Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기는 문제.
+~~Mixed Content는 https, http 간 통신 규약이 매칭되지 않을 때 생기는 문제.
 한국관광공사에서 제공해주는 API가 https를 제공하지 않아, API 요청시 브라우저에서 거부가 되어
-프록시서버를 만들어 서버에서 API데이터를 송신하는 방식으로 사용했습니다.
+프록시서버를 만들어 서버에서 API데이터를 송신하는 방식으로 사용했습니다.~~
 
 <details>
 <summary>Before</summary>
@@ -188,5 +187,9 @@ useEffect(() => {
 
 ### 5. 향후 계획
 
-1. 코드의 가독성을 높이기 위해 Typescript로 변경예정
-2. 반응형 작업
+- ~~Typescript 적용~~
+- CSS Module 제거, MUI로 스타일링 적용
+- 모바일 반응형 작업
+- 카카오맵 Openlayers 지도로 변경
+- DB Firebase에서 Mysql로 변경
+- 상태관리 Redux로 변경
