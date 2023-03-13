@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { MONTH_DESCRIPTION } from "../../config/const";
-import FestivalService from "../../service/FesitvalService";
-import Loading from "../Common/Loading/Loading";
+import { Grid, Button, Box } from "@mui/material";
+import { MONTH_DESCRIPTION } from "../../../config/const";
+import FestivalService from "../../../service/FesitvalService";
+import Loading from "../../Common/Loading/Loading";
 import SeasonFestival from "../Season/SeasonFestival";
 import styles from "./Month.module.css";
 
@@ -65,7 +66,7 @@ const Month = () => {
       {loading ? (
         <Loading />
       ) : (
-        <ul className={addShow === 1 ? styles.ulListDown : styles.ulList}>
+        <Grid container spacing={2}>
           {festivals.length > 0 ? (
             festivals.map((festival) => (
               <SeasonFestival key={festival.contentid} festival={festival} />
@@ -75,21 +76,21 @@ const Month = () => {
               <i className="far fa-calendar-times" /> {month}월에는 계획된 행사가없습니다.
             </p>
           )}
-        </ul>
+        </Grid>
       )}
 
-      <div className={styles.btnbox}>
+      <Box mt={2} textAlign="center">
         {festivals.length > 7 &&
           (addShow === 0 ? (
-            <button className={styles.plusButton} onClick={addShowDown} type="button">
+            <Button variant="outlined" size="large" onClick={addShowDown}>
               축제 더보기
-            </button>
+            </Button>
           ) : (
-            <button className={styles.minusButton} onClick={addShowDown} type="button">
+            <Button variant="outlined" size="large" onClick={addShowDown}>
               목록 접기
-            </button>
+            </Button>
           ))}
-      </div>
+      </Box>
     </div>
   );
 };

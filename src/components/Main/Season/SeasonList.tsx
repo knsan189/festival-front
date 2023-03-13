@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Loading from "../Common/Loading/Loading";
-import Recommend from "./SeasonFestival";
+import { Button, Box, Grid, Typography } from "@mui/material";
+import Loading from "../../Common/Loading/Loading";
+import SeasonFestival from "./SeasonFestival";
 import Season from "./SeasonItem";
 import styles from "./SeasonList.module.css";
-import FestivalService from "../../service/FesitvalService";
-import { SEASON_LIST } from "../../config/const";
+import FestivalService from "../../../service/FesitvalService";
+import { SEASON_LIST } from "../../../config/const";
 
 const SeasonList = () => {
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,7 @@ const SeasonList = () => {
         const { response } = await FestivalService.seasonData(
           activeSeason.start,
           activeSeason.end,
-          18,
+          12,
         );
         setFestivals(response.body.items.item);
         setLoading(false);
@@ -40,9 +41,12 @@ const SeasonList = () => {
 
   return (
     <div className={styles.seasonBox}>
-      <h1>
-        #계절별 축제 모아보기 <span>#{activeSeason.name}</span>
-      </h1>
+      <Typography variant="h4">
+        #계절별 축제 모아보기{" "}
+        <Typography variant="h4" component="span" color="primary">
+          #{activeSeason.name}
+        </Typography>
+      </Typography>
       <ul className={styles.season}>
         {SEASON_LIST.map((season) => (
           <Season
@@ -54,25 +58,32 @@ const SeasonList = () => {
         ))}
       </ul>
 
-      <ul className={show === 1 ? styles.down : styles.recommend}>
+      <Grid container spacing={2}>
         {loading ? (
           <Loading />
         ) : (
-          festivals.map((festival) => <Recommend key={festival.contentid} festival={festival} />)
+          festivals.map((festival) => (
+            <SeasonFestival key={festival.contentid} festival={festival} />
+          ))
         )}
-      </ul>
+      </Grid>
 
-      <div className={styles.btnbox}>
+      <Box mt={2} textAlign="center">
         {show === 0 ? (
-          <button type="button" className={styles.plusButton} onClick={() => showDown()}>
+          <Button variant="outlined" size="large" onClick={() => showDown()}>
             축제 더보기
-          </button>
+          </Button>
         ) : (
-          <button type="button" className={styles.minusButton} onClick={() => showDown()}>
+          <Button
+            variant="outlined"
+            size="large"
+            className={styles.minusButton}
+            onClick={() => showDown()}
+          >
             목록 접기
-          </button>
+          </Button>
         )}
-      </div>
+      </Box>
     </div>
   );
 };

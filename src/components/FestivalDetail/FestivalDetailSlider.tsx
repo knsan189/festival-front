@@ -22,7 +22,8 @@ const FestivalDetailSlider = () => {
     (async () => {
       if (!id) return;
       const { response } = await FestivalService.getDetailImage(id);
-      setImages(response.body.items.item);
+
+      setImages(response.body.items.item || []);
     })();
   }, [id]);
 

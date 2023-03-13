@@ -1,0 +1,52 @@
+.seasonBox {
+  border-bottom: 1px solid #c6c6c6;
+  padding-bottom: 3em;
+}
+.seasonBox > h1 > span {
+  color: #f65e57;
+}
+
+.season {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.recommend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 36.5rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.down {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btnbox {
+  text-align: center;
+}
+
+.plusButton,
+.minusButton {
+  padding: 5px 15px;
+  font-size: 1em;
+  background: #f65e57;
+  color: #fff;
+  margin-top: 2em;
+  transition: all 0.3s;
+  border: 1px solid #f65e57;
+}
+.plusButton:hover,
+.minusButton:hover {
+  font-weight: bold;
+  background: #fff;
+  color: #f65e57;
+}

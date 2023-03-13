@@ -1,5 +1,5 @@
 import React from "react";
-import { AREA_CODES } from "../../config/const";
+import { AREA_CODES } from "../../../config/const";
 import AreaItem from "./AreaItem";
 import styles from "./AreaList.module.css";
 
