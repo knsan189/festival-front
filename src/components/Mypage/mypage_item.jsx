@@ -4,8 +4,7 @@ import styles from "./mypage_item.module.css";
 
 const MypageItem = ({ festivalInfo, userId, favorRemove }) => {
   const imgUrlChange =
-    festivalInfo.firstimage2 &&
-    festivalInfo.firstimage2.replace("http", "https");
+    festivalInfo.firstimage2 && festivalInfo.firstimage2.replace("http", "https");
 
   // 날짜 사이에 점(.) 추가
   const date1 = String(festivalInfo.eventstartdate);

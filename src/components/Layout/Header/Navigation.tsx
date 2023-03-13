@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Navigation.module.css";
 
 const Navigation = () => {
-  const onLogout = useCallback(() => {
-    window.alert("로그아웃 되었습니다.");
-  }, []);
-
   // 메뉴 관리
   const [menu, setMenu] = useState(false);
   const menuBtn = () => {

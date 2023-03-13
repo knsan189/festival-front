@@ -21,6 +21,12 @@ export interface GetFestivalsRequest {
   areaCode?: string;
 }
 
+export interface SearchFestivalRequest {
+  keyword: string;
+  pageNo?: number;
+  numOfRows?: number;
+}
+
 class FestivalService {
   private static instance = axios.create({
     baseURL: BASE_URL,
@@ -204,77 +210,30 @@ class FestivalService {
     });
   }
 
-  // public static thisMonthFestival(
-  //   eventDate: string,
-  //   pageNo: string,
-  //   arrange: string,
-  //   areaCode: string,
-  // ) {
-  //   return new Promise((resolve, reject) => {
-  //     (async () => {
-  //       try {
-  //         const response = await axios({
-  //           url: "/searchFestival",
-  //           baseURL: BASE_URL,
-  //           params: {
-  //             pageNo,
-  //             numOfRows: "10",
-  //             type: "_json",
-  //             MobileOS: "ETC",
-  //             MobileApp: "Festival",
-  //             arrange,
-  //             listYN: "Y",
-  //             eventStartDate: eventDate,
-  //             areaCode: areaCode || null,
-  //             eventEndDate: eventDate,
-  //           },
-  //         });
-  //         resolve(response.data.response.body);
-  //       } catch (error) {
-  //         reject(error);
-  //       }
-  //     })();
-  //   });
-  // }
-
-  // static async areaCodes() {
-  //   const response = await this.festival.get("/areaCode", {
-  //     params: {
-  //       pageNo: "1",
-  //       numOfRows: "20",
-  //       type: "_json",
-  //       MobileOS: "ETC",
-  //       MobileApp: "Festival",
-  //     },
-  //   });
-  //   return response.data.response.body.items.item;
-  // }
-
-  // static async contentDetail(contentId) {
-  //   const response = await this.festival.get("/detailInfo", {
-  //     params: {
-  //       type: "_json",
-  //       MobileOS: "ETC",
-  //       MobileApp: "Festival",
-  //       contentId: contentId,
-  //       contentTypeId: 15,
-  //     },
-  //   });
-  //   return response.data.response.body.items.item;
-  // }
-
-  // static async searchKeyword(keyword, pageNo, arrage) {
-  //   const response = await this.festival.get("/searchKeyword", {
-  //     params: {
-  //       MobileOS: "ETC",
-  //       MobileApp: "Festival",
-  //       contentTypeId: 15,
-  //       keyword: keyword,
-  //       pageNo: pageNo || 1,
-  //     },
-  //   });
-  //   return response.data.response.body;
-  // }
+  public static searchFestival({
+    keyword,
+    pageNo = 1,
+    numOfRows = 15,
+  }: SearchFestivalRequest): Promise<GetFestivalsResponse> {
+    return new Promise((resolve, reject) => {
+      (async () => {
+        try {
+          const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
+            url: "/searchKeyword1",
+            params: {
+              pageNo,
+              numOfRows,
+              keyword,
+              contentTypeId: 15,
+            },
+          });
+          resolve(response.data);
+        } catch (error) {
+          reject(error);
+        }
+      })();
+    });
+  }
 
   public static temp() {
     return new Promise((resolve, reject) => {

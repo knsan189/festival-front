@@ -18,7 +18,7 @@ const Pagenation = ({ numOfRows, totalCount, pageNo, onChangePageNo }: Props) =>
   }, [numOfRows, totalCount]);
 
   return (
-    <>
+    <ul className={styles.pageList}>
       {pageList.map((page) => (
         <li className={styles.pageNum} key={page}>
           <button
@@ -30,7 +30,7 @@ const Pagenation = ({ numOfRows, totalCount, pageNo, onChangePageNo }: Props) =>
           </button>
         </li>
       ))}
-    </>
+    </ul>
   );
 };
 export default Pagenation;

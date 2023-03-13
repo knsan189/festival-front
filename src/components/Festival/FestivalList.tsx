@@ -84,9 +84,7 @@ const FestivalList = ({ date, areaCode }: Props) => {
       ) : (
         <Loading />
       )}
-      <ul className={styles.pageNum}>
-        <Pagenation {...options} pageNo={pageNo} onChangePageNo={onChangePageNo} />
-      </ul>
+      <Pagenation {...options} pageNo={pageNo} onChangePageNo={onChangePageNo} />
     </div>
   );
 };

@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
+import React from "react";
 import styles from "./Login.module.css";
 
 const Login = () => {
-  const navigate = useNavigate();
-
   const onLogin = () => {
     // authService.login(event.target.textContent).then((data) => goToHome(data.user.uid));
   };
-
-  useEffect(() => {});
 
   return (
     <div className={styles.wrap}>

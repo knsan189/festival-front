@@ -29,8 +29,6 @@ export default class HolidayService {
               solMonth: month,
             },
           });
-
-          console.log(response.data);
           if (!response.data.response.body.items) {
             response.data.response.body.items = {};
             response.data.response.body.items.item = [];
