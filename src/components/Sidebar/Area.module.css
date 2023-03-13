@@ -1,0 +1,27 @@
+.area {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #c6c6c6;
+  padding-top: 1em;
+  align-items: center;
+}
+
+.area li {
+  width: 25%;
+  text-align: center;
+}
+.area button {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+}
+
+.active {
+  background: #f65e57;
+  color: white;
+}
+
+.button {
+  color: #666;
+}

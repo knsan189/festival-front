@@ -1,10 +1,6 @@
-.list{
-    width:980px; 
-    margin:1em auto;
-    padding:0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    position: relative;
-
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
 }

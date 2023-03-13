@@ -3,13 +3,23 @@ import { OPEN_API_KEY } from "../config/const";
 
 const BASE_URL = "https://apis.data.go.kr/B551011/KorService1";
 
-type GetFestivalsResponse = FestivalServerRespose<Festival>;
+export type GetFestivalsResponse = FestivalServerRespose<Festival>;
 type GetDetailCommonResponse = FestivalServerRespose<FestivalDetailCommon>;
 type GetDetailIntroResponse = FestivalServerRespose<FestivalDetailIntro>;
 type GetDetailInfoResponse = FestivalServerRespose<FestivalDetailInfo>;
 type GetDetailImageResponse = FestivalServerRespose<FestivalDetailImage>;
+type GetAreaCodesResponse = FestivalServerRespose<AreaCode>;
 
 const resultMap = new Map<string, any>();
+
+export interface GetFestivalsRequest {
+  arrange?: "R" | "P";
+  eventStartDate?: string;
+  eventEndDate?: string;
+  pageNo?: number;
+  numOfRows?: number;
+  areaCode?: string;
+}
 
 class FestivalService {
   private static instance = axios.create({
@@ -22,14 +32,21 @@ class FestivalService {
     },
   });
 
-  public static getFestivals(month: number): Promise<GetFestivalsResponse> {
+  public static getFestivals(request: GetFestivalsRequest): Promise<GetFestivalsResponse> {
     return new Promise((resolve, reject) => {
       (async () => {
         try {
-          const year = new Date().getFullYear();
-          const parsedMonth = `${month < 10 ? "0" : ""}${month}`;
-          const target = `${year}${parsedMonth}`;
-          const cache = resultMap.get(target) as GetFestivalsResponse;
+          const {
+            arrange = "R",
+            eventStartDate,
+            eventEndDate,
+            pageNo = 1,
+            numOfRows = 30,
+            areaCode,
+          } = request;
+
+          const key = JSON.stringify(request);
+          const cache = resultMap.get(key) as GetFestivalsResponse;
 
           if (cache) {
             resolve(cache);
@@ -39,16 +56,17 @@ class FestivalService {
           const response: AxiosResponse<GetFestivalsResponse> = await FestivalService.instance({
             url: "/searchFestival1",
             params: {
-              numOfRows: 30,
-              pageNo: 1,
-              arrange: "R",
+              numOfRows,
+              pageNo,
+              arrange,
               listYN: "Y",
-              eventStartDate: `${target}01`,
-              eventEndDate: `${target}30`,
+              eventStartDate,
+              eventEndDate,
+              areaCode,
             },
           });
 
-          resultMap.set(target, response.data);
+          resultMap.set(key, response.data);
           resolve(response.data);
         } catch (error) {
           reject(error);
@@ -157,6 +175,25 @@ class FestivalService {
               contentId,
               imageYN: "Y",
               subImageYN: "Y",
+            },
+          });
+          resolve(response.data);
+        } catch (error) {
+          reject(error);
+        }
+      })();
+    });
+  }
+
+  public static getAreaCodes(): Promise<GetAreaCodesResponse> {
+    return new Promise((resolve, reject) => {
+      (async () => {
+        try {
+          const response: AxiosResponse<GetAreaCodesResponse> = await FestivalService.instance({
+            url: "/areaCode1",
+            params: {
+              pageNo: 1,
+              numOfRows: 30,
             },
           });
           resolve(response.data);

@@ -31,7 +31,7 @@ const SeasonFestival = ({ festival }: Props) => {
       className={styles.list}
       style={{ background: `url(${img}) center no-repeat`, backgroundSize: "cover" }}
     >
-      <Link to={`/details/${festival.contentid}`}>
+      <Link to={`/festival/${festival.contentid}`}>
         <div>
           <p className={styles.fstvname}>{title}</p>
           <p className={styles.date}>

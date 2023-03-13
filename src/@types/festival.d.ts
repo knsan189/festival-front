@@ -86,3 +86,9 @@ interface FestivalDetailImage {
   cpyrhtDivCd: string;
   serialnum: string;
 }
+
+interface AreaCode {
+  rnum: number;
+  code: string;
+  name: string;
+}

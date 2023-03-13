@@ -9,18 +9,25 @@ const Month = () => {
   const [addShow, setAddShow] = useState(0);
   const addShowDown = () => setAddShow(addShow === 0 ? addShow + 1 : addShow - 1);
   const [festivals, setFestivals] = useState<Festival[]>([]);
-  const [month, setMonth] = useState(1);
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
         setLoading(true);
-        const { response } = await FestivalService.getFestivals(month);
+        const year = new Date().getFullYear();
+        const parsedMonth = `${month < 10 ? "0" : ""}${month}`;
+        const target = `${year}${parsedMonth}`;
+        const { response } = await FestivalService.getFestivals({
+          eventStartDate: `${target}01`,
+          eventEndDate: `${target}30`,
+        });
         setFestivals(response.body.items.item);
-        setLoading(false);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     })();
   }, [month]);
